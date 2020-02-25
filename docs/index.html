@@ -2,9 +2,82 @@
 <html>
 <head>
 <title>naminukas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="naminukas.css">
 <link rel="shortcut icon" type="image/png" href="images/logo.png">
 </head>
 <body>
-TODO
+<div class="header">
+	<div class="title">NAMINUKAS</div>
+	<div class="description">wall climbing robot</div>
+	<div class="menu">
+		<a href="#about">Goal</a>
+		<a href="#about">Prototype</a>
+		<a href="#donate">Donate</a>
+		<a href="#faq">FAQ</a>
+		<a href="#contact">Contact</a>
+	</div>
+</div>
 </body>
+<div class="body"><div class="content"><div class="column">
+<h1 id="about">Goal</h1>
+<p>To create a robot which can navigate and reach most of places of a typical human building. For example robot must be able to navigate to a different floor and reach window sill.</p>
+<h2>Assumptions & constraints</h2>
+<ul>
+	<li>Typical human building is made of mostly flat, hard and othogonal surfaces.</li>
+	<li>Building has atmosphere.</li>
+	<li>Robot would be "portable":
+		<ul>
+			<li>Have weight under 2kg</li>
+			<li>Don't exceed 30cm in any dimension</li>
+		</ul>
+	</li>
+</ul>
+<h1 id="prototype">Prototype</h1>
+<p>
+	In order to achieve goal with contraints above, I have chosen to make a
+	pneumatic robot. Here is initial prototype in action:
+</p>
+<div style="display: flex; justify-content: center">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/lKrlKRcPvp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<p>
+	Vacuum suction cups allows robot to "stick" not only to floot but also
+	to wall and ceilings. Wall and ceilings are often less cluttered than
+	floor so it might be easier to utilize them instead of climbing strairs.
+</p>
+<h1 id="donate">Donate</h1>
+<p>
+	I want to make this project open source but because of expensive parts and a
+	lot of invested time I plan to do it gradually when/if there are enough people
+	interested in this project. Therefore I have set the following milestones:
+</p>
+<ul>
+	<li>When donations will reach £100, I will release list parts used in this robot.</li>
+	<li>When donations will reach £1000, I will release scad files for all 3D printed parts.</li>
+	<li>When donations will reach £10000, I will release software which controls the robot.</li>
+</ul>
+<p>
+	Donations can be send via <a href="https://paypal.me/kikaitachi"><img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" border="0" alt="PayPal Logo"></a>.
+</p>
+<h2>Contributors</h2>
+<p>There are none yet :( Donate and be the first one listed here!</p>
+<h1 id="faq">FAQ</h1>
+<dl>
+	<dt>What is the meaning of robot name "naminukas"?</dt>
+	<dd>
+		"naminukas" is a Lithuanian word for a magical spirit which
+		lives in peoples homes, guards and heals them. This matches
+		well with the purpose of the robot: robot should be able act
+		as mobile camera for security, could have a sensor payload to
+		monitor various parameters like presence of harmful gasses or
+		radiation and potentially perfom more useful task with addition
+		or manipulator arm.
+	</dd>
+	<dt>Is project open source?</dt>
+	<dd>Yes, eventually. See <a href="#donate">donate</a> section.</dd>
+</dl>
+<h1 id="contact">Contact</h1>
+<p>You can contact me via email: naminukas @ kikaitachi . com</p>
+</div></div></div>
 </html>
