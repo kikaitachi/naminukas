@@ -20,34 +20,53 @@ body {
 }
 
 .header {
+	color: #555;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	text-align: center;
-	box-shadow: 0px 5px 5px rgba(230, 230, 230, .3);
-	background-image: linear-gradient(141deg, #FEFEFE 0%, #E0E0E0 50%, #FEFEFE 90%);
+	box-shadow: 0px 5px 5px rgba(100, 100, 100, .3);
+	background: radial-gradient(ellipse 40rem 100% at 50% 100%, #B0B0B0, #FEFEFE);
+	height: 3.5rem;
 }
 
 .title {
-	height: 2rem;
-	line-height: 2rem;
 	font-size: 2rem;
 	font-weight: bold;
-	padding-top: 1rem;
 }
 
 .description {
-	height: 2rem;
-	line-height: 2rem;
+	height: 1rem;
+	font-size: 0.75rem;
 	font-style: italic;
 }
 
+.menuContainer {
+	position: fixed;
+	top: 3.5em;
+	left: 0;
+	right: 0;
+	text-align: center;
+	height: 2rem;
+	z-index: 1;
+}
+
 .menu {
+	display: inline-block;
+	background: black;
+	margin: auto;
+	background: radial-gradient(ellipse 40rem 120% at 50% 0, #B0B0B0, #FEFEFE);
+	border-radius: 0 0 1.5em 1.5em;
+	box-shadow: 0px 5px 5px rgba(100, 100, 100, .3);
 	height: 2em;
 	line-height: 2em;
-	border-top: 2px solid black;
-	margin: -2px 10px 0 10px;
+	padding: 0 1em;
+	font-weight: bold;
+}
+
+.menu > a {
+	color: #444;
 }
 
 a {
@@ -56,7 +75,7 @@ a {
 
 .body {
 	position: fixed;
-	top: 7em;
+	top: 3.5em;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -70,19 +89,28 @@ a {
 		linear-gradient(rgba(240, 240, 240, .3) 1px, transparent 1px),
 		linear-gradient(90deg, rgba(240, 240, 240, .3) 1px, transparent 1px);
 	background-size: 5em 5em, 5em 5em, 1em 1em, 1em 1em;
-	/*background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;*/
+	background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
 
 .column {
 	margin: auto;
 	text-align: justify;
 	max-width: 1024px;
-	padding: 1em;
+	padding: 2.5em 1em 1em 1em;
+}
+
+h1 {
+	font-size: 1.5rem;
+}
+
+h2 {
+	font-size: 1.25rem;
 }
 
 h1, h2 {
 	text-align: center;
 	margin: 0;
+	padding: 0;
 }
 
 dt {
@@ -92,5 +120,4 @@ dt {
 dd {
 	margin: 0.5em 0 1em 1em;
 }
-
 

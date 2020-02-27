@@ -9,42 +9,66 @@
 <body>
 <div class="header">
 	<div class="title">NAMINUKAS</div>
-	<div class="description">wall climbing robot</div>
+	<div class="description">pneumatic wall climbing robot</div>
+</div>
+<div class="menuContainer">
 	<div class="menu">
-		<a href="#about">Goal</a>
-		<a href="#about">Prototype</a>
-		<a href="#donate">Donate</a>
-		<a href="#faq">FAQ</a>
-		<a href="#contact">Contact</a>
+		<a href="#about">about</a>
+		<a href="#donate">donate</a>
+		<a href="#faq">faq</a>
+		<a href="#contact">contact</a>
 	</div>
 </div>
 </body>
 <div class="body"><div class="content"><div class="column">
-<h1 id="about">Goal</h1>
-<p>To create a robot which can navigate and reach most of places of a typical human building. For example robot must be able to navigate to a different floor and reach window sill.</p>
-<h2>Assumptions & constraints</h2>
-<ul>
-	<li>Typical human building is made of mostly flat, hard and othogonal surfaces.</li>
-	<li>Building has atmosphere.</li>
-	<li>Robot would be "portable":
-		<ul>
-			<li>Have weight under 2kg</li>
-			<li>Don't exceed 30cm in any dimension</li>
-		</ul>
-	</li>
-</ul>
-<h1 id="prototype">Prototype</h1>
+<h1 id="about">About</h1>
 <p>
-	In order to achieve goal with contraints above, I have chosen to make a
-	pneumatic robot. Here is initial prototype in action:
+	Purpose of this project is to create a robot which can easily navigate
+	inside buildings by walking on hard flat floor, walls or even ceiling.
+	Here is a prototype in action:
+	<div style="display: flex; justify-content: center">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/lKrlKRcPvp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
 </p>
-<div style="display: flex; justify-content: center">
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/lKrlKRcPvp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
 <p>
-	Vacuum suction cups allows robot to "stick" not only to floot but also
-	to wall and ceilings. Wall and ceilings are often less cluttered than
-	floor so it might be easier to utilize them instead of climbing strairs.
+	For a small robot it is hard to climb stairs and next to impossible to
+	reach high places like window sill without flying or climbing walls.
+	Solution is to use vacuum suction grippers which allow to stick to
+	hard flat surfaces like floor, walls and ceiling. Luckily most of human
+	inhabited buildings consist of hard flat and orthogonal surfaces -
+	ideal vacuum suction grippers.
+</p>
+<p>
+	Motivation for such a robot is to have a versatile mobile platform for
+	indoor automation. Potential applications could be:
+	<ul>
+		<li>
+			Mobile camera which can be operated remotely. While
+			cameras with pan and tilt mechanism are cheap and
+			omnipresent they can never replace truly mobile platform
+			which can perform close up inspection.
+		</li>
+		<li>
+			Mobile camera can be suplemented by various sensors
+			for inspecting hazardous environments or hard to reach.
+		</li>
+		<li>
+			Adding manupulator or other tools would allow to
+			perform maintenace tasks is high places where ladder or
+			scaffolding are impractical.
+		</li>
+	</ul>
+</p>
+<p>
+	Currect self-imposed design constrains are:
+	<ul>
+		<li>
+			Weight should be about 2kg: 1.5kg for robot itself and
+			0.5kg for a payload.</li>
+		<li>
+			Size should not exceed 30cm in any dimension.
+		</li>
+	</ul>
 </p>
 <h1 id="donate">Donate</h1>
 <p>
