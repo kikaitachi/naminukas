@@ -5,39 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="naminukas.css">
 <link rel="shortcut icon" type="image/png" href="images/logo.png">
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-183127-4"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'UA-183127-4');
-
-function circularText(text, spaces, radius, element) {
-	const words = text.split(' ');
-	var deg = 90 / (text.length + (words.length - 1) * (spaces - 1)), origin = -45;
-	var content = '';
-	words.forEach((word) => {
-		content += `<a href="#${word}">`;
-		word.split('').forEach((character) => {
-			content += `<span style='height:${radius}px;position:absolute;transform:rotate(${origin}deg);transform-origin:0 100%'>${character}</span>`;
-			origin += deg;
-		});
-		content += '</a>';
-		origin += deg * spaces;
-	});
-	element.innerHTML = content;
-}
-</script>
 </head>
-<body onload="circularText('about blog donate faq contact', 2, 250, document.querySelector('.menu'));">
-<div class="header">
-	<div class="title">NAMINUKAS</div>
-	<div class="description">pneumatic wall climbing robot</div>
-	<div class="menu"></div>
-</div>
-</body>
-<div class="body"><div class="content">
-<h1 id="about">About</h1>
+<body>
+<div class="body">
+<div class="content">
+<h1>About</h1>
 <p>
 	Purpose of this project is to create a robot which can easily navigate
 	inside buildings by walking on hard flat floor, walls or even ceiling.
@@ -86,41 +58,8 @@ function circularText(text, spaces, radius, element) {
 		</li>
 	</ul>
 </p>
-<h1 id="donate">Donate</h1>
-<p>
-	I want to make this project open source but because of expensive parts and a
-	lot of invested time I plan to do it gradually when/if there are enough people
-	interested in this project. Therefore I have set the following milestones:
-</p>
-<ul>
-	<li>When donations will reach £100, I will release list parts used in this robot.</li>
-	<li>When donations will reach £1000, I will release scad files for all 3D printed parts.</li>
-	<li>When donations will reach £10000, I will release software which controls the robot.</li>
-</ul>
-<p>
-	Donations can be send via <a href="https://paypal.me/kikaitachi"><img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" border="0" alt="PayPal Logo"></a>.
-</p>
-<h2>Contributors</h2>
-<p>There are none yet :( Donate and be the first one listed here!</p>
-<h1 id="faq">FAQ</h1>
-<dl>
-	<dt>What is the meaning of robot name "naminukas"?</dt>
-	<dd>
-		"naminukas" is a Lithuanian word for a magical spirit which
-		lives in peoples homes, guards and heals them. This matches
-		well with the purpose of the robot: robot should be able act
-		as mobile camera for security, could have a sensor payload to
-		monitor various parameters like presence of harmful gasses or
-		radiation and potentially perfom more useful task with addition
-		of manipulator arm.
-	</dd>
-	<dt>Is project open source?</dt>
-	<dd>Yes, eventually. See <a href="#donate">donate</a> section.</dd>
-</dl>
-<h1 id="contact">Contact</h1>
-<p>
-	You can contact me via email: naminukas @ kikaitachi . com or by
-	creating an issue in <a href="https://github.com/kikaitachi/naminukas">GitHub page</a>.
-</p>
-</div></div>
+<div>
+<div>
+<script src="naminukas.js"></script>
 </html>
+

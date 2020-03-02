@@ -19,6 +19,32 @@ body {
 	font-family: JetBrainsMono;
 }
 
+a {
+	color: black;
+}
+
+h1 {
+	font-size: 1.5rem;
+}
+
+h2 {
+	font-size: 1.25rem;
+}
+
+h1, h2 {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0.5em 0 1em 1em;
+}
+
 .header {
 	color: #555;
 	position: fixed;
@@ -63,8 +89,12 @@ body {
 	text-shadow: 0 4px 7px #666, 0 6px 14px #999;
 }
 
-a {
-	color: black;
+.menu > a.selected {
+	text-shadow: none;
+}
+
+.menu > a:hover {
+	color: #222;
 }
 
 .body {
@@ -81,27 +111,5 @@ a {
 	text-align: justify;
 	max-width: 1024px;
 	padding: 1em;
-}
-
-h1 {
-	font-size: 1.5rem;
-}
-
-h2 {
-	font-size: 1.25rem;
-}
-
-h1, h2 {
-	text-align: center;
-	margin: 0;
-	padding: 0;
-}
-
-dt {
-	font-weight: bold;
-}
-
-dd {
-	margin: 0.5em 0 1em 1em;
 }
 
