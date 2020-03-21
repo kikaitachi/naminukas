@@ -44,6 +44,12 @@ header.appendChild(createDiv('description', 'pneumatic wall climbing robot'));
 header.appendChild(createMenu('about blog donate faq contact', 2, 250));
 document.body.appendChild(header);
 
+const iconLink = document.createElement('link');
+iconLink.setAttribute('rel', 'shortcut icon');
+iconLink.setAttribute('type', 'image/png');
+iconLink.setAttribute('href', 'images/logo.png');
+document.getElementsByTagName('head')[0].appendChild(iconLink);
+
 const script = document.createElement('script');
 script.setAttribute('async', true);
 script.setAttribute('src', 'https://www.googletagmanager.com/gtag/js?id=UA-183127-4');
@@ -53,4 +59,3 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'UA-183127-4');
-
