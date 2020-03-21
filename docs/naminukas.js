@@ -19,7 +19,7 @@ const createMenu = (text, spaces, radius) => {
 	words.forEach((word) => {
 		content += '<a href="/';
 		if (word !== 'about') {
-			content += `${word}.html`
+			content += word;
 		}
 		content += '"';
 		if (`${word}.html` === page) {
