@@ -23,6 +23,15 @@ iframe {
 	border: none;
 }
 
+.imageContainer {
+	text-align: center;
+}
+
+.image {
+	max-width: 560px;
+	width: 100%;
+}
+
 a {
 	color: black;
 }
