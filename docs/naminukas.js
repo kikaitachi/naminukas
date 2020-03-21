@@ -9,9 +9,9 @@ const createMenu = (text, spaces, radius) => {
 	const pathname = window.location.pathname;
 	let page = pathname.substring(pathname.lastIndexOf('/') + 1);
 	if (page === '' || page === 'index.html') {
-		page = 'about.html';
+		page = 'about';
 	} else if (window.location.pathname.includes('blog')) {
-		page = 'blog.html';
+		page = 'blog';
 	}
 	const words = text.split(' ');
 	var deg = 90 / (text.length + (words.length - 1) * (spaces - 1)), origin = -45;
@@ -22,7 +22,7 @@ const createMenu = (text, spaces, radius) => {
 			content += word;
 		}
 		content += '"';
-		if (`${word}.html` === page) {
+		if (word === page) {
 			content += ' class="selected"';
 		}
 		content += '>';
