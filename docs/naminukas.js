@@ -10,12 +10,14 @@ const createMenu = (text, spaces, radius) => {
 	let page = pathname.substring(pathname.lastIndexOf('/') + 1);
 	if (page === '' || page === 'index.html') {
 		page = 'about.html';
+	} else if (window.location.pathname.includes('blog')) {
+		page = 'blog.html';
 	}
 	const words = text.split(' ');
 	var deg = 90 / (text.length + (words.length - 1) * (spaces - 1)), origin = -45;
 	var content = '';
 	words.forEach((word) => {
-		content += '<a href="';
+		content += '<a href="/';
 		if (word === 'about') {
 			content += '/';
 		} else {
