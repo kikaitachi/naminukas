@@ -2,7 +2,11 @@ var fs = require('fs'),
     http = require('http');
 
 http.createServer(function (req, res) {
-  fs.readFile(__dirname + (req.url === '/' ? '/index.html' : req.url), function (err,data) {
+  let fileName = __dirname + (req.url === '/' ? '/index.html' : req.url);
+  if (!fs.existsSync(fileName) || fs.lstatSync(fileName).isDirectory()) {
+    fileName += '.html';
+  }
+  fs.readFile(fileName, function (err, data) {
     if (err) {
       res.writeHead(404);
       res.end(JSON.stringify(err));
