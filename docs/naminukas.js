@@ -18,9 +18,7 @@ const createMenu = (text, spaces, radius) => {
 	var content = '';
 	words.forEach((word) => {
 		content += '<a href="/';
-		if (word === 'about') {
-			content += '/';
-		} else {
+		if (word !== 'about') {
 			content += `${word}.html`
 		}
 		content += '"';
@@ -44,16 +42,24 @@ header.appendChild(createDiv('description', 'pneumatic wall climbing robot'));
 header.appendChild(createMenu('about blog donate faq contact', 2, 250));
 document.body.appendChild(header);
 
+const head = document.getElementsByTagName('head')[0];
+
+const styleLink = document.createElement('link');
+styleLink.setAttribute('rel', 'stylesheet');
+styleLink.setAttribute('type', 'text/css');
+styleLink.setAttribute('href', '/naminukas.css');
+head.appendChild(styleLink);
+
 const iconLink = document.createElement('link');
 iconLink.setAttribute('rel', 'shortcut icon');
 iconLink.setAttribute('type', 'image/png');
-iconLink.setAttribute('href', 'images/logo.png');
-document.getElementsByTagName('head')[0].appendChild(iconLink);
+iconLink.setAttribute('href', '/images/logo.png');
+head.appendChild(iconLink);
 
 const script = document.createElement('script');
 script.setAttribute('async', true);
 script.setAttribute('src', 'https://www.googletagmanager.com/gtag/js?id=UA-183127-4');
-document.getElementsByTagName('head')[0].appendChild(script);
+head.appendChild(script);
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
