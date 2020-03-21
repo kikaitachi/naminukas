@@ -19,6 +19,10 @@ body {
 	font-family: JetBrainsMono;
 }
 
+iframe {
+	border: none;
+}
+
 a {
 	color: black;
 }
@@ -112,4 +116,3 @@ dd {
 	max-width: 1024px;
 	padding: 1em;
 }
-
