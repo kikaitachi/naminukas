@@ -32,6 +32,11 @@ iframe {
 	width: 100%;
 }
 
+.youTubeContainer {
+	display: flex;
+	justify-content: center;
+}
+
 a {
 	color: black;
 }
