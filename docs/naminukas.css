@@ -37,6 +37,10 @@ iframe {
 	justify-content: center;
 }
 
+p {
+	text-align: justify;
+}
+
 a {
 	color: black;
 }
@@ -126,7 +130,6 @@ dd {
 
 .content {
 	margin: auto;
-	text-align: justify;
 	max-width: 1024px;
 	padding: 1em;
 }
