@@ -33,7 +33,10 @@ const createMenu = (text, spaces, radius) => {
 		content += '</a>';
 		origin += deg * spaces;
 	});
-	return createDiv('menu', content);
+	const element = document.createElement('nav');
+	element.className = 'menu';
+	element.innerHTML = content;
+	return element;
 };
 
 const header = createDiv('header', '');
