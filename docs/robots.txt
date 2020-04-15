@@ -1,0 +1,8 @@
+User-agent: Googlebot
+Disallow: /*.html$
+
+User-agent: *
+Allow: /
+
+Sitemap: https://naminukas.kikaitachi.com/sitemap.xml
+
