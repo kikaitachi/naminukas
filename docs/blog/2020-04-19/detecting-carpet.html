@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Detecting carpet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="How Naminukas - a pneumatic walking, driving and wall climbing robot can detect carpet.">
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Blog",
+		"item": "https://naminukas.kikaitachi.com/blog"
+	}, {
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Detecting carpet"
+	}]
+}
+</script>
+</head>
+<body>
+<div class="body">
+<div class="content">
+<h1>Detecting carpet</h1>
+<h2>2020-04-19</h2>
+<p>
+	I have started working on autonomously detecting surface unsuitable for
+	a vacuum suction cups. Bellow is a video of robot walking straight
+	until it fails to grip on a carpet and then turns back:
+</p>
+<div class="youTubeContainer">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/zK_NgYY9M0g" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<p>
+	As you can see at the end of the video robot fails to grip on the hard
+	floor once too and changes direction after that. Currently robot
+	doesn't have any pressure sensors so can't directly detect when cup is
+	firmly attached to the surface and must rely on hard coded timings when
+	to decide that leg can be lifted.
+</p>
+<p>
+	Carpet detection works utilizing inertial measurement unit of
+	<a href="https://amazon.co.uk/gp/product/B07D14WHYW/?tag=wishinfinit09-21">BeagleBone Blue</a>.
+	Before turning, when one of the legs is supposed to be at the highest
+	point, it checks if robot is tilted to the right direction. If robot
+	failed to attach to the floor it would be tilted to the opposite
+	direction because foot would be still tilted lifting opposite side of
+	the body than the leg which was supposed to be in the air.
+</p>
+<p>
+	I also couldn't resist temptation to make some mechanical improvements
+	this week. I reprinted bevel gears multiple times to get backlash as
+	small as I could while still allowing gears to move freely. Number of
+	cable extensions was reduced. I also changed plates connecting servos
+	to the thicker ones to minimise body twisting while lifting leg.
+</p>
+<div class="imageContainer">
+	<img class="image" src="plate-connecting-servos.jpg" alt="Plate connection servos"/>
+</div>
+<p>
+	Unfortunately while replacing plates connecting servos I found that 2
+	of the servos were leaking some fluid:
+</p>
+<div class="imageContainer">
+	<img class="image" src="leaking-dynamixel.jpg" alt="Dynamixel leaks"/>
+</div>
+<p>
+	I don't know what kind of fluid it is. Most obvious source would be a
+	grease from a gear box. It is not clear why both servos affected are on
+	the side which experiences less load. If anyone has any ideas what it
+	could be please <a href="/contact">contact</a> me. These servos are
+	new ordered for this particular project and I don't want to loose them
+	after using them just for a few months. After all they are
+	<a href="https://amazon.co.uk/gp/product/B01N9ZY5KE/?tag=wishinfinit09-21">the most expensive part</a>
+	of this project.
+</p>
+<dl>
+	<dt>Previously:</dt>
+	<dd>
+		<a href="/blog/2020-04-12/lighter-vacuum-suction-cup">Lighter vacuum suction cup</a>
+	</dd>
+</dl>
+</div>
+</div>
+<script src="/naminukas.js"></script>
+</html>
