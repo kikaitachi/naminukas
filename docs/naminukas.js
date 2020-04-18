@@ -5,7 +5,7 @@ const createDiv = (className, content) => {
 	return element;
 };
 
-const createMenu = (text, spaces, radius) => {
+const createMenu = (text, spaces) => {
 	const pathname = window.location.pathname;
 	let page = pathname.substring(pathname.lastIndexOf('/') + 1);
 	if (page === '' || page === 'index.html') {
@@ -27,7 +27,7 @@ const createMenu = (text, spaces, radius) => {
 		}
 		content += '>';
 		word.split('').forEach((character) => {
-			content += `<span style='position:absolute;transform:rotate(${origin}deg);transform-origin:0 ${radius}px'>${character}</span>`;
+			content += `<span style='transform:rotate(${origin}deg)'>${character}</span>`;
 			origin += deg;
 		});
 		content += '</a>';
@@ -41,8 +41,8 @@ const createMenu = (text, spaces, radius) => {
 
 const header = createDiv('header', '');
 header.appendChild(createDiv('title', 'NAMINUKAS'));
-header.appendChild(createDiv('description', 'pneumatic wall climbing robot'));
-header.appendChild(createMenu('about blog donate faq contact', 2, 240));
+header.appendChild(createDiv('description', 'walking, driving and wall climbing robot'));
+header.appendChild(createMenu('about blog donate faq contact', 2));
 document.body.appendChild(header);
 
 const head = document.getElementsByTagName('head')[0];

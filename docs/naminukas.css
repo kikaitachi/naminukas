@@ -119,6 +119,13 @@ dd {
 	color: #222;
 }
 
+
+
+.menu > a > span {
+	position: absolute;
+	transform-origin: 0 240px;
+}
+
 .body {
 	position: fixed;
 	top: 7em;
