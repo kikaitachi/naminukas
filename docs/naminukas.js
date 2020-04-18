@@ -1,5 +1,5 @@
-const createDiv = (className, content) => {
-	const element = document.createElement('div');
+const createEl = (elementName, className, content) => {
+	const element = document.createElement(elementName);
 	element.className = className;
 	element.innerHTML = content;
 	return element;
@@ -14,8 +14,9 @@ const createMenu = (text, spaces) => {
 		page = 'blog';
 	}
 	const words = text.split(' ');
-	var deg = 100 / (text.length + (words.length - 1) * (spaces - 1)), origin = -50;
-	var content = '';
+	const deg = 100 / (text.length + (words.length - 1) * (spaces - 1));
+	let origin = -50;
+	let content = '';
 	words.forEach((word) => {
 		content += '<a href="/';
 		if (word !== 'about') {
@@ -33,15 +34,12 @@ const createMenu = (text, spaces) => {
 		content += '</a>';
 		origin += deg * spaces;
 	});
-	const element = document.createElement('nav');
-	element.className = 'menu';
-	element.innerHTML = content;
-	return element;
+	return createEl('nav', 'menu', content);
 };
 
-const header = createDiv('header', '');
-header.appendChild(createDiv('title', 'NAMINUKAS'));
-header.appendChild(createDiv('description', 'walking, driving and wall climbing robot'));
+const header = createEl('div', 'header', '');
+header.appendChild(createEl('div', 'title', 'NAMINUKAS'));
+header.appendChild(createEl('div', 'description', 'walking, driving and wall climbing robot'));
 header.appendChild(createMenu('about blog donate faq contact', 2));
 document.body.appendChild(header);
 
