@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Autonomous transition between walk and drive modes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="Naminukas - a pneumatic walking, driving and wall climbing robot can now autonomously change from walking to driving mode and back.">
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Blog",
+		"item": "https://naminukas.kikaitachi.com/blog"
+	}, {
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Autonomous transition between walk and drive mode"
+	}]
+}
+</script>
+</head>
+<body>
+<div class="body">
+<div class="content">
+<h1>Autonomous transition between walk and drive mode</h1>
+<h2>2020-04-26</h2>
+<p>
+	Robot was able to transform from walking to driving mode for a while
+	(see <a href="/blog/2020-04-05/transforming-to-2-wheel-balancing-robot">this blog post</a>)
+	but I was looking how to do it autonomously without holding robot in
+	the air. After a lot of	experimentation and some hardware changes I
+	figured out how to make	robot to balance during transformation:
+</p>
+<div class="youTubeContainer">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/G-GQQPifliE" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<p>
+	For balancing to work on hard surface I had to put rubber tires on
+	wheels otherwise robot would slip too much with plastic wheels. Wheel
+	design had to undergo few iterations to make sure tires themselves down
+	slip from wheels sideways during transformation. Even in the latest
+	design tires do come off the wheels occasionally so more improvements
+	are needed for a final design.
+</p>
+<dl>
+	<dt>Previously:</dt>
+	<dd>
+		<a href="/blog/2020-04-19/detecting-carpet">Detecting carpet</a>
+	</dd>
+</dl>
+</div>
+</div>
+<script src="/naminukas.js"></script>
+</html>
