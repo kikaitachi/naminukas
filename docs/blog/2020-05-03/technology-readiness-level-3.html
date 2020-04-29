@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Technology readiness level 3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="Naminukas - a pneumatic walking, driving and wall climbing robot reached technology readiness level 3.">
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Blog",
+		"item": "https://naminukas.kikaitachi.com/blog"
+	}, {
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Technology readiness level 3"
+	}]
+}
+</script>
+</head>
+<body>
+<div class="body">
+<div class="content">
+<h1>Technology readiness level 3</h1>
+<h2>2020-05-03</h2>
+<p>
+	This week naminukas reached <a href="https://en.wikipedia.org/wiki/Technology_readiness_level">technology readiness level</a> 3.
+	I was controlling robot with one hand and filming with the other so
+	video is not award winning but it is the first time robot demonstrates
+	all 3 operating modes (walking, driving, climbing):
+</p>
+<div class="youTubeContainer">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/XTVrSopwyaY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<p>
+	There were quite a few setbacks though. After recent software
+	refactoring Dynamixels would randomly act strangely. In particular
+	one of the servo would move beyond 90 degrees while transforming to
+	drive mode and start scratching
+	<a href="https://amazon.co.uk/gp/product/B07D14WHYW/?tag=wishinfinit09-21">BeagleBone Blue</a>
+	board, eventually breaking one of connectors:
+</p>
+<div class="imageContainer">
+  <img class="image" src="broken-bbb-connector.jpg" alt="Broken connector on BeagleBone Blue"/>
+</div>
+<p>
+	It was quite behaviour behavivour given that there is no code
+	commanding move beyond 90 degrees. Issue turned out to be caused by
+	multi-threaded code which most likely corrupted internal state of
+	Dynamixel library. Luckily none of critical parts were broken.
+</p>
+<p>
+	Other issue was that I managed to break a metal screw while trying to
+	screw it into plastic hole:
+</p>
+<div class="imageContainer">
+  <img class="image" src="broken-screw.jpg" alt="Broken screw"/>
+</div>
+<p>
+	Closer inspection revealed that diameter of this screw was 0.2mm bigger
+	than other screws used for the same diameter holes but it is still
+	surprising that
+	<a href="https://amazon.co.uk/gp/product/B07C7WWX8Z/?tag=wishinfinit09-21">PLA</a>
+	won against metal.
+</p>
+<p>
+	Most worrying issue is that one of bearings started making noise and
+	moving it by hand feels like scratching metal with a sharp object.
+	Visually there is nothing wrong with a bearing yet. It is not
+	surprising because this bearing experiences both radial and axial
+	load and in this case
+	<a href="https://www.bearingboys.co.uk/Crossed-Cylindrical-Roller/CRBH208AUUT1-IKO-Crossed-Cylindrical-Roller-Bearing-20mm-x-36mm-x-8mm-162240-p">crossed roller bearing</a>
+	should be used instead. Small crossed roller bearings is not something
+	your could buy cheaply on AliExpress though. Especially of small size I
+	need. So I hoped that cheap
+	<a href="https://amazon.co.uk/gp/product/B07M7NLRKT/?tag=wishinfinit09-21">deep groove ball bearing</a>
+	will be able to handle less than 2kg robot but looks like it is failing
+	just after few hours of total operation time. Or maybe it was defective
+	bearing to start with. Lets see how long other one lasts. If you know
+	where to buy "affordable" crossed roller bearing (ideally with inner
+	diameter of around 20mm) please
+	<a href="https://naminukas.kikaitachi.com/contact">let me know</a>. Any
+	size <a href="https://naminukas.kikaitachi.com/donate">donation would be appreciated</a> too.
+</p>
+<dl>
+	<dt>Previously:</dt>
+	<dd>
+		<a href="/blog/2020-04-26/autonomous-transition-between-walk-and-drive-modes">Autonomous transition between walk and drive modes</a>
+	</dd>
+</dl>
+</div>
+</div>
+<script src="/naminukas.js"></script>
+</html>
