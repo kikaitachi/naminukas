@@ -4,10 +4,6 @@
 		<loc>https://naminukas.kikaitachi.com/</loc>
 	</url>
 	<url>
-		<loc>https://naminukas.kikaitachi.com/blog</loc>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
 		<loc>https://naminukas.kikaitachi.com/donate</loc>
 	</url>
 	<url>
@@ -15,6 +11,40 @@
 	</url>
 	<url>
 		<loc>https://naminukas.kikaitachi.com/contact</loc>
+	</url>
+	<url>
+		<loc>https://naminukas.kikaitachi.com/blog</loc>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>https://naminukas.kikaitachi.com/blog/2020-03-01/motivation</loc>
+	</url>
+	<url>
+		<loc>https://naminukas.kikaitachi.com/blog/2020-03-08/early-prototypes</loc>
+	</url>
+	<url>
+		<loc>https://naminukas.kikaitachi.com/blog/2020-03-15/first-fully-functional-version</loc>
+	</url>
+	<url>
+		<loc>https://naminukas.kikaitachi.com/blog/2020-03-22/climbing-on-door</loc>
+	</url>
+	<url>
+		<loc>https://naminukas.kikaitachi.com/blog/2020-03-29/3D-printed-pneumatic-parts</loc>
+	</url>
+	<url>
+		<loc>https://naminukas.kikaitachi.com/blog/2020-04-05/transforming-to-2-wheel-balancing-robot</loc>
+	</url>
+	<url>
+		<loc>https://naminukas.kikaitachi.com/blog/2020-04-12/lighter-vacuum-suction-cup</loc>
+	</url>
+	<url>
+		<loc>https://naminukas.kikaitachi.com/blog/2020-04-19/detecting-carpet</loc>
+	</url>
+	<url>
+		<loc>https://naminukas.kikaitachi.com/blog/2020-04-26/autonomous-transition-between-walk-and-drive-modes</loc>
+	</url>
+	<url>
+		<loc>https://naminukas.kikaitachi.com/blog/2020-05-03/technology-readiness-level-3</loc>
 	</url>
 </urlset>
 
