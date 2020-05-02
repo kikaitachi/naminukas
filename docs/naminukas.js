@@ -40,7 +40,7 @@ const createMenu = (text, spaces) => {
 const header = createEl('div', 'header', '');
 header.appendChild(createEl('div', 'title', 'NAMINUKAS'));
 header.appendChild(createEl('div', 'description', 'walking, driving and wall climbing robot'));
-header.appendChild(createMenu('about blog donate faq contact', 2));
+header.appendChild(createMenu('about blog build donate faq contact', 2));
 document.body.appendChild(header);
 
 const head = document.getElementsByTagName('head')[0];
