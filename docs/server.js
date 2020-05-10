@@ -12,6 +12,9 @@ http.createServer(function (req, res) {
       res.end(JSON.stringify(err));
       return;
     }
+    if (fileName.endsWith('.svg')) {
+        res.setHeader('Content-Type', 'image/svg+xml')
+    }
     res.writeHead(200);
     res.end(data);
   });

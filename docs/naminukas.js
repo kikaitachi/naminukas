@@ -5,6 +5,13 @@ const createEl = (elementName, className, content) => {
 	return element;
 };
 
+const createSocialMediaLink = (icon, link, text) => {
+	const element = document.createElement('a');
+	element.href = link;
+	element.innerHTML = `<img src="/images/${icon}" style="height: 2rem"/><span>${text}</span>`;
+	return element;	
+};
+
 const createMenu = (text, spaces) => {
 	const pathname = window.location.pathname;
 	let page = pathname.substring(pathname.lastIndexOf('/') + 1);
@@ -14,8 +21,8 @@ const createMenu = (text, spaces) => {
 		page = 'blog';
 	}
 	const words = text.split(' ');
-	const deg = 100 / (text.length + (words.length - 1) * (spaces - 1));
-	let origin = -50;
+	const deg = 40 / (text.length + (words.length - 1) * (spaces - 1));
+	let origin = -20;
 	let content = '';
 	words.forEach((word) => {
 		content += '<a href="/';
@@ -40,8 +47,15 @@ const createMenu = (text, spaces) => {
 const header = createEl('div', 'header', '');
 header.appendChild(createEl('div', 'title', 'NAMINUKAS'));
 header.appendChild(createEl('div', 'description', 'walking, driving and wall climbing robot'));
-header.appendChild(createMenu('about blog build donate faq contact', 2));
+header.appendChild(createMenu('about blog donate build faq', 2));
 document.body.appendChild(header);
+
+const footer = createEl('div', 'footer', '');
+footer.appendChild(createSocialMediaLink('youtube.svg', 'https://www.youtube.com/channel/UCt_dgg2b43NzLccvOelkCAw', 'YouTube'));
+footer.appendChild(createSocialMediaLink('hackaday.png', 'https://hackaday.io/project/170788-naminukas', 'Hackaday'));
+footer.appendChild(createSocialMediaLink('github.svg', 'https://github.com/kikaitachi/naminukas', 'GitHub'));
+footer.appendChild(createSocialMediaLink('email.png', 'mailto:naminukas@kikaitachi.com', 'Email'));
+document.body.appendChild(footer);
 
 const head = document.getElementsByTagName('head')[0];
 

@@ -76,13 +76,39 @@ dd {
 	left: 0;
 	right: 0;
 	text-align: center;
-	box-shadow: 0px 5px 5px rgba(100, 100, 100, .3);
 	background: radial-gradient(ellipse at 50% 100%, #B0B0B0, #FEFEFE);
-	height: 7rem;
+	height: 6rem;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	line-height: 3rem;
+	background: radial-gradient(ellipse at 50% 0%, #B0B0B0, #FEFEFE);
+	height: 3rem;
+}
+
+.footer > a {
+	color: #555;
+	text-decoration: none;
+}
+
+.footer > a > img {
+	vertical-align: middle;
+	margin: 0 0.25rem 0 1rem;
+}
+
+@media only screen and (max-width: 750px) {
+	.footer > a > span {
+		display: none;
+	}
 }
 
 .title {
-	margin-top: 3rem;
+	margin-top: 2rem;
 	font-size: 2.2rem;
 	font-weight: bold;
 	background-color: #565656;
@@ -101,7 +127,7 @@ dd {
 
 .menu {
 	position: fixed;
-	top: 0.5rem;
+	top: 0.25rem;
 	left: 0;
 	right: 0;
 	text-align: center;
@@ -123,15 +149,15 @@ dd {
 
 .menu > a > span {
 	position: absolute;
-	transform-origin: 0 240px;
+	transform-origin: 0 500px;
 }
 
 .body {
 	position: fixed;
-	top: 7em;
+	top: 6rem;
 	left: 0;
 	right: 0;
-	bottom: 0;
+	bottom: 3rem;
 	overflow: auto;
 }
 
