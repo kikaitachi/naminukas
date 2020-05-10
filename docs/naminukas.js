@@ -53,6 +53,7 @@ document.body.appendChild(header);
 const footer = createEl('div', 'footer', '');
 footer.appendChild(createSocialMediaLink('youtube.svg', 'https://www.youtube.com/channel/UCt_dgg2b43NzLccvOelkCAw', 'YouTube'));
 footer.appendChild(createSocialMediaLink('hackaday.png', 'https://hackaday.io/project/170788-naminukas', 'Hackaday'));
+footer.appendChild(createSocialMediaLink('patreon.png', 'https://www.patreon.com/KIKAItachi', 'Patreon'));
 footer.appendChild(createSocialMediaLink('github.svg', 'https://github.com/kikaitachi/naminukas', 'GitHub'));
 footer.appendChild(createSocialMediaLink('email.png', 'mailto:naminukas@kikaitachi.com', 'Email'));
 document.body.appendChild(footer);
