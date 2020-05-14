@@ -16,19 +16,21 @@ bevel_gear_to_cup_fixing_thickness = 1.5;
 bottom_bevel_gear_thickness = 4;
 bevel_gear_backlash = 0.005;
 
-landing_leg_length = 20;
-
-pneumatic_tube_od = 6;
-pneumatic_tube_id = 4;
-pneumatic_rotary_joint_od = 13.5;
-pneumatic_rotary_joint_depth = 17;
-pneumatic_rotary_joint_to_tube_connector_thickness = 1;
-pneumatic_rotary_joint_to_tube_connector_cavity = 1;
-
-tool_attachment_distance_from_center = 46;
-tool_attachment_height = 15;
-tool_attachment_screw_diameter = 2;
-tool_attachment_tool_diameter = 8;
-tool_attachment_attachment_length = 10;
-tool_attachment_hole_length = 20;
-tool_attachment_hole_depth = 3;
+// Detachable tools related constants
+tool_magnet_width = 4;
+tool_magnet_height = 4;
+tool_magnet_length = 15;
+tool_wall_thickness = 1.5;
+tool_length = 40;
+tool_diameter = 10;
+tool_hole_diameter = 2;
+tool_angle = 20;
+tool_magnet_distance_from_center = 78.2 / 2 + tool_wall_thickness;
+tool_distance_between_magnets = 18;
+tool_angle_between_magnets = tool_distance_between_magnets * 360 / (2 * PI * tool_magnet_distance_from_center);
+tool_count = 3;
+tool_pin_diameter = 2;
+tool_connecting_plate_width = 30;
+tool_connecting_plate_length = 22;
+tool_connecting_plate_thickness = 2.5;
+tool_connecting_plate_screw_diameter = 3.1;
