@@ -23,25 +23,7 @@ module wheel(add_tool = false) {
                     cube([tool_magnet_length + 2 * tool_wall_thickness, tool_magnet_width + 2 * tool_wall_thickness, tool_magnet_height]);
                 }
                 // Pin holders
-                translate([tool_magnet_distance_from_center + tool_wall_thickness * 1.5, -tool_magnet_width, 0]) {
-                    cylinder(h = tool_magnet_height, d = tool_pin_diameter + tool_wall_thickness, $fn = 50);
-                }
-                translate([tool_magnet_distance_from_center + tool_wall_thickness * 1.5, tool_magnet_width, 0]) {
-                    cylinder(h = tool_magnet_height, d = tool_pin_diameter + tool_wall_thickness, $fn = 50);
-                }
-                translate([tool_magnet_distance_from_center + tool_wall_thickness + (tool_pin_diameter + tool_wall_thickness), -tool_magnet_width, 0]) {
-                    cylinder(h = tool_magnet_height, d = tool_pin_diameter + tool_wall_thickness, $fn = 50);
-                }
                 translate([tool_magnet_distance_from_center + tool_wall_thickness + (tool_pin_diameter + tool_wall_thickness), tool_magnet_width, 0]) {
-                    cylinder(h = tool_magnet_height, d = tool_pin_diameter + tool_wall_thickness, $fn = 50);
-                }
-                translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness - (tool_pin_diameter + tool_wall_thickness), -tool_magnet_width, 0]) {
-                    cylinder(h = tool_magnet_height, d = tool_pin_diameter + tool_wall_thickness, $fn = 50);
-                }
-                translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness - (tool_pin_diameter + tool_wall_thickness), tool_magnet_width, 0]) {
-                    cylinder(h = tool_magnet_height, d = tool_pin_diameter + tool_wall_thickness, $fn = 50);
-                }
-                translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness * 1.5, -tool_magnet_width, 0]) {
                     cylinder(h = tool_magnet_height, d = tool_pin_diameter + tool_wall_thickness, $fn = 50);
                 }
                 translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness * 1.5, tool_magnet_width, 0]) {
@@ -109,25 +91,7 @@ module wheel(add_tool = false) {
                 cube([tool_magnet_length, tool_magnet_width, tool_magnet_height + 1]);
             }
             // Pin holes
-            translate([tool_magnet_distance_from_center + tool_wall_thickness * 1.5, -tool_magnet_width, -0.1]) {
-                cylinder(h = tool_magnet_height + 1, d = tool_pin_diameter, $fn = 50);
-            }
-            translate([tool_magnet_distance_from_center + tool_wall_thickness * 1.5, tool_magnet_width, -0.1]) {
-                cylinder(h = tool_magnet_height + 1, d = tool_pin_diameter, $fn = 50);
-            }
-            translate([tool_magnet_distance_from_center + tool_wall_thickness + (tool_pin_diameter + tool_wall_thickness), -tool_magnet_width, -0.1]) {
-                cylinder(h = tool_magnet_height + 1, d = tool_pin_diameter, $fn = 50);
-            }
             translate([tool_magnet_distance_from_center + tool_wall_thickness + (tool_pin_diameter + tool_wall_thickness), tool_magnet_width, -0.1]) {
-                cylinder(h = tool_magnet_height + 1, d = tool_pin_diameter, $fn = 50);
-            }
-            translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness - (tool_pin_diameter + tool_wall_thickness), -tool_magnet_width, -0.1]) {
-                cylinder(h = tool_magnet_height + 1, d = tool_pin_diameter, $fn = 50);
-            }
-            translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness - (tool_pin_diameter + tool_wall_thickness), tool_magnet_width, -0.1]) {
-                cylinder(h = tool_magnet_height + 1, d = tool_pin_diameter, $fn = 50);
-            }
-            translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness * 1.5, -tool_magnet_width, -0.1]) {
                 cylinder(h = tool_magnet_height + 1, d = tool_pin_diameter, $fn = 50);
             }
             translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness * 1.5, tool_magnet_width, -0.1]) {
