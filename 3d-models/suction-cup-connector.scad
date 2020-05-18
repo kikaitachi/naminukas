@@ -32,7 +32,7 @@ module suction_cup_connector() {
                 }
             }
             translate([0, 0, 0.4535]) {
-                nut("G1/8", turns = 25.02, Douter = 16);
+                nut("G1/8", turns = 25.02 + 6.61, Douter = 16);
             }
         }
         // Bearing fixing screw holes

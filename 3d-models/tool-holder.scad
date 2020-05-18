@@ -3,7 +3,7 @@ include <dimensions.scad>
 module tool_holder() {
     difference() {
         union() {
-            translate([-tool_magnet_distance_from_center + 8, 0, 0]) {
+            translate([-tool_magnet_distance_from_center + 8.3, 0, 0]) {
                 // Magnet holders
                 for (i = [-floor(tool_count / 2):floor(tool_count / 2)]) {
                     rotate([0, 0, i * tool_angle_between_magnets]) {
@@ -15,10 +15,10 @@ module tool_holder() {
                 // Pin holders
                 for (i = [-floor(tool_count / 2):floor(tool_count / 2)]) {
                     rotate([0, 0, i * tool_angle_between_magnets]) {
-                        translate([tool_magnet_distance_from_center + tool_wall_thickness * 1.5, tool_magnet_width, 0]) {
+                        translate([tool_magnet_distance_from_center + tool_wall_thickness * 1.5, tool_magnet_width + tool_wall_thickness / 2, 0]) {
                             cylinder(h = tool_magnet_height, d = tool_pin_diameter + tool_wall_thickness, $fn = 50);
                         }
-                        translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness - (tool_pin_diameter + tool_wall_thickness), tool_magnet_width, 0]) {
+                        translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness - (tool_pin_diameter + tool_wall_thickness), tool_magnet_width + tool_wall_thickness / 2, 0]) {
                             cylinder(h = tool_magnet_height, d = tool_pin_diameter + tool_wall_thickness, $fn = 50);
                         }
                     }
@@ -57,7 +57,7 @@ module tool_holder() {
                 }
             }
         }
-        translate([-tool_magnet_distance_from_center + 8, 0, 0]) {
+        translate([-tool_magnet_distance_from_center + 8.3, 0, 0]) {
             // Magnet holes
             for (i = [-floor(tool_count / 2):floor(tool_count / 2)]) {
                 rotate([0, 0, i * tool_angle_between_magnets]) {
@@ -69,10 +69,10 @@ module tool_holder() {
             // Pin holdes
             for (i = [-floor(tool_count / 2):floor(tool_count / 2)]) {
                 rotate([0, 0, i * tool_angle_between_magnets]) {
-                    translate([tool_magnet_distance_from_center + tool_wall_thickness * 1.5, tool_magnet_width, -0.1]) {
+                    translate([tool_magnet_distance_from_center + tool_wall_thickness * 1.5, tool_magnet_width + tool_wall_thickness / 2, -0.1]) {
                         cylinder(h = tool_magnet_height + 1, d = tool_pin_diameter, $fn = 50);
                     }
-                    translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness - (tool_pin_diameter + tool_wall_thickness), tool_magnet_width, -0.1]) {
+                    translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness - (tool_pin_diameter + tool_wall_thickness), tool_magnet_width + tool_wall_thickness / 2, -0.1]) {
                         cylinder(h = tool_magnet_height + 1, d = tool_pin_diameter, $fn = 50);
                     }
                 }

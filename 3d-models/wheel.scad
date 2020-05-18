@@ -1,5 +1,31 @@
 include <dimensions.scad>
 
+module rail() {
+    difference() {
+        translate([0, -tool_magnet_width / 2 - tool_wall_thickness, 0]) {
+            difference() {
+                cube([tool_wall_thickness * 2, tool_magnet_width + 2 * tool_wall_thickness, tool_magnet_height * 1.5]);
+                translate([2 * tool_wall_thickness, tool_magnet_width / 2 + tool_wall_thickness, tool_magnet_height * 1.25 + 0.3]) {
+                    rotate([90, 0, 0]) {
+                        cylinder(h = tool_magnet_width + 2 * tool_wall_thickness + 1, d = tool_magnet_height / 2 + 0.2, center = true, $fn = 4);
+                    }
+                }
+            }
+        }
+        // Slice of corners
+        /*translate([tool_wall_thickness * 2, tool_magnet_width / 2 + tool_wall_thickness - tool_magnet_height / 2, tool_magnet_height]) {
+            rotate([0, 0, 45]) {
+                cube([50, 50, 50], center = false);
+            }
+        }*/
+        translate([tool_wall_thickness * 2, -tool_magnet_width / 2 + tool_magnet_height / 2, tool_magnet_height]) {
+            rotate([0, 0, -120]) {
+                cube([50, 50, 50], center = false);
+            }
+        }
+    }
+}
+
 module wheel(add_tool = false) {
     difference() {
         union() {
@@ -19,15 +45,30 @@ module wheel(add_tool = false) {
                 }
             }
             if (add_tool) {
-                translate([tool_magnet_distance_from_center - tool_wall_thickness, -tool_magnet_width / 2 - tool_wall_thickness, 0]) {
-                    cube([tool_magnet_length + 2 * tool_wall_thickness, tool_magnet_width + 2 * tool_wall_thickness, tool_magnet_height]);
-                }
-                // Pin holders
-                translate([tool_magnet_distance_from_center + tool_wall_thickness + (tool_pin_diameter + tool_wall_thickness), tool_magnet_width, 0]) {
-                    cylinder(h = tool_magnet_height, d = tool_pin_diameter + tool_wall_thickness, $fn = 50);
-                }
-                translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness * 1.5, tool_magnet_width, 0]) {
-                    cylinder(h = tool_magnet_height, d = tool_pin_diameter + tool_wall_thickness, $fn = 50);
+                for (i = [0:2]) {
+                    rotate([0, 0, 360 * i / 3 + 30]) {
+                        // Magnet holder
+                        translate([tool_magnet_distance_from_center - tool_wall_thickness, -tool_magnet_width / 2 - tool_wall_thickness, 0]) {
+                            cube([tool_magnet_length + 2 * tool_wall_thickness, tool_magnet_width + 2 * tool_wall_thickness, tool_magnet_height]);
+                        }
+                        // Bottom rail
+                        translate([tool_magnet_distance_from_center - tool_wall_thickness * 3, 0, 0]) {
+                            rail();
+                        }
+                        // Top rail
+                        translate([tool_magnet_distance_from_center + tool_magnet_length + tool_wall_thickness * 3, 0, 0]) {
+                            mirror([1, 0, 0]) {
+                                rail();
+                            }
+                        }
+                        // Pin holders
+                        translate([tool_magnet_distance_from_center + tool_wall_thickness + (tool_pin_diameter + tool_wall_thickness), tool_magnet_width + tool_wall_thickness / 2, 0]) {
+                            cylinder(h = tool_magnet_height, d = tool_pin_diameter + tool_wall_thickness, $fn = 50);
+                        }
+                        translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness * 1.5, tool_magnet_width + tool_wall_thickness / 2, 0]) {
+                            cylinder(h = tool_magnet_height, d = tool_pin_diameter + tool_wall_thickness, $fn = 50);
+                        }
+                    }
                 }
             }
             // Wheel spokes
@@ -86,16 +127,20 @@ module wheel(add_tool = false) {
             }
         }
         if (add_tool) {
-            // Magnet hole
-            translate([tool_magnet_distance_from_center, -tool_magnet_width / 2, -0.1]) {
-                cube([tool_magnet_length, tool_magnet_width, tool_magnet_height + 1]);
-            }
-            // Pin holes
-            translate([tool_magnet_distance_from_center + tool_wall_thickness + (tool_pin_diameter + tool_wall_thickness), tool_magnet_width, -0.1]) {
-                cylinder(h = tool_magnet_height + 1, d = tool_pin_diameter, $fn = 50);
-            }
-            translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness * 1.5, tool_magnet_width, -0.1]) {
-                cylinder(h = tool_magnet_height + 1, d = tool_pin_diameter, $fn = 50);
+            for (i = [0:2]) {
+                rotate([0, 0, 360 * i / 3 + 30]) {
+                    // Magnet hole
+                    translate([tool_magnet_distance_from_center, -tool_magnet_width / 2, -0.1]) {
+                        cube([tool_magnet_length, tool_magnet_width, tool_magnet_height + 1]);
+                    }
+                    // Pin holes
+                    translate([tool_magnet_distance_from_center + tool_wall_thickness + (tool_pin_diameter + tool_wall_thickness), tool_magnet_width + tool_wall_thickness / 2, -0.1]) {
+                        cylinder(h = tool_magnet_height + 1, d = tool_pin_diameter - 0.1, $fn = 50);
+                    }
+                    translate([tool_magnet_distance_from_center + tool_magnet_length - tool_wall_thickness * 1.5, tool_magnet_width + tool_wall_thickness / 2, -0.1]) {
+                        cylinder(h = tool_magnet_height + 1, d = tool_pin_diameter - 0.1, $fn = 50);
+                    }
+                }
             }
         }
     }
