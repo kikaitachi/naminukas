@@ -46,7 +46,7 @@ const createMenu = (text, spaces) => {
 
 const header = createEl('div', 'header', '');
 header.appendChild(createEl('div', 'title', 'NAMINUKAS'));
-header.appendChild(createEl('div', 'description', 'walking, driving and wall climbing robot'));
+header.appendChild(createEl('div', 'description', 'walking, driving, wall climbing & tool using robot'));
 header.appendChild(createMenu('about blog donate build faq', 2));
 document.body.appendChild(header);
 
