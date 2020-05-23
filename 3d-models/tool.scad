@@ -45,7 +45,7 @@ module tool() {
                 cylinder(h = tool_bracket_height, d = tool_diameter + tool_wall_thickness, $fn = 100);
             }
             // Tightener block
-            translate([tool_length + 4, 0, tool_bracket_height / 2]) {
+            translate([tool_length + tool_diameter / 2, 0, tool_bracket_height / 2]) {
                 cube([8, 6, tool_bracket_height], center = true);
             }
         }
@@ -60,11 +60,11 @@ module tool() {
             }
         }        
         // Tightener gap
-        translate([tool_length + 4, 0, tool_bracket_height / 2]) {
+        translate([tool_length + tool_diameter / 2, 0, tool_bracket_height / 2]) {
             cube([9, 3, tool_bracket_height + 1], center = true);
         }
         // Tightener screw
-        translate([tool_length + 6, 0, tool_bracket_height / 2]) {
+        translate([tool_length + tool_diameter / 2 + 2, 0, tool_bracket_height / 2]) {
             rotate([90, 0, 0]) {
                 cylinder(h = tool_bracket_height + 1, d = tool_hole_diameter, center = true, $fn = 50);
             }    

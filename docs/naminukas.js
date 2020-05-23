@@ -55,7 +55,7 @@ footer.appendChild(createSocialMediaLink('youtube.svg', 'https://www.youtube.com
 footer.appendChild(createSocialMediaLink('hackaday.png', 'https://hackaday.io/project/170788-naminukas', 'Hackaday'));
 footer.appendChild(createSocialMediaLink('patreon.png', 'https://www.patreon.com/KIKAItachi', 'Patreon'));
 footer.appendChild(createSocialMediaLink('github.svg', 'https://github.com/kikaitachi/naminukas', 'GitHub'));
-footer.appendChild(createSocialMediaLink('email.png', 'mailto:naminukas@kikaitachi.com', 'Email'));
+footer.appendChild(createSocialMediaLink('twitter.svg', 'https://twitter.com/KIKAItachi', 'Twitter'));
 document.body.appendChild(footer);
 
 const head = document.getElementsByTagName('head')[0];
