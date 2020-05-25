@@ -163,7 +163,7 @@ dd {
 
 .content {
 	margin: auto;
-	max-width: 1024px;
+	max-width: 1250px;
 	padding: 1em;
 }
 
@@ -180,5 +180,18 @@ dd {
 
 .contributors tr td:last-child {
 	text-align: right;
+}
+
+.showcase {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.showcase > div > div {
+	text-align: center;
+	font-weight: bold;
+	margin: 0.5rem 0 0.25rem 0;
 }
 
