@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hanging from the ceiling</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="naminukas - a pneumatic walking, driving, wall climbing and tool using robot hangs from the ceiling">
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Blog",
+		"item": "https://naminukas.kikaitachi.com/blog"
+	}, {
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Hanging from the ceiling"
+	}]
+}
+</script>
+</head>
+<body>
+<div class="body">
+<div class="content">
+<h1>Hanging from the ceiling</h1>
+<h2>2020-05-31</h2>
+<p>
+	A while ago I have tested if suction cups of naminukas are strong enough for hanging from
+	<a href="https://www.amazon.co.uk/gp/product/B07BN4JTLT/?tag=wishinfinit09-21">plaster board</a>
+	ceiling. Answer is yes, but I didn't make any decent video showing that because any mistake
+	which could result in robot falling from ceiling height would most
+	likely result in £1000+ of broken parts. Since I think it is quite an
+	impressive capability and also end goal to make robot safely traverse
+	most of indoor places I risked to make a small demonstration on top of
+	the bed: 
+</p>
+<div class="youTubeContainer">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/RTysLAXEn7M" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<p>
+	To make more sophisticated activities than just turning safe, I need to
+	improve sensing if suction cup of one leg reached sufficient vacuum
+	level before lifting other feet. On the ground inertial measurement unit
+	is sufficient to detect if leg was stuck to surface or not as explained
+	in <a href="/blog/2020-04-19/detecting-carpet">Detecting carpet blog entry</a>.
+	Such solution is not an option on wall or ceiling. Most obvious solution
+	is to add pressure sensors to each feet. That is on my list to explore.
+	There are few indirect measurement alternatives:
+</p>
+<ol>
+	<li>
+		Infer if required vacuum level is reached by trying to lift a
+		leg and observe servo motor current. Depending on vacuum level
+		it would be easy or hard/impossible to lift a leg and motor
+		current would reflect that. This would be the most desirable
+		solution as it doesn't require any new hardware therefore
+		doesn't add any weight or cost.
+	</li>
+	<li>
+		If you don't mute my videos with horrible noise you probably noticed that
+		noise changes when foot is up and vacuum pump just sucks the air and when
+		foot is down and vacuum is being generated. I am planning to add
+		<a href="https://www.amazon.co.uk/gp/product/B0748NCPN5/?tag=wishinfinit09-21">webcam with a microphone</a>
+		to robot in the future. This could be a great opportunity to try
+		some machine learning for mapping noise to pressure.
+	</li>
+</ol>
+<dl>
+	<dt>Previously:</dt>
+	<dd>
+		<a href="/blog/2020-05-24/robot-writes-with-its-feet">Robot writes with its feet</a>
+	</dd>
+</dl>
+</div>
+</div>
+<script src="/naminukas.js"></script>
+</html>
+
