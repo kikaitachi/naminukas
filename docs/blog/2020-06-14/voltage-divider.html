@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Voltage divider</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="Making voltage divider in order to read vacuum pump motor speed with BeagleBone Blue.">
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Blog",
+		"item": "https://naminukas.kikaitachi.com/blog"
+	}, {
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Turntable"
+	}]
+}
+</script>
+</head>
+<body>
+<div class="body">
+<div class="content">
+<h1>Voltage divider</h1>
+<h2>2020-06-14</h2>
+<p>
+	In the <a href="/blog/2020-05-31/hanging-from-ceiling">previous blog entry</a>
+	I described 3 methods to detect if vacuum suction cup is stuck to the
+	surface:
+</p>
+<ol>
+	<li>Add pressure sensor to each feet</li>
+	<li>Try to lift a foot and observe motor current change</li>
+	<li>Add microphone and listen for a pump noise change</li>
+</ol>
+<p>
+	This week I experimented with option 2 but ran into several problems.
+	First of all lifting feet doesn't necessary need force depending on
+	robot orientation. Imagine robot on ceiling or wall, i.e. sometimes
+	force is needed to keep foot on the surface and sometimes force is
+	needed to keep foot above the surface. Second problem is that 3D
+	printed parts make robot quite flexible which means that the same
+	commanded angle will not result in the same distance between foot and
+	the surface, i.e. distance will depend on robot orientation. Third
+	problem is that putting too much stress on Dynamixel servo motors
+	puts them in fault mode and makes them uncontrollable without reset.
+	Therefore I put current measurement approach on hold and thought of one
+	more option.
+</p>
+<p>
+	Vacuum pump I use provides a motor speed feedback by sending six 5 volt
+	pulses per revolution. It seems logical to assume that, depending on
+	vacuum pressure, pump RPM would drop and should be a definite indicator
+	that suction cup is firmly stuck to the surface. This seemed like a
+	quick win solution. BeagleBone Blue has quadrature encoder inputs and
+	quick googling
+	<sup>
+		<a href="https://groups.google.com/forum/#!topic/beagleboard/sBLHVj9y-vs">1</a>,
+		<a href="https://gist.github.com/pdp7/16a2731b9fc571943f026f4b72a93f41">2</a>,
+		<a href="https://www.ti.com/lit/ug/spru790d/spru790d.pdf">3</a>
+	</sup>
+	suggested that they can be reconfigured to read single pulses too. So I
+	needed only few software tweaks and a voltage divider to convert 5V
+	signal from pump to 3.3V signal accepted by BeagleBone Blue.
+</p>
+<p>
+	After few days of trial and error I had to admit defeat :( Officially I
+	blame my 20<sup>th</sup> century test equipment:
+</p>
+<div class="imageContainer">
+	<img class="image" src="sanwa-U70D-multitester.jpg" alt="Sanwa U-70D multitester"/>
+</div>
+<p>
+	In reality my electronics skills are lacking. Having an oscilloscope
+	wouldn't hurt though. It is now definitely on my to buy list.
+</p>
+<dl>
+	<dt>Previously:</dt>
+	<dd>
+		<a href="/blog/2020-06-07/turntable">Turntable</a>
+	</dd>
+</dl>
+</div>
+</div>
+<script src="/naminukas.js"></script>
+</html>
+
