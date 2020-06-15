@@ -178,7 +178,11 @@ dd {
 	padding: 5px;
 }
 
-.contributors tr td:last-child {
+.contributors tr td:nth-child(3) {
+	text-align: right;
+}
+
+.contributors tr td:nth-child(4) {
 	text-align: right;
 }
 
