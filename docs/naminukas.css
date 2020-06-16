@@ -192,11 +192,11 @@ dd {
 	flex-wrap: wrap;
 }
 
-.showcase > div {
-	margin: 5px;
+.showcase > a {
+	margin: 0 5px;
 }
 
-.showcase > div > div {
+.showcase > a > div {
 	text-align: center;
 	font-weight: bold;
 	margin: 0.5rem 0 0.25rem 0;
