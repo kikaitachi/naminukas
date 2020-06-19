@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Robot climbs the slide and gazes upon the sky</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="Camera was added to naminukas - a pneumatic walking, driving, wall climbing, ceiling hanging and tool using robot.">
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Blog",
+		"item": "https://naminukas.kikaitachi.com/blog"
+	}, {
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Turntable"
+	}]
+}
+</script>
+</head>
+<body>
+<div class="body">
+<div class="content">
+<h1>Robot climbs the slide and gazes upon the sky</h1>
+<h2>2020-06-21</h2>
+<p>
+	This week I have added a camera to naminukas. It doesn't do anything
+	useful for autonomy yet and just captures images. Initially I used
+	OpenCV library but apparently version 3.2 which is default on Debian
+	Buster has a memory leak so robot runs out of memory in a few hours of
+	continuous image capture. Therefore I re-implemented image capture using
+	video4linux library which is way more complicated than using OpenCV but
+	on the other hand more convenient for me as rest of my code is in C but
+	modern versions of OpenCV require using C++. To convince myself that
+	all memory leaks were eradicated I kept robot running for multiple
+	hours capturing images. I have made a time-lapse video from one of
+	these test runs:
+</p>
+<div class="youTubeContainer">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/-3w_SpN8xUc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<dl>
+	<dt>Previously:</dt>
+	<dd>
+		<a href="/blog/2020-06-14/voltage-divider">Voltage divider</a>
+	</dd>
+</dl>
+</div>
+</div>
+<script src="/naminukas.js"></script>
+</html>
+
