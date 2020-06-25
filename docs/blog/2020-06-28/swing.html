@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Robot on a swing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="See how naminukas - a pneumatic walking, driving, wall climbing, ceiling hanging and tool using robot pumps a swing.">
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Blog",
+		"item": "https://naminukas.kikaitachi.com/blog"
+	}, {
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Robot on a swing"
+	}]
+}
+</script>
+</head>
+<body>
+<div class="body">
+<div class="content">
+<h1>Robot on a swing</h1>
+<h2>2020-06-28</h2>
+<p>
+	This week I was experimenting with unstable robot behaviour, namely pumping a swing:
+</p>
+<div class="youTubeContainer">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/kHdxzwiuZu4" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<p>
+	I tried various strategies like periodically turning robot on one leg,
+	moving leg up an down aligned with swing seat or perpendicular to it.
+	Apparently pumping a swing is quite a
+	<a href="https://web.ma.utexas.edu/users/og/TEACHING/M472/swing.pdf">complicated process</a>.
+	In practice it is possible to achieve some results with a simple
+	periodic motion. In the video above robot starts moving up and down
+	with a period of 0.6s and decreases period by 2ms every swing. Motor
+	acceleration speed also affects swing pumping so it had to be tuned.
+</p>
+<dl>
+	<dt>Previously:</dt>
+	<dd>
+		<a href="/blog/2020-06-21/slide">Robot climbs the slide and gazes upon the sky</a>
+	</dd>
+</dl>
+</div>
+</div>
+<script src="/naminukas.js"></script>
+</html>
+
