@@ -16,6 +16,8 @@ http.createServer(function (req, res) {
         res.setHeader('Content-Type', 'image/svg+xml')
     } else if (fileName.endsWith('.gif')) {
         res.setHeader('Content-Type', 'image/gif')
+    } else if (fileName.endsWith('.jpg')) {
+        res.setHeader('Content-Type', 'image/jpg')
     }
     res.writeHead(200);
     res.end(data);

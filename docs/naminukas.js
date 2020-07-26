@@ -35,7 +35,7 @@ const createMenu = (text, spaces) => {
 		}
 		content += '>';
 		word.split('').forEach((character) => {
-			content += `<span style='transform:rotate(${origin}deg)'>${character}</span>`;
+			content += `<span style='transform:translate(-50%, 0) rotate(${origin}deg)'>${character}</span>`;
 			origin += deg;
 		});
 		content += '</a>';
@@ -60,6 +60,12 @@ footer.appendChild(createSocialMediaLink('twitter.svg', 'https://twitter.com/KIK
 document.body.appendChild(footer);
 
 const head = document.getElementsByTagName('head')[0];
+
+//<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+const fontLink = document.createElement('link');
+fontLink.setAttribute('rel', 'stylesheet');
+fontLink.setAttribute('href', 'https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+head.appendChild(fontLink);
 
 const styleLink = document.createElement('link');
 styleLink.setAttribute('rel', 'stylesheet');

@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="Description" content="Donate to support building naminukas - a pneumatic walking, driving and wall climbing robot.">
 <link rel="canonical" href="https://naminukas.kikaitachi.com/donate"/>
+<script src="item-rows.js"></script>
 </head>
 <body>
 <div class="body">
@@ -63,7 +64,18 @@
 		<th style="text-align: right">65.41</th>
 	</tr>
 </table>
+<h2>Wish list</h2>
+<p>These are parts which I would like to try but don't have them yet. If you have one but don't need it please consider donating. You will be permanently added to Contributors list with optional link to your website. Companies are welcome to contribute too. Email info @ kikaitachi . com for address details.</p>
+<div id="wishList"></div>
 </div>
 </div>
 <script src="/naminukas.js"></script>
+<script>
+const wishList = document.getElementById('wishList');
+window.addEventListener("resize", () => irResize(wishList));
+irAdd(wishList, '2 pressure sensors', '/parts/pressure-sensor.jpg', 'Pressure sensor', 'https://www.sparkfun.com/products/16476');
+irAdd(wishList, '2 20x36x8 crossed roller bearings', '/parts/crossed-roller-bearing.jpg', 'Crossed roller bearing', 'https://www.bearingboys.co.uk/Crossed-Cylindrical-Roller/CRBH208AUUT1-IKO-Crossed-Cylindrical-Roller-Bearing-20mm-x-36mm-x-8mm-162240-p');
+irAdd(wishList, '2 Dynamixel XM430-W350-T', '/parts/dynamixel.jpg', 'Dynamixel X series', 'https://emanual.robotis.com/docs/en/dxl/x/xm430-w350/');
+irAdd(wishList, '2 foam rubber vaccum suction cups (part no: 01 92 15 OF)', '/parts/geranium-019215OF.png', 'Foam rubber vaccum suction cups', 'https://www.vuototecnica.co.uk/product/40/en/1.24%20-%201.26.pdf');
+</script>
 </html>
