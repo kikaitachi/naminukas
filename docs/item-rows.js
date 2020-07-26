@@ -54,24 +54,29 @@ const irResize = (container) => {
 };
 
 const irAdd = (container, name, imageUrl, alt, link) => {
-	const image = new Image();
-	image.onload = () => {
-		const info = document.createElement('div');
-		info.className = 'itemInfo';
-		info.innerHTML = name;
+	return new Promise((resolve, reject) => {
+		const image = new Image();
+		image.onload = () => {
+			const info = document.createElement('div');
+			info.className = 'itemInfo';
+			info.innerHTML = name;
 
-		const item = document.createElement('a');
-		item.className = 'item';
-		item.target = '_blank';
-		item.href = link;
-		item.appendChild(image);
-		item.appendChild(info);
+			const item = document.createElement('a');
+			item.className = 'item';
+			item.target = '_blank';
+			item.href = link;
+			item.appendChild(image);
+			item.appendChild(info);
 
-		container.appendChild(item);
-		irResize(container);
-	};
-	image.src = imageUrl;
-	image.className = 'itemImage';
-	image.alt = alt;
+			container.appendChild(item);
+			irResize(container);
+
+			resolve();
+		};
+		image.onerror = reject;
+		image.src = imageUrl;
+		image.className = 'itemImage';
+		image.alt = alt;
+	});
 };
 
