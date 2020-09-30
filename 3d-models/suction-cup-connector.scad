@@ -10,7 +10,7 @@ module suction_cup_connector() {
                     cylinder(h = axle_top_height + axle_bottom_height, r = axle_top_diameter / 2, center = false, $fn = 100);
                     cylinder(h = axle_bottom_height, r = axle_bottom_diameter / 2, center = false, $fn = 100);
                     // Bottom plate
-                    cylinder(h = bottom_plate_height, r = 72 / 2, center = false, $fn = 200);
+                    cylinder(h = bottom_plate_height, d = bottom_plate_diameter, center = false, $fn = 200);
                     // Rim
                     difference() {
                         cylinder(h = bottom_plate_height + rim_height, r = rim_diameter / 2, center = false, $fn = 200);
@@ -32,7 +32,7 @@ module suction_cup_connector() {
                 }
             }
             translate([0, 0, 0.4535]) {
-                nut("G1/8", turns = 25.02 + 6.61, Douter = 16);
+                nut("G1/8", turns = 25.02 + 6.61 + 3.32, Douter = 16);
             }
         }
         // Bearing fixing screw holes
