@@ -9,7 +9,7 @@ const createSocialMediaLink = (icon, link, text) => {
 	const element = document.createElement('a');
 	element.href = link;
 	element.innerHTML = `<img src="/images/${icon}" style="height: 2rem"/><span>${text}</span>`;
-	return element;	
+	return element;
 };
 
 const createMenu = (text, spaces) => {
@@ -55,7 +55,6 @@ footer.appendChild(createSocialMediaLink('youtube.svg', 'https://www.youtube.com
 footer.appendChild(createSocialMediaLink('hackaday.png', 'https://hackaday.io/project/170788-naminukas', 'Hackaday'));
 footer.appendChild(createSocialMediaLink('patreon.png', 'https://www.patreon.com/KIKAItachi', 'Patreon'));
 footer.appendChild(createSocialMediaLink('github.svg', 'https://github.com/kikaitachi/naminukas', 'GitHub'));
-footer.appendChild(createSocialMediaLink('tumblr.png', 'https://kikaitachi.tumblr.com', 'Tumblr'));
 footer.appendChild(createSocialMediaLink('twitter.svg', 'https://twitter.com/KIKAItachi', 'Twitter'));
 document.body.appendChild(footer);
 
@@ -170,4 +169,3 @@ const irAdd = (container, name, imageUrl, alt, link) => {
 		image.alt = alt;
 	});
 };
-
