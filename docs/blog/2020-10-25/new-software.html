@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>New software</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Rewriting software for naminukas robot.">
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Blog",
+		"item": "https://naminukas.kikaitachi.com/blog"
+	}, {
+		"@type": "ListItem",
+		"position": 2,
+		"name": "New software"
+	}]
+}
+</script>
+</head>
+<body>
+<div class="body">
+<div class="content">
+<h1>New software</h1>
+<h2>2020-10-25</h2>
+<p>
+	I have decided to re-write naminukas software from scratch. Software comes
+	in two parts: <a href="https://github.com/kikaitachi/naminukas-brain/tree/main">"brain"</a>
+	running on the robot and <a href="https://github.com/kikaitachi/kikaitachi-ui">user interface</a>
+	for controlling robot remotely. Software is released under open source
+	licence. There is not much to see yet but I expect to develop it actively
+	over the next few months.
+</p>
+<p>
+	Original user interface was written in GTK with the hope to run it as a native
+	application	on <a href="https://shop.puri.sm/shop/librem-5/">Librem 5</a>
+	mobile phone. Unfortunately phone release is still months away and could be
+	delayed as it was delayed many times in the past. New user interface will be
+	browser based so any smartphone could be used as a robot remote control device.
+	Given migration to the browser I have to replace UDP protocol with WebSockets.
+	Additionally I want to make the "brain" application more multithreaded to take
+	advantage of a more powerful single board computer which will eventually succeed
+	currently used BeagleBone Blue. Given a lot of significant changes re-writing
+	from scratch seems to be easier than updating existing software. I am still
+	maintaining the old version and use it for ongoing hardware experiments.
+</p>
+<dl>
+	<dt>Previously:</dt>
+	<dd>
+		<a href="/blog/2020-10-18/medical-robotics-challenge">Medical Robotics for Contagious Diseases Challenge 2020</a>
+	</dd>
+</dl>
+</div>
+</div>
+<script src="/naminukas.js"></script>
+</html>
