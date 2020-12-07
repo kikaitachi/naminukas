@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stereo camera</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The first computer vision application.">
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Blog",
+		"item": "https://naminukas.kikaitachi.com/blog"
+	}, {
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Stereo camera"
+	}]
+}
+</script>
+</head>
+<body>
+<div class="body">
+<div class="content">
+<h1>Finally got stereo camera working</h1>
+<h2>2020-12-06</h2>
+<p>
+	After endless hacks and upgrades I finally got
+	<a href="https://amazon.co.uk/gp/product/B07JVGRQZT/?tag=wishinfinit09-21">Intel RealSense Depth Camera D415</a>
+	working reliably on
+	<a href="https://amazon.co.uk/gp/product/B07D14WHYW/?tag=wishinfinit09-21">BeagleBone Blue</a>
+	computer. Using USB2 connection camera is only capable of 6 FPS but at least
+	simple computer vision applications are possible at this speed. For example
+	tracking object position and orientation:
+</p>
+<div class="youTubeContainer">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/ATxFZaVlGjA" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<dl>
+	<dt>Previously:</dt>
+	<dd>
+		<a href="/blog/2020-11-01/robot-in-bag">Robot than can move even placed in a bag and submerged underwater</a>
+	</dd>
+</dl>
+</div>
+</div>
+<script src="/naminukas.js"></script>
+</html>
