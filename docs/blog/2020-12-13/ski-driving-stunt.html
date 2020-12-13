@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ski driving stunt</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="naminukas robot drives on 2 wheels tilted to the side.">
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Blog",
+		"item": "https://naminukas.kikaitachi.com/blog"
+	}, {
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Ski driving stunt"
+	}]
+}
+</script>
+</head>
+<body>
+<div class="body">
+<div class="content">
+<h1>Ski driving stunt</h1>
+<h2>2020-12-13</h2>
+<p>
+	Skiing is an automotive driving stunt where the car is driven while balanced
+	only on two wheels, either the pair on the driver side or on the passenger
+	side. Since only 2 wheels are used to perform this stunt, I decided to try it
+	on naminukas robot. Opposite to the car, this robot's center of gravity is
+	quite high, therefore robot tilts only a little bit. The robot uses an onboard
+	accelerometer and gyroscope to determine to which side it is falling, and
+	tilts wheels accordingly to maintain the balance. Oscillations could probably
+	be minimised by better PID tuning. Currently, only proportional and
+	derivative parts are being used.Steering is implemented by turning wheels at
+	different speeds.
+</p>
+<div class="youTubeContainer">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/qBoLDUNkG-w" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<p>
+	Unfortunately, while filming this video, I accidentally plugged my laptop
+	charger to the robot's BeagleBone Blue charging port, which fried the charging
+	circuit. Surprisingly, it seems that nothing else was fried, but I can't
+	charge my robot any more :( Here is the damage:</p>
+</p>
+<div class="imageContainer">
+	<img class="image" src="fried-charging-circuit.jpg" alt="fried charging circuit"/>
+</div>
+<dl>
+	<dt>Previously:</dt>
+	<dd>
+		<a href="/blog/2020-12-06/stereo-camera">Finally got stereo camera working</a>
+	</dd>
+</dl>
+</div>
+</div>
+<script src="/naminukas.js"></script>
+</html>
