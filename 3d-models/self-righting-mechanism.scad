@@ -7,16 +7,24 @@ track_holder_length = 10;
 track_holder_width = 17;
 track_holder_dist_between_screws = 8;
 track_holder_screw_diameter = 3;
+
 gap = 0.15;
-catch_pin_spacing = track_thickness * 3;
-spring_diameter = 1;
+
 tail_hole_diameter = 4;
 tail_extension = 20;
+
 tooth_width = 2;
 tooth_heigth = 1.5;
+tooth_count = 3;
 
-ridge_length = 17.5;
-tooth_factor = 0.75;
+spring_diameter = 3;
+spring_distance = 5;
+spring_plate_length = tooth_width * (tooth_count * 2 - 1);
+spring_plate_width = track_width - 4 * track_thickness;
+spring_hole_length = (track_length + spring_plate_length) / 2 + track_thickness - spring_distance;
+
+catch_pin_height = track_height - track_thickness + tooth_heigth;
+catch_screw_diameter = 2.3;
 
 module tooth(width, height, depth) {
     rotate([90, 0, 0]) {
@@ -60,9 +68,38 @@ module track() {
             translate([0, 0, track_height / 2]) {
                 cube([track_length, track_width, track_height], center = true);
             }
+            // Tail cavity
             translate([0, 0, track_height / 2 + track_thickness]) {
                 cube([track_length + 1, track_width - 2 * track_thickness, track_height], center = true);
             }
+            // Spring hole
+            translate([-spring_hole_length / 2 + spring_plate_length / 2 + track_thickness, 0, -0.1]) {
+                cube([spring_hole_length, spring_plate_width + 2 * gap, track_height], center = true);
+            }
+        }
+        difference() {
+            union() {
+                // Spring
+                translate([-track_length / 4, 0, track_thickness / 2]) {
+                    cube([track_length / 2, spring_diameter, track_thickness], center = true);
+                }
+                // Spring plate
+                translate([0, 0, track_thickness / 2]) {
+                    cube([spring_plate_length, spring_plate_width, track_thickness], center = true);
+                }
+                // Catch teeth
+                for (i = [-floor(tooth_count / 2) : floor(tooth_count / 2)]) {
+                    translate([i * tooth_width * 2, 0, track_thickness]) {
+                        tooth(tooth_width, tooth_heigth, spring_plate_width);
+                    }
+                }
+            }
+            // Catch pin
+            translate([0, 0, catch_pin_height / 2 + track_thickness]) {
+                cube([spring_plate_length + 0.01, tail_hole_diameter, catch_pin_height], center = true);
+            }
+            // Catch screw holes
+            cylinder(d = catch_screw_diameter, h = track_height, center = true, $fn = 25);
         }
         // Ridges
         ridge();
@@ -116,10 +153,10 @@ module tail(
                 }
                 hull() {
                     translate([-track_length / 2 - tail_extension, 0, -0.1]) {
-                        cylinder(d = tail_hole_diameter, h = track_height, $fn = 50);
+                        cylinder(d = tail_hole_diameter + gap, h = track_height, $fn = 50);
                     }
                     translate([track_length / 2 + tail_extension, 0, -0.1]) {
-                        cylinder(d = tail_hole_diameter, h = track_height, $fn = 50);
+                        cylinder(d = tail_hole_diameter + gap, h = track_height, $fn = 50);
                     }
                 }
                 // Top teeth
@@ -138,10 +175,10 @@ module tail(
                 // Bottom teeth
                 for (i = [0 : tooth_width * 2 : track_length / 2 + tail_extension]) {
                     translate([-i, 0, -0.01]) {
-                        tooth(tooth_width + gap, tooth_heigth + gap, tail_width - track_thickness * 2);
+                        tooth(tooth_width + gap * 2, tooth_heigth + gap * 2, tail_width - track_thickness * 2 + gap * 2);
                     }
                     translate([i, 0, -0.01]) {
-                        tooth(tooth_width + gap, tooth_heigth + gap, tail_width - track_thickness * 2);
+                        tooth(tooth_width + gap * 2, tooth_heigth + gap * 2, tail_width - track_thickness * 2 + gap * 2);
                     }
                 }
             }
@@ -149,5 +186,17 @@ module tail(
     }
 }
 
+module pin() {
+    translate([0, 0, catch_pin_height / 2 + track_thickness]) {
+        difference() {
+            cube([spring_plate_length, tail_hole_diameter - gap, catch_pin_height], center = true);
+            translate([0, 0, track_thickness]) {
+            cylinder(d = catch_screw_diameter, h = track_height, center = true, $fn = 25);
+            }
+        }
+    }
+}
+
 track();
 tail();
+pin();
