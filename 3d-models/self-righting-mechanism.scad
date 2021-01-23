@@ -1,6 +1,6 @@
 track_length = 95.6;
-track_width = 17;
-track_height = 7;
+track_width = 18;
+track_height = 8;
 track_thickness = 2;
 track_pin_diameter = 3;
 track_holder_length = 10;
@@ -11,20 +11,22 @@ track_holder_screw_diameter = 3;
 gap = 0.15;
 
 tail_hole_diameter = 4;
-tail_extension = 20;
+tail_extension = 40;
+tail_end_length = 35;
+tail_end_height = 45;
 
 tooth_width = 2;
 tooth_heigth = 1.5;
 tooth_count = 3;
 
-spring_diameter = 3;
+spring_diameter = 5;
 spring_distance = 5;
 spring_plate_length = tooth_width * (tooth_count * 2 - 1);
 spring_plate_width = track_width - 4 * track_thickness;
 spring_hole_length = (track_length + spring_plate_length) / 2 + track_thickness - spring_distance;
 
-catch_pin_height = track_height - track_thickness + tooth_heigth;
-catch_screw_diameter = 2.3;
+catch_pin_height = track_height - track_thickness + tooth_heigth + 0.5;
+catch_screw_diameter = 2.2;
 
 module tooth(width, height, depth) {
     rotate([90, 0, 0]) {
@@ -74,7 +76,7 @@ module track() {
             }
             // Spring hole
             translate([-spring_hole_length / 2 + spring_plate_length / 2 + track_thickness, 0, -0.1]) {
-                cube([spring_hole_length, spring_plate_width + 2 * gap, track_height], center = true);
+                cube([spring_hole_length, spring_plate_width + track_thickness / 2, track_height], center = true);
             }
         }
         difference() {
@@ -138,10 +140,43 @@ module tail_end(tail_width) {
     }
 }
 
+module half_tail_end(tail_width) {
+    difference() {
+        union() {
+            cylinder(d1 = tail_width - track_thickness, d2 = tail_width, h = track_thickness / 2, $fn = 100);
+            translate([0, 0, track_thickness / 2]) {
+                cylinder(d = tail_width, h = tail_end_height - (track_thickness + gap) * 2, $fn = 100);
+            }
+            translate([0, 0, track_thickness / 2 + tail_end_height - (track_thickness + gap) * 2]) {
+                cylinder(d2 = tail_width - track_thickness, d1 = tail_width, h = track_thickness / 2, $fn = 100);
+            }
+        }
+        translate([-tail_width / 2, 0, 0]) {
+            cube([tail_width, tail_width, tail_end_height * 2], center = true);
+        }
+        translate([0, 0, -0.01]) {
+            cylinder(d = tail_hole_diameter, h = tail_end_height, $fn = 50);
+        }
+    }
+}
+
+module shear_along_z(p) {
+  multmatrix([
+    [1, 0, p.x / p.z, 0],
+    [0, 1, p.y / p.z, 0],
+    [0, 0, 1, 0]
+  ]) children();
+}
+
 module tail(
         tail_width = track_width - (track_thickness + gap) * 2) {
     translate([0, 0, track_thickness + gap]) {
         union() {
+            translate([track_length / 2 + tail_extension - 3.6, 0, 0])  {
+                shear_along_z([tail_end_length, 0, tail_end_height]) {
+                    half_tail_end(tail_width);
+                }
+            }
             difference() {
                 hull() {
                     translate([-track_length / 2 - tail_extension, 0, 0]) {
