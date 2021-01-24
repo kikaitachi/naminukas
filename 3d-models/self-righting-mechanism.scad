@@ -177,6 +177,7 @@ module tail(
                     half_tail_end(tail_width);
                 }
             }
+            translate([0, 0, track_height - track_thickness - gap]) mirror([0, 0, 1])
             difference() {
                 hull() {
                     translate([-track_length / 2 - tail_extension, 0, 0]) {
