@@ -228,6 +228,16 @@ module pin() {
             translate([0, 0, track_thickness]) {
             cylinder(d = catch_screw_diameter, h = track_height, center = true, $fn = 25);
             }
+            translate([-catch_pin_height / 2 - 3, 0, -catch_pin_height / 2]) {
+                rotate([0, 45, 0]) {
+                    cube([tail_hole_diameter + 1, tail_hole_diameter + 1, tail_hole_diameter + 1], center = true);
+                }
+            }
+            translate([catch_pin_height / 2 + 3, 0, -catch_pin_height / 2]) {
+                rotate([0, 45, 0]) {
+                    cube([tail_hole_diameter + 1, tail_hole_diameter + 1, tail_hole_diameter + 1], center = true);
+                }
+            }
         }
     }
 }
