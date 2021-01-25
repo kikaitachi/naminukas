@@ -172,12 +172,11 @@ module tail(
         tail_width = track_width - (track_thickness + gap) * 2) {
     translate([0, 0, track_thickness + gap]) {
         union() {
-            translate([track_length / 2 + tail_extension - 3.6, 0, 0])  {
+            /*translate([track_length / 2 + tail_extension - 3.6, 0, 0])  {
                 shear_along_z([tail_end_length, 0, tail_end_height]) {
                     half_tail_end(tail_width);
                 }
-            }
-            translate([0, 0, track_height - track_thickness - gap]) mirror([0, 0, 1])
+            }*/
             difference() {
                 hull() {
                     translate([-track_length / 2 - tail_extension, 0, 0]) {
