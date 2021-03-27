@@ -87,4 +87,35 @@ module solar_cell(
     }
 }
 
-solar_cell();
+//solar_cell();
+
+for (i = [0 : 24]) {
+    rotate([0, 0, i * (360 / 24)]) {
+        translate([-solar_cell_diameter / 6, 159, 0])
+        rotate([0, 0, 0])
+        translate([solar_cell_diameter / 6, solar_cell_diameter / 2, 0]) {
+            intersection() {
+                cube([solar_cell_diameter / 3, solar_cell_diameter, solar_frame_thickness], center = true);
+                rotate([0, 0, 45]) {
+                    cube([solar_cell_diameter_diagonal, solar_cell_diameter_diagonal, solar_frame_thickness], center = true);
+                }
+            }
+        }
+    }
+}
+/*
+#for (i = [0 : 24]) {
+    rotate([0, 0, i * (360 / 24)]) {
+        translate([-solar_cell_diameter / 6, 159, 0])
+        rotate([0, 0, 0])
+        translate([solar_cell_diameter / 6, solar_cell_diameter / 2, 0]) {
+            intersection() {
+                cube([solar_cell_diameter / 3, solar_cell_diameter, solar_frame_thickness], center = true);
+                rotate([0, 0, 45]) {
+                    cube([solar_cell_diameter_diagonal, solar_cell_diameter_diagonal, solar_frame_thickness], center = true);
+                }
+            }
+        }
+    }
+}
+*/
