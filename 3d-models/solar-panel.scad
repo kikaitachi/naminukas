@@ -1,121 +1,72 @@
-solar_cell_diameter = 125;
-solar_cell_diameter_diagonal = 160;
-solar_cell_to_frame_gap = 0.25;
-solar_frame_diameter = 4;
-solar_frame_thickness = 2;
-solar_frame_length = solar_cell_diameter + (solar_cell_to_frame_gap + solar_frame_diameter) * 2;
-solar_frame_length_diagonal = solar_cell_diameter_diagonal + (solar_cell_to_frame_gap + solar_frame_diameter) * 2;
-solar_facet_diameter = solar_cell_diameter + (solar_cell_to_frame_gap + solar_frame_diameter + 3) * 2;
-solar_staple_width = 9;
-solar_staple_diameter = 0.8;
+use <MCAD/2Dshapes.scad>;
 
-module solar_panel_frame_side(length) {
-    linear_extrude(height = length, convexity = 10, center = false) {
-        polygon(points = [
-            [0, 0],
-            [-solar_frame_thickness / 2, -solar_frame_thickness],
-            [-solar_frame_diameter, -solar_frame_thickness],
-            [-solar_frame_diameter + solar_frame_thickness / 2, -solar_frame_thickness / 2],
-            [-solar_frame_diameter, 0]
-        ]);
-    }
-}
+cell_width = 20; //125 + 10;
+cell_height = cell_width * 4 / 3;
+frame_width = 3;
+frame_height = 4;
+shaft_diameter = 30;
+shaft_thickness = 5;
+shaft_gap = 0.1;
+cable_diameter = 2;
 
-module solar_panel_frame_corner(length) {
-    union() {
-        intersection() {
-            solar_panel_frame_side(length / 2);
-            translate([length / 2 - solar_frame_diameter, 0, solar_frame_diameter]) {
-                rotate([0, -90, 0]) {
-                    solar_panel_frame_side(length / 2);
-                }
-            }
-        }
-        translate([0, 0, solar_frame_diameter / 2]) {
-            solar_panel_frame_side(length / 2 - solar_frame_diameter / 2);
-        }
-        translate([length / 2 - solar_frame_diameter, 0, solar_frame_diameter]) {
-            rotate([0, -90, 0]) {
-                solar_panel_frame_side(length / 2 - solar_frame_diameter / 2);
-            }
-        }
-    }
-}
-
-module solar_panel_frame_sides(length) {
-    for (i = [0 : 3]) {
-        rotate([0, 0, i * 90]) {
-            rotate([-90, 0, 0]) {
-                translate([-length / 2 + solar_frame_diameter, 0, -length / 2]) {
-                    solar_panel_frame_corner(length);
-                }
-            }
-        }
-    }
-}
-
-module solar_cell(
-        main_diameter = 125,
-        diagonal_diameter = 160,
-        thickness = 2) {
+module shaft(diameter, height, thickness) {
     difference() {
         union() {
-            solar_panel_frame_sides(solar_frame_length);
-            /*rotate([0, 0, 45]) {
-                solar_panel_frame_sides(solar_frame_length_diagonal);
-            }*/
-            translate([-solar_frame_diameter / 2, -solar_frame_length + solar_frame_diameter * 1.5, 0]) {
-                cube([solar_frame_diameter, solar_cell_diameter / 2, solar_frame_thickness]);
+            cylinder(d = diameter - (shaft_thickness / 6) * 2, h = height, $fn = 100);
+            linear_extrude(height, $fn = 100) {
+                pieSlice(size = diameter / 2, start_angle = 20, end_angle = 25);
             }
         }
-        for (i = [-1 : 1]) {
-            translate([0, i * 35, 0]) {
-                translate([-(solar_frame_length - solar_frame_diameter) / 2, -solar_staple_width / 2, -0.1]) {
-                    cylinder(h = solar_frame_thickness + 1, d = solar_staple_diameter, $fn = 25);
-                }
-                translate([-(solar_frame_length - solar_frame_diameter) / 2, solar_staple_width / 2, -0.1]) {
-                    cylinder(h = solar_frame_thickness + 1, d = solar_staple_diameter, $fn = 25);
-                }
-                translate([(solar_frame_length - solar_frame_diameter) / 2, -solar_staple_width / 2, -0.1]) {
-                    cylinder(h = solar_frame_thickness + 1, d = solar_staple_diameter, $fn = 25);
-                }
-                translate([(solar_frame_length - solar_frame_diameter) / 2, solar_staple_width / 2, -0.1]) {
-                    cylinder(h = solar_frame_thickness + 1, d = solar_staple_diameter, $fn = 25);
-                }
+        translate([0, 0, -0.1]) {
+            cylinder(d = diameter - thickness * 2, h = height + 1, $fn = 100);            
+            linear_extrude(height + 1, $fn = 100) {
+                pieSlice(size = diameter / 2 - shaft_thickness * 5 / 6, start_angle = 20, end_angle = 110);
+            }
+            linear_extrude(height + 1, $fn = 100) {
+                pieSlice(size = diameter / 2 - shaft_thickness * 3 / 6, start_angle = 350, end_angle = 370);
             }
         }
     }
 }
 
-//solar_cell();
+module frame(index) {
+    difference() {
+        union() {
+            difference() {
+                cube([
+                    cell_width + 2 * frame_width,
+                    cell_height + 2 * frame_width,
+                    frame_height
+                ]);
+                translate([frame_width, frame_width, -0.1]) {
+                    cube([
+                        cell_width,
+                        cell_height,
+                        frame_height + 1
+                    ]);
+                }
+            }
+            rotate([0, 0, 45]) {
+                diameter = shaft_diameter - index * shaft_thickness * 2;
+                translate([- diameter / 2 + shaft_thickness / 6, 0, 0]) {
+                    shaft(diameter, frame_height * (index + 1), shaft_thickness);
+                }
+                translate([- frame_width / 2, - frame_width, 0]) {
+                    cube([5, frame_width * 2, frame_height]);
+                }
+            }
+        }
+        rotate([0, 45, -45]) {
+            cube([cable_diameter, 20, cable_diameter], center = true);
+        }
+    }
+}
 
-for (i = [0 : 24]) {
-    rotate([0, 0, i * (360 / 24)]) {
-        translate([-solar_cell_diameter / 6, 159, 0])
-        rotate([0, 0, 0])
-        translate([solar_cell_diameter / 6, solar_cell_diameter / 2, 0]) {
-            intersection() {
-                cube([solar_cell_diameter / 3, solar_cell_diameter, solar_frame_thickness], center = true);
-                rotate([0, 0, 45]) {
-                    cube([solar_cell_diameter_diagonal, solar_cell_diameter_diagonal, solar_frame_thickness], center = true);
-                }
-            }
+frame(0);
+/*for (i = [1 : 1]) {
+    translate([0, 0, frame_height * i]) {
+        rotate([0, 0, 90 * i]) {
+            frame(i);
         }
     }
-}
-/*
-#for (i = [0 : 24]) {
-    rotate([0, 0, i * (360 / 24)]) {
-        translate([-solar_cell_diameter / 6, 159, 0])
-        rotate([0, 0, 0])
-        translate([solar_cell_diameter / 6, solar_cell_diameter / 2, 0]) {
-            intersection() {
-                cube([solar_cell_diameter / 3, solar_cell_diameter, solar_frame_thickness], center = true);
-                rotate([0, 0, 45]) {
-                    cube([solar_cell_diameter_diagonal, solar_cell_diameter_diagonal, solar_frame_thickness], center = true);
-                }
-            }
-        }
-    }
-}
-*/
+}*/
