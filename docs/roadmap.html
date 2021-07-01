@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Description" content="Future plans for naminukas - pneumatic walking, driving, wall climbing, ceiling hanging & tool using robot.">
+<link rel="canonical" href="https://naminukas.kikaitachi.com/roadmap"/>
+</head>
+<body>
+<div class="body">
+<div class="content">
+<h1>Roadmap</h1>
+<h2>In progress</h2>
+<dl>
+	<dt>Solar panels</dt>
+	<dd>
+		Truly autonomous system must not depend on humans for charging its batteries.
+	</dd>
+	<dt>Remote control using hobby RC radio</dt>
+	<dd>
+		Currently robot is controlled via browser.
+		Which is very versatile because it can be used with laptop, tablet of phone.
+		Unfortunately screen is not very usable outdoors in the bright sunlight.
+		It is way easier to control robot with RC radio than keyboard or touch screen.
+	</dd>
+	<dt>Pressure sensors</dt>
+	<dd>
+		Pneumatic part of the robot was neglected mostly because lack of pressure sensors made it not very safe to operate not on horizontal surfaces.
+	</dd>
+</dl>
+<h2>Planned</h2>
+<dl>
+	<dt>New control computer</dt>
+	<dd>
+		BeagleBone Blue is amazing robotics platform but it is showing its age.
+		WiFi connectivity is quite bad and lack of USB3 cripples RealSense camera capabilities.
+		I see two options here:
+		<ol>
+			<li>either migrate to more powerful computer</li>
+			<li>or migrate to low power, long battery life microcontroller so that the robot can be always on and have an additional edge computing device which can be switched on/off on demand.</li>
+		</ol>
+	</dd>
+	<dt>Waterproofing</dt>
+	<dd>
+		Robot morphology allows locomotion on and under water but without proper waterproofing experimentation is limited.
+	</dd>
+</dl>
+</div>
+</div>
+<script src="/naminukas.js"></script>
+</html>

@@ -47,7 +47,7 @@ const createMenu = (text, spaces) => {
 const header = createEl('div', 'header', '');
 header.appendChild(createEl('div', 'title', 'NAMINUKAS'));
 header.appendChild(createEl('div', 'description', 'walking, driving, wall climbing & tool using robot'));
-header.appendChild(createMenu('about blog donate build faq', 2));
+header.appendChild(createMenu('about roadmap blog build donate', 2));
 document.body.appendChild(header);
 
 const footer = createEl('div', 'footer', '');
@@ -60,7 +60,6 @@ document.body.appendChild(footer);
 
 const head = document.getElementsByTagName('head')[0];
 
-//<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
 const fontLink = document.createElement('link');
 fontLink.setAttribute('rel', 'stylesheet');
 fontLink.setAttribute('href', 'https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');

@@ -1,29 +1,21 @@
-@font-face {
-	font-family: JetBrainsMono;
-	src: url(fonts/JetBrainsMono/woff2/JetBrainsMono-Regular.woff2);
-}
-
-@font-face {
-	font-family: JetBrainsMono;
-	src: url(fonts/JetBrainsMono/woff2/JetBrainsMono-Bold.woff2);
-	font-weight: bold;
-}
-
-@font-face {
-	font-family: JetBrainsMono;
-	src: url(fonts/JetBrainsMono/woff2/JetBrainsMono-Italic.woff2);
-	font-style: italic;
-}
-
 body {
-	/*font-family: JetBrainsMono;*/
-	/*font-family: 'Open Sans Condensed', sans-serif;*/
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 20px;
 }
 
 iframe {
 	border: none;
+}
+
+.footnoteLink {
+	text-decoration: none;
+}
+
+.footnoteContainer {
+	border-top: 1px solid silver;
+	display: block;
+	margin-top: 0.5rem;
+	padding: 0.5rem;
 }
 
 .sponsorType {
