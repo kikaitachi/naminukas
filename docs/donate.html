@@ -21,7 +21,16 @@
 </div>
 <h2 id="wish-list">Wish list</h2>
 <p>These are parts which I would like to try but don't have them yet. If you have one but don't need it please consider donating. You will be permanently added to Contributors list with optional link to your website. Companies are welcome to contribute too. Email info @ kikaitachi . com for address details.</p>
-<div id="wishList" style="margin: -1rem -1rem 1rem -1rem"></div>
+<div class="showcase">
+	<a href="https://www.robotis.co.uk/robotis-dynamixel-xw540-t140-r-servo.html">
+		<div>4 x Dynamixel XW540-T140-R</div>
+		<img height="200" src="/parts/dynamixel.jpg" alt="Dynamixel XW540-T140-R"/>
+	</a>
+	<a href="https://www.bearingboys.co.uk/Crossed-Cylindrical-Roller/CRBH208AUUT1-IKO-Crossed-Cylindrical-Roller-Bearing-20mm-x-36mm-x-8mm-162240-p">
+		<div>2 x Crossed roller bearings (20x36x8mm)</div>
+		<img height="200" src="/parts/crossed-roller-bearing.jpg" alt="Crossed roller bearing (20x36x8mm)"/>
+	</a>
+</div>
 <h2>Contributors</h2>
 <table class="contributors">
 	<tr>
@@ -173,11 +182,4 @@
 </div>
 </div>
 <script src="/naminukas.js"></script>
-<script>
-const wishList = document.getElementById('wishList');
-window.addEventListener("resize", () => irResize(wishList));
-irAdd(wishList, '4 Dynamixel XW540-T140-R', '/parts/dynamixel.jpg', 'Dynamixel X series', 'https://www.robotis.co.uk/robotis-dynamixel-xw540-t140-r-servo.html')
-.then(() =>
-irAdd(wishList, '2 crossed roller bearings (20x36x8mm)', '/parts/crossed-roller-bearing.jpg', 'Crossed roller bearing', 'https://www.bearingboys.co.uk/Crossed-Cylindrical-Roller/CRBH208AUUT1-IKO-Crossed-Cylindrical-Roller-Bearing-20mm-x-36mm-x-8mm-162240-p'));
-</script>
 </html>
