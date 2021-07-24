@@ -1,6 +1,6 @@
 body {
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 20px;
+	font-family: sans-serif;
+	font-size: 18px;
 }
 
 iframe {
@@ -16,6 +16,8 @@ iframe {
 	display: block;
 	margin-top: 0.5rem;
 	padding: 0.5rem;
+	text-align: center;
+	font-size: 80%;
 }
 
 .sponsorType {
@@ -119,7 +121,6 @@ dd {
 }
 
 .description {
-	margin-top: -8px;
 	height: 15px;
 	font-size: 15px;
 	font-style: italic;
@@ -137,6 +138,7 @@ dd {
 .menu > a {
 	color: #444;
 	text-shadow: 0 4px 7px #666, 0 6px 14px #999;
+	font-family: monospace;
 }
 
 .menu > a.selected {
@@ -171,6 +173,7 @@ dd {
 	border-collapse: collapse;
 	border-style: hidden;
 	margin: auto;
+	font-size: 90%;
 }
 
 .contributors td, .contributors th {

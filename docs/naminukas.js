@@ -60,11 +60,6 @@ document.body.appendChild(footer);
 
 const head = document.getElementsByTagName('head')[0];
 
-const fontLink = document.createElement('link');
-fontLink.setAttribute('rel', 'stylesheet');
-fontLink.setAttribute('href', 'https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
-head.appendChild(fontLink);
-
 const styleLink = document.createElement('link');
 styleLink.setAttribute('rel', 'stylesheet');
 styleLink.setAttribute('type', 'text/css');
@@ -76,16 +71,6 @@ iconLink.setAttribute('rel', 'shortcut icon');
 iconLink.setAttribute('type', 'image/png');
 iconLink.setAttribute('href', '/images/logo.png');
 head.appendChild(iconLink);
-
-const script = document.createElement('script');
-script.setAttribute('async', true);
-script.setAttribute('src', 'https://www.googletagmanager.com/gtag/js?id=UA-183127-4');
-head.appendChild(script);
-
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'UA-183127-4');
 
 const irResize = (container) => {
 	const margin = 20;

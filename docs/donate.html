@@ -12,32 +12,23 @@
 <div class="content">
 <h1>Donate</h1>
 <p style="margin-bottom: 0">
-	I want to make this project open source but because of expensive parts and a
-	lot of invested time I plan to do it gradually when/if there are enough people
-	interested in this project. Therefore I have set the following milestones:
+	This project in open source and any help is greatly appreciated. Donations can be send via:
 </p>
-<div style="text-align: center">
-	<ul style="display: inline-block; text-align: justify; margin-top: 0">
-		<li>When donations will reach £1, I will release <a href="/build#parts">list of parts</a> used to build this robot.</li>
-		<li>When donations will reach £10, I will release <a href="/build#print">scad files</a> for all 3D printed parts.</li>
-		<li>When donations will reach £100, I will release remote control <a href="/build#software">software</a> for the robot.</li>
-		<li>When donations will reach £1000, I will release <a href="/build#software">software</a> used by the robot itself.</li>
-		<li>When donations will reach £10000, I will create detailed <a href="/build#instructions">instructions</a> how to build and operate the robot.</li>
-	</ul>
-	<div style="margin-bottom: 1rem">
-		<b>Donations can be send via:</b>
-		<div class="sponsorType"><a href="https://paypal.me/kikaitachi"><img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" style="height: 26px; vertical-align: middle" alt="PayPal Logo"></a></div>
-	  <div class="sponsorType"><a href="https://www.patreon.com/KIKAItachi" style="color: #052D49; font-weight: bold; text-decoration: none; white-space: nowrap"><img src="/images/patreon-long.png" style="height: 26px; vertical-align: middle; margin-right: 3px">KIKAItachi</a></div>
-	  <div class="sponsorType">GitHub <iframe src="https://github.com/sponsors/kikaitachi/button" title="Sponsor kikaitachi" height="35" width="116" style="border: 0; vertical-align: text-top"></iframe></div>
-	</div>
+<div style="text-align: center; margin: 1rem">
+	<div class="sponsorType"><a href="https://paypal.me/kikaitachi"><img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" style="height: 26px; vertical-align: middle" alt="PayPal Logo"></a></div>
+	<div class="sponsorType"><a href="https://www.patreon.com/KIKAItachi" style="color: #052D49; font-weight: bold; text-decoration: none; white-space: nowrap"><img src="/images/patreon-long.png" style="height: 26px; vertical-align: middle; margin-right: 3px">KIKAItachi</a></div>
+	<div class="sponsorType">GitHub <iframe src="https://github.com/sponsors/kikaitachi/button" title="Sponsor kikaitachi" height="35" width="116" style="border: 0; vertical-align: text-top"></iframe></div>
 </div>
+<h2 id="wish-list">Wish list</h2>
+<p>These are parts which I would like to try but don't have them yet. If you have one but don't need it please consider donating. You will be permanently added to Contributors list with optional link to your website. Companies are welcome to contribute too. Email info @ kikaitachi . com for address details.</p>
+<div id="wishList" style="margin: -1rem -1rem 1rem -1rem"></div>
 <h2>Contributors</h2>
 <table class="contributors">
 	<tr>
 		<th>When</th>
 		<th>Who</th>
 		<th>What</th>
-		<th>GBP<sup>*</sup></th>
+		<th>GBP<a class="footnoteLink" href="#footnote"><sup>1</sup></a></th>
 	</tr>
 	<tr>
 		<td>2020-05-01</td>
@@ -176,18 +167,17 @@
 		<th style="text-align: right">411.35</th>
 	</tr>
 </table>
-<div style="font-size: 80%; text-align: center"><sup>*</sup> this is how much I receive after all currency conversions and fees.</div>
-<h2>Wish list</h2>
-<p>These are parts which I would like to try but don't have them yet. If you have one but don't need it please consider donating. You will be permanently added to Contributors list with optional link to your website. Companies are welcome to contribute too. Email info @ kikaitachi . com for address details.</p>
-<div id="wishList" style="margin: -20px"></div>
+<a id="footnote" class="footnoteContainer">
+	<sup>1</sup> this is how much I receive after all currency conversions and fees.
+</a>
 </div>
 </div>
 <script src="/naminukas.js"></script>
 <script>
 const wishList = document.getElementById('wishList');
 window.addEventListener("resize", () => irResize(wishList));
-irAdd(wishList, '2 crossed roller bearings (20x36x8mm)', '/parts/crossed-roller-bearing.jpg', 'Crossed roller bearing', 'https://www.bearingboys.co.uk/Crossed-Cylindrical-Roller/CRBH208AUUT1-IKO-Crossed-Cylindrical-Roller-Bearing-20mm-x-36mm-x-8mm-162240-p')
+irAdd(wishList, '4 Dynamixel XW540-T140-R', '/parts/dynamixel.jpg', 'Dynamixel X series', 'https://www.robotis.co.uk/robotis-dynamixel-xw540-t140-r-servo.html')
 .then(() =>
-irAdd(wishList, '4 Dynamixel XW540-T140-R', '/parts/dynamixel.jpg', 'Dynamixel X series', 'https://www.robotis.co.uk/robotis-dynamixel-xw540-t140-r-servo.html'));
+irAdd(wishList, '2 crossed roller bearings (20x36x8mm)', '/parts/crossed-roller-bearing.jpg', 'Crossed roller bearing', 'https://www.bearingboys.co.uk/Crossed-Cylindrical-Roller/CRBH208AUUT1-IKO-Crossed-Cylindrical-Roller-Bearing-20mm-x-36mm-x-8mm-162240-p'));
 </script>
 </html>
