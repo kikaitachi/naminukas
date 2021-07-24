@@ -1,3 +1,17 @@
+const head = document.getElementsByTagName('head')[0];
+
+const styleLink = document.createElement('link');
+styleLink.setAttribute('rel', 'stylesheet');
+styleLink.setAttribute('type', 'text/css');
+styleLink.setAttribute('href', '/naminukas.css');
+head.appendChild(styleLink);
+
+const iconLink = document.createElement('link');
+iconLink.setAttribute('rel', 'shortcut icon');
+iconLink.setAttribute('type', 'image/png');
+iconLink.setAttribute('href', '/images/logo.png');
+head.appendChild(iconLink);
+
 const createEl = (elementName, className, content) => {
 	const element = document.createElement(elementName);
 	element.className = className;
@@ -17,7 +31,7 @@ const createMenu = (text, spaces) => {
 	let page = pathname.substring(pathname.lastIndexOf('/') + 1);
 	if (page === '' || page === 'index.html') {
 		page = 'about';
-	} else if (window.location.pathname.includes('blog')) {
+	} else if (pathname.includes('blog')) {
 		page = 'blog';
 	}
 	const words = text.split(' ');
@@ -57,20 +71,6 @@ footer.appendChild(createSocialMediaLink('patreon.png', 'https://www.patreon.com
 footer.appendChild(createSocialMediaLink('github.svg', 'https://github.com/kikaitachi/naminukas', 'GitHub'));
 footer.appendChild(createSocialMediaLink('twitter.svg', 'https://twitter.com/KIKAItachi', 'Twitter'));
 document.body.appendChild(footer);
-
-const head = document.getElementsByTagName('head')[0];
-
-const styleLink = document.createElement('link');
-styleLink.setAttribute('rel', 'stylesheet');
-styleLink.setAttribute('type', 'text/css');
-styleLink.setAttribute('href', '/naminukas.css');
-head.appendChild(styleLink);
-
-const iconLink = document.createElement('link');
-iconLink.setAttribute('rel', 'shortcut icon');
-iconLink.setAttribute('type', 'image/png');
-iconLink.setAttribute('href', '/images/logo.png');
-head.appendChild(iconLink);
 
 const irResize = (container) => {
 	const margin = 20;
