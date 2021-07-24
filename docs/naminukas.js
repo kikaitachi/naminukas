@@ -1,11 +1,5 @@
 const head = document.getElementsByTagName('head')[0];
 
-const styleLink = document.createElement('link');
-styleLink.setAttribute('rel', 'stylesheet');
-styleLink.setAttribute('type', 'text/css');
-styleLink.setAttribute('href', '/naminukas.css');
-head.appendChild(styleLink);
-
 const iconLink = document.createElement('link');
 iconLink.setAttribute('rel', 'shortcut icon');
 iconLink.setAttribute('type', 'image/png');
