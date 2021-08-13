@@ -30,6 +30,19 @@ iframe {
 	width: 100%;
 }
 
+.showcase a {
+	text-decoration: none;
+}
+
+.showcase table {
+	margin: auto;
+}
+
+.wishImage {
+	height: 175px;
+	border-radius: 1rem;
+}
+
 .youTubeContainer {
 	display: flex;
 	justify-content: center;
