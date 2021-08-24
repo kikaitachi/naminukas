@@ -1,0 +1,5 @@
+set_io clock P7
+
+set_io fport B14
+
+set_io dynamixel D12

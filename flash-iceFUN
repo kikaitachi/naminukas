@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+mkdir -p build && \
+    yosys -p "synth_ice40 -top naminukas -json build/naminukas.json" hdl/naminukas.v && \
+	nextpnr-ice40 -r --hx8k --json build/naminukas.json --package cb132 --asc build/naminukas.asc --opt-timing --pcf synthesis/iceFUN.pcf && \
+	icepack build/naminukas.asc build/naminukas.bin && \
+    iceFUNprog build/naminukas.bin
