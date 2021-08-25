@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 mkdir -p build &&
-    yosys -p "read_verilog hdl/naminukas.v; synth_ice40 -blif build/naminukas.blif" && \
+    yosys -p "read_verilog hdl/naminukas.v; synth_ice40 -top naminukas -blif build/naminukas.blif" && \
     arachne-pnr -d 1k -p synthesis/go-board.pcf -P vq100 -o build/naminukas.txt build/naminukas.blif && \
     icepack build/naminukas.txt build/naminukas.bin && \
     sudo iceprog build/naminukas.bin
