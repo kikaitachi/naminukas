@@ -29,7 +29,6 @@ rc_radio
 );
 */
 
-
 reg[31:0] position1;
 reg[31:0] position2;
 reg[31:0] position3;
@@ -57,10 +56,10 @@ reg[15:0] counter;
 
 initial begin
     counter = 0;
-    position1 = 1;
-    position2 = 2;
-    position3 = 3;
-    position4 = 4;
+    position1 = 0;
+    position2 = 256;
+    position3 = 256;
+    position4 = 0;
 end
 
 always @(posedge clock)
