@@ -1,5 +1,6 @@
 `include "uart.v"
 
+// See https://emanual.robotis.com/docs/en/dxl/protocol2/
 module dynamixel_sync_write_position
 #(
     parameter clocks_per_bit = 1,
@@ -18,10 +19,38 @@ module dynamixel_sync_write_position
     output pin
 );
 
+function [15:0] crc16(input [7:0] data, input [15:0] crc);
+    reg [7:0] d;
+    reg [15:0] c;
+    reg [15:0] updated_crc;
+    begin
+        d = data;
+        c = crc;
+        updated_crc[0] = d[7] ^ d[6] ^ d[5] ^ d[4] ^ d[3] ^ d[2] ^ d[1] ^ d[0] ^ c[8] ^ c[9] ^ c[10] ^ c[11] ^ c[12] ^ c[13] ^ c[14] ^ c[15];
+        updated_crc[1] = d[7] ^ d[6] ^ d[5] ^ d[4] ^ d[3] ^ d[2] ^ d[1] ^ c[9] ^ c[10] ^ c[11] ^ c[12] ^ c[13] ^ c[14] ^ c[15];
+        updated_crc[2] = d[1] ^ d[0] ^ c[8] ^ c[9];
+        updated_crc[3] = d[2] ^ d[1] ^ c[9] ^ c[10];
+        updated_crc[4] = d[3] ^ d[2] ^ c[10] ^ c[11];
+        updated_crc[5] = d[4] ^ d[3] ^ c[11] ^ c[12];
+        updated_crc[6] = d[5] ^ d[4] ^ c[12] ^ c[13];
+        updated_crc[7] = d[6] ^ d[5] ^ c[13] ^ c[14];
+        updated_crc[8] = d[7] ^ d[6] ^ c[0] ^ c[14] ^ c[15];
+        updated_crc[9] = d[7] ^ c[1] ^ c[15];
+        updated_crc[10] = c[2];
+        updated_crc[11] = c[3];
+        updated_crc[12] = c[4];
+        updated_crc[13] = c[5];
+        updated_crc[14] = c[6];
+        updated_crc[15] = d[7] ^ d[6] ^ d[5] ^ d[4] ^ d[3] ^ d[2] ^ d[1] ^ d[0] ^ c[7] ^ c[8] ^ c[9] ^ c[10] ^ c[11] ^ c[12] ^ c[13] ^ c[14] ^ c[15];
+        crc16 = updated_crc;
+    end
+endfunction
+
 reg send_byte;
 reg[7:0] byte_to_send;
 reg done;
 reg[7:0] state;
+reg [15:0] crc;
 
 uart
 #(
@@ -39,6 +68,7 @@ dynamixel_uart
 initial begin
     send_byte = 0;
     state = 0;
+    crc = 0;
 end
 
 always @(posedge clock)
@@ -50,6 +80,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= 8'hFF;
                 state <= 1;
+                crc <= crc16(8'hFF, crc);
             end
         end
         // Header 2
@@ -58,6 +89,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= 8'hFF;
                 state <= 2;
+                crc <= crc16(8'hFF, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -68,6 +100,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= 8'hFD;
                 state <= 3;
+                crc <= crc16(8'hFD, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -78,6 +111,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= 8'h00;
                 state <= 4;
+                crc <= crc16(8'h00, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -88,6 +122,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= 8'hFE;  // Broadcast ID
                 state <= 5;
+                crc <= crc16(8'hFE, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -98,6 +133,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= 8'h1B;
                 state <= 6;
+                crc <= crc16(8'h1B, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -108,6 +144,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= 8'h00;
                 state <= 7;
+                crc <= crc16(8'h00, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -118,6 +155,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= 8'h83;  // Sync Write
                 state <= 8;
+                crc <= crc16(8'h83, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -128,6 +166,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= 8'h74;
                 state <= 9;
+                crc <= crc16(8'h74, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -138,6 +177,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= 8'h00;
                 state <= 10;
+                crc <= crc16(8'h00, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -148,6 +188,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= 8'h04;
                 state <= 11;
+                crc <= crc16(8'h04, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -158,6 +199,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= 8'h00;
                 state <= 12;
+                crc <= crc16(8'h00, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -168,6 +210,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= id1;
                 state <= 13;
+                crc <= crc16(id1, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -178,6 +221,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position1[7:0];
                 state <= 14;
+                crc <= crc16(position1[7:0], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -188,6 +232,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position1[15:8];
                 state <= 15;
+                crc <= crc16(position1[15:8], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -198,6 +243,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position1[23:16];
                 state <= 16;
+                crc <= crc16(position1[23:16], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -208,6 +254,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position1[31:24];
                 state <= 17;
+                crc <= crc16(position1[31:24], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -218,6 +265,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= id2;
                 state <= 18;
+                crc <= crc16(id2, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -228,6 +276,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position2[7:0];
                 state <= 19;
+                crc <= crc16(position2[7:0], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -238,6 +287,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position2[15:8];
                 state <= 20;
+                crc <= crc16(position2[15:8], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -248,6 +298,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position2[23:16];
                 state <= 21;
+                crc <= crc16(position2[23:16], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -258,6 +309,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position2[31:24];
                 state <= 22;
+                crc <= crc16(position2[31:24], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -268,6 +320,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= id3;
                 state <= 23;
+                crc <= crc16(id3, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -278,6 +331,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position3[7:0];
                 state <= 24;
+                crc <= crc16(position3[7:0], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -288,6 +342,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position3[15:8];
                 state <= 25;
+                crc <= crc16(position3[15:8], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -298,6 +353,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position3[23:16];
                 state <= 26;
+                crc <= crc16(position3[23:16], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -308,6 +364,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position3[31:24];
                 state <= 27;
+                crc <= crc16(position3[31:24], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -318,6 +375,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= id4;
                 state <= 28;
+                crc <= crc16(id4, crc);
             end else begin
                 send_byte <= 0;
             end
@@ -328,6 +386,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position4[7:0];
                 state <= 29;
+                crc <= crc16(position4[7:0], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -338,6 +397,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position4[15:8];
                 state <= 30;
+                crc <= crc16(position4[15:8], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -348,6 +408,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position4[23:16];
                 state <= 31;
+                crc <= crc16(position4[23:16], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -358,6 +419,7 @@ begin
                 send_byte <= 1;
                 byte_to_send <= position4[31:24];
                 state <= 32;
+                crc <= crc16(position4[31:24], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -366,7 +428,7 @@ begin
         32: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= 8'h04;  // TODO: calculate
+                byte_to_send <= crc[7:0];
                 state <= 33;
             end else begin
                 send_byte <= 0;
@@ -376,7 +438,7 @@ begin
         33: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= 8'h00;  // TODO: calculate
+                byte_to_send <= crc[15:8];
                 state <= 34;
             end else begin
                 send_byte <= 0;
@@ -385,6 +447,7 @@ begin
         default: begin
             state <= 0;
             send_byte <= 0;
+            crc <= 0;
         end
     endcase
 end
