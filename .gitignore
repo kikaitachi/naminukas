@@ -1,1 +1,5 @@
+# Build directory
 build
+
+# KiCad schematic backup files
+*.sch-bak
