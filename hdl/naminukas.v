@@ -30,6 +30,7 @@ rc_radio
 */
 
 reg[15:0] address;
+reg[15:0] data_len;
 reg[31:0] position1;
 reg[31:0] position2;
 reg[31:0] position3;
@@ -47,6 +48,7 @@ dynamixel_4bytes_writer
     .clock(clock),
     .send(dyn_send),
     .address(address),
+    .data_len(data_len),
     .value1(position1),
     .value2(position2),
     .value3(position3),
@@ -59,6 +61,7 @@ reg[15:0] counter;
 initial begin
     counter = 0;
     address = 8'h0074;
+    data_len = 4;
     position1 = 0;
     position2 = 256;
     position3 = 256;

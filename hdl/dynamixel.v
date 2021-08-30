@@ -36,6 +36,7 @@ module dynamixel_sync_write_4bytes
     input clock,
     input send,
     input[15:0] address,
+    input[15:0] data_len,
     input[31:0] value1,
     input[31:0] value2,
     input[31:0] value3,
@@ -122,8 +123,8 @@ begin
         8: `dynamixel_send_byte(address[ 7:0])  // The least significant byte
         9: `dynamixel_send_byte(address[15:8])  // The most significant byte
         // Data length
-        10: `dynamixel_send_byte(8'h04)  // The least significant byte
-        11: `dynamixel_send_byte(8'h00)  // The most significant byte
+        10: `dynamixel_send_byte(data_len[ 7:0])  // The least significant byte
+        11: `dynamixel_send_byte(data_len[15:8])  // The most significant byte
         // 1st device ID
         12: `dynamixel_send_byte(id1)
         // value1
