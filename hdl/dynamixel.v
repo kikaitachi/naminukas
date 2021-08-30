@@ -65,7 +65,8 @@ module dynamixel_sync_write
     input[31:0] value2,
     input[31:0] value3,
     input[31:0] value4,
-    output pin
+    output sending,
+    inout pin
 );
 
 function [15:0] crc16(input [7:0] data, input [15:0] crc);
@@ -102,6 +103,9 @@ reg[7:0] state;
 reg[15:0] packet_len;
 reg[15:0] crc;
 
+assign fport = (fport_state == FPORT_RESPOND) ? fport_channels[fport_channel_bit_index] : 'bz;
+assign fport_in = fport;
+
 uart
 #(
     .clocks_per_bit(clocks_per_bit)
@@ -119,6 +123,7 @@ initial begin
     send_byte = 0;
     state = 0;
     crc = 0;
+    sending = 0;
 end
 
 always @(posedge clock)
@@ -127,6 +132,7 @@ begin
         // Header
         0: begin
             if (send == 1) begin
+                sending <= 1;
                 send_byte <= 1;
                 byte_to_send <= 8'hFF;
                 state <= 1;
@@ -183,9 +189,12 @@ begin
         32: `dynamixel_send_byte_no_crc(crc[ 7:0])  // The least significant byte
         33: `dynamixel_send_byte_no_crc(crc[15:8])  // The most significant byte
         default: begin
-            state <= 0;
-            send_byte <= 0;
-            crc <= 0;
+            if (done == 1) begin
+                state <= 0;
+                send_byte <= 0;
+                crc <= 0;
+                sending <= 0;
+            end
         end
     endcase
 end

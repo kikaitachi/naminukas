@@ -39,6 +39,13 @@ reg[31:0] value4;
 
 reg[7:0] dyn_test;
 reg dyn_send;
+reg dyn_sending;
+
+wire dynamixel_send;
+wire dynamixel_receive;
+
+assign dynamixel = dyn_sending ? dynamixel_send : 1'bZ;
+assign dynamixel_receive = dynamixel;
 
 dynamixel_sync_write #(
     .clocks_per_bit(clock_frequency / dynamixel_baudrate)
@@ -53,7 +60,8 @@ dynamixel_sync_writer
     .value2(value2),
     .value3(value3),
     .value4(value4),
-    .pin(dynamixel)
+    .sending(dyn_sending),
+    .pin(dynamixel_send)
 );
 
 reg[31:0] counter;
