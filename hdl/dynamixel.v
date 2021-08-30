@@ -12,6 +12,30 @@ begin \
     end \
 end
 
+`define dynamixel_send_only_1byte(BYTE) \
+begin \
+    if (done == 1) begin \
+        send_byte <= 1; \
+        byte_to_send <= BYTE; \
+        crc <= crc16(BYTE, crc); \
+        state <= state + 4; \
+    end else begin \
+        send_byte <= 0; \
+    end \
+end
+
+`define dynamixel_send_only_2bytes(BYTE) \
+begin \
+    if (done == 1) begin \
+        send_byte <= 1; \
+        byte_to_send <= BYTE; \
+        crc <= crc16(BYTE, crc); \
+        state <= state + 3; \
+    end else begin \
+        send_byte <= 0; \
+    end \
+end
+
 `define dynamixel_send_byte_no_crc(BYTE) \
 begin \
     if (done == 1) begin \
@@ -128,31 +152,31 @@ begin
         // 1st device ID
         12: `dynamixel_send_byte(id1)
         // value1
-        13: `dynamixel_send_byte(value1[ 7: 0])  // byte 1
-        14: `dynamixel_send_byte(value1[15: 8])  // byte 2
-        15: `dynamixel_send_byte(value1[23:16])  // byte 3
-        16: `dynamixel_send_byte(value1[31:24])  // byte 4
+        13: if (data_len == 1) `dynamixel_send_only_1byte(value1[7:0]) else `dynamixel_send_byte(value1[7:0])
+        14: if (data_len == 2) `dynamixel_send_only_2bytes(value1[15:8]) else `dynamixel_send_byte(value1[15:8])
+        15: `dynamixel_send_byte(value1[23:16])
+        16: `dynamixel_send_byte(value1[31:24])
         // 2nd device ID
         17: `dynamixel_send_byte(id2)
         // value2
-        18: `dynamixel_send_byte(value2[ 7: 0])  // byte 1
-        19: `dynamixel_send_byte(value2[15: 8])  // byte 2
-        20: `dynamixel_send_byte(value2[23:16])  // byte 3
-        21: `dynamixel_send_byte(value2[31:24])  // byte 4
+        18: if (data_len == 1) `dynamixel_send_only_1byte(value2[7:0]) else `dynamixel_send_byte(value2[7:0])
+        19: if (data_len == 2) `dynamixel_send_only_2bytes(value2[15:8]) else `dynamixel_send_byte(value2[15:8])
+        20: `dynamixel_send_byte(value2[23:16])
+        21: `dynamixel_send_byte(value2[31:24])
         // 3rd device ID
         22: `dynamixel_send_byte(id3)
         // value3
-        23: `dynamixel_send_byte(value3[ 7: 0])  // byte 1
-        24: `dynamixel_send_byte(value3[15: 8])  // byte 2
-        25: `dynamixel_send_byte(value3[23:16])  // byte 3
-        26: `dynamixel_send_byte(value3[31:24])  // byte 4
+        23: if (data_len == 1) `dynamixel_send_only_1byte(value3[7:0]) else `dynamixel_send_byte(value3[7:0])
+        24: if (data_len == 2) `dynamixel_send_only_2bytes(value3[15:8]) else `dynamixel_send_byte(value3[15:8])
+        25: `dynamixel_send_byte(value3[23:16])
+        26: `dynamixel_send_byte(value3[31:24])
         // 4th device ID
         27: `dynamixel_send_byte(id4)
         // value4
-        28: `dynamixel_send_byte(value4[ 7: 0])  // byte 1
-        29: `dynamixel_send_byte(value4[15: 8])  // byte 2
-        30: `dynamixel_send_byte(value4[23:16])  // byte 3
-        31: `dynamixel_send_byte(value4[31:24])  // byte 4
+        28: if (data_len == 1) `dynamixel_send_only_1byte(value4[7:0]) else `dynamixel_send_byte(value4[7:0])
+        29: if (data_len == 2) `dynamixel_send_only_2bytes(value4[15:8]) else `dynamixel_send_byte(value4[15:8])
+        30: `dynamixel_send_byte(value4[23:16])
+        31: `dynamixel_send_byte(value4[31:24])
         // CRC
         32: `dynamixel_send_byte_no_crc(crc[ 7:0])  // The least significant byte
         33: `dynamixel_send_byte_no_crc(crc[15:8])  // The most significant byte
