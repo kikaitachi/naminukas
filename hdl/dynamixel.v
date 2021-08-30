@@ -1,7 +1,7 @@
 `include "uart.v"
 
 // See https://emanual.robotis.com/docs/en/dxl/protocol2/
-module dynamixel_sync_write_position
+module dynamixel_sync_write_4bytes
 #(
     parameter clocks_per_bit = 1,
     parameter id1 = 2,
@@ -12,10 +12,11 @@ module dynamixel_sync_write_position
 (
     input clock,
     input send,
-    input[31:0] position1,
-    input[31:0] position2,
-    input[31:0] position3,
-    input[31:0] position4,
+    input[15:0] address,
+    input[31:0] value1,
+    input[31:0] value2,
+    input[31:0] value3,
+    input[31:0] value4,
     output pin
 );
 
@@ -164,7 +165,7 @@ begin
         8: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= 8'h74;
+                byte_to_send <= address[7:0];
                 state <= 9;
                 crc <= crc16(8'h74, crc);
             end else begin
@@ -175,7 +176,7 @@ begin
         9: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= 8'h00;
+                byte_to_send <= address[15:8];
                 state <= 10;
                 crc <= crc16(8'h00, crc);
             end else begin
@@ -215,46 +216,46 @@ begin
                 send_byte <= 0;
             end
         end
-        // Position1: byte 1
+        // value1: byte 1
         13: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position1[7:0];
+                byte_to_send <= value1[7:0];
                 state <= 14;
-                crc <= crc16(position1[7:0], crc);
+                crc <= crc16(value1[7:0], crc);
             end else begin
                 send_byte <= 0;
             end
         end
-        // Position1: byte 2
+        // value1: byte 2
         14: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position1[15:8];
+                byte_to_send <= value1[15:8];
                 state <= 15;
-                crc <= crc16(position1[15:8], crc);
+                crc <= crc16(value1[15:8], crc);
             end else begin
                 send_byte <= 0;
             end
         end
-        // Position1: byte 3
+        // value1: byte 3
         15: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position1[23:16];
+                byte_to_send <= value1[23:16];
                 state <= 16;
-                crc <= crc16(position1[23:16], crc);
+                crc <= crc16(value1[23:16], crc);
             end else begin
                 send_byte <= 0;
             end
         end
-        // Position1: byte 4
+        // value1: byte 4
         16: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position1[31:24];
+                byte_to_send <= value1[31:24];
                 state <= 17;
-                crc <= crc16(position1[31:24], crc);
+                crc <= crc16(value1[31:24], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -270,46 +271,46 @@ begin
                 send_byte <= 0;
             end
         end
-        // Position2: byte 1
+        // value2: byte 1
         18: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position2[7:0];
+                byte_to_send <= value2[7:0];
                 state <= 19;
-                crc <= crc16(position2[7:0], crc);
+                crc <= crc16(value2[7:0], crc);
             end else begin
                 send_byte <= 0;
             end
         end
-        // Position2: byte 2
+        // value2: byte 2
         19: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position2[15:8];
+                byte_to_send <= value2[15:8];
                 state <= 20;
-                crc <= crc16(position2[15:8], crc);
+                crc <= crc16(value2[15:8], crc);
             end else begin
                 send_byte <= 0;
             end
         end
-        // Position2: byte 3
+        // value2: byte 3
         20: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position2[23:16];
+                byte_to_send <= value2[23:16];
                 state <= 21;
-                crc <= crc16(position2[23:16], crc);
+                crc <= crc16(value2[23:16], crc);
             end else begin
                 send_byte <= 0;
             end
         end
-        // Position2: byte 4
+        // value2: byte 4
         21: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position2[31:24];
+                byte_to_send <= value2[31:24];
                 state <= 22;
-                crc <= crc16(position2[31:24], crc);
+                crc <= crc16(value2[31:24], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -325,46 +326,46 @@ begin
                 send_byte <= 0;
             end
         end
-        // Position3: byte 1
+        // value3: byte 1
         23: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position3[7:0];
+                byte_to_send <= value3[7:0];
                 state <= 24;
-                crc <= crc16(position3[7:0], crc);
+                crc <= crc16(value3[7:0], crc);
             end else begin
                 send_byte <= 0;
             end
         end
-        // Position3: byte 2
+        // value3: byte 2
         24: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position3[15:8];
+                byte_to_send <= value3[15:8];
                 state <= 25;
-                crc <= crc16(position3[15:8], crc);
+                crc <= crc16(value3[15:8], crc);
             end else begin
                 send_byte <= 0;
             end
         end
-        // Position3: byte 3
+        // value3: byte 3
         25: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position3[23:16];
+                byte_to_send <= value3[23:16];
                 state <= 26;
-                crc <= crc16(position3[23:16], crc);
+                crc <= crc16(value3[23:16], crc);
             end else begin
                 send_byte <= 0;
             end
         end
-        // Position3: byte 4
+        // value3: byte 4
         26: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position3[31:24];
+                byte_to_send <= value3[31:24];
                 state <= 27;
-                crc <= crc16(position3[31:24], crc);
+                crc <= crc16(value3[31:24], crc);
             end else begin
                 send_byte <= 0;
             end
@@ -380,46 +381,46 @@ begin
                 send_byte <= 0;
             end
         end
-        // Position4: byte 1
+        // value4: byte 1
         28: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position4[7:0];
+                byte_to_send <= value4[7:0];
                 state <= 29;
-                crc <= crc16(position4[7:0], crc);
+                crc <= crc16(value4[7:0], crc);
             end else begin
                 send_byte <= 0;
             end
         end
-        // Position4: byte 2
+        // value4: byte 2
         29: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position4[15:8];
+                byte_to_send <= value4[15:8];
                 state <= 30;
-                crc <= crc16(position4[15:8], crc);
+                crc <= crc16(value4[15:8], crc);
             end else begin
                 send_byte <= 0;
             end
         end
-        // Position4: byte 3
+        // value4: byte 3
         30: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position4[23:16];
+                byte_to_send <= value4[23:16];
                 state <= 31;
-                crc <= crc16(position4[23:16], crc);
+                crc <= crc16(value4[23:16], crc);
             end else begin
                 send_byte <= 0;
             end
         end
-        // Position4: byte 4
+        // value4: byte 4
         31: begin
             if (done == 1) begin
                 send_byte <= 1;
-                byte_to_send <= position4[31:24];
+                byte_to_send <= value4[31:24];
                 state <= 32;
-                crc <= crc16(position4[31:24], crc);
+                crc <= crc16(value4[31:24], crc);
             end else begin
                 send_byte <= 0;
             end

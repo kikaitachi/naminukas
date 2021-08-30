@@ -2,4 +2,4 @@ set_io clock P7
 
 set_io fport C12
 
-set_io dynamixel D14
+set_io dynamixel P8
