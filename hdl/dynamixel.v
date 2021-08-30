@@ -48,7 +48,7 @@ begin \
 end
 
 // See https://emanual.robotis.com/docs/en/dxl/protocol2/
-module dynamixel_sync_write_4bytes
+module dynamixel_sync_write
 #(
     parameter clocks_per_bit = 1,
     parameter id1 = 2,
@@ -99,7 +99,8 @@ reg send_byte;
 reg[7:0] byte_to_send;
 reg done;
 reg[7:0] state;
-reg [15:0] crc;
+reg[15:0] packet_len;
+reg[15:0] crc;
 
 uart
 #(
@@ -130,6 +131,7 @@ begin
                 byte_to_send <= 8'hFF;
                 state <= 1;
                 crc <= crc16(8'hFF, crc);
+                packet_len <= (data_len + 1) * 4 + 7;
             end
         end
         1: `dynamixel_send_byte(8'hFF)
@@ -139,8 +141,8 @@ begin
         // Packet ID
         4: `dynamixel_send_byte(8'hFE)  // Broadcast ID
         // Packet length
-        5: `dynamixel_send_byte(8'h1B)  // The least significant byte
-        6: `dynamixel_send_byte(8'h00)  // the most significant byte
+        5: `dynamixel_send_byte(packet_len[ 7:0])  // The least significant byte
+        6: `dynamixel_send_byte(packet_len[15:8])  // the most significant byte
         // Instruction
         7: `dynamixel_send_byte(8'h83)  // Sync Write
         // Address
