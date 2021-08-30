@@ -1,5 +1,28 @@
 `include "uart.v"
 
+`define dynamixel_send_byte(BYTE) \
+begin \
+    if (done == 1) begin \
+        send_byte <= 1; \
+        byte_to_send <= BYTE; \
+        crc <= crc16(BYTE, crc); \
+        state <= state + 1; \
+    end else begin \
+        send_byte <= 0; \
+    end \
+end
+
+`define dynamixel_send_byte_no_crc(BYTE) \
+begin \
+    if (done == 1) begin \
+        send_byte <= 1; \
+        byte_to_send <= BYTE; \
+        state <= state + 1; \
+    end else begin \
+        send_byte <= 0; \
+    end \
+end
+
 // See https://emanual.robotis.com/docs/en/dxl/protocol2/
 module dynamixel_sync_write_4bytes
 #(
@@ -72,18 +95,6 @@ initial begin
     crc = 0;
 end
 
-`define dynamixel_send_byte(BYTE) \
-begin \
-    if (done == 1) begin \
-        send_byte <= 1; \
-        byte_to_send <= BYTE; \
-        crc <= crc16(BYTE, crc); \
-        state <= state + 1; \
-    end else begin \
-        send_byte <= 0; \
-    end \
-end
-
 always @(posedge clock)
 begin
     case (state)
@@ -141,26 +152,9 @@ begin
         29: `dynamixel_send_byte(value4[15: 8])  // byte 2
         30: `dynamixel_send_byte(value4[23:16])  // byte 3
         31: `dynamixel_send_byte(value4[31:24])  // byte 4
-        // CRC: the least significant byte
-        32: begin
-            if (done == 1) begin
-                send_byte <= 1;
-                byte_to_send <= crc[7:0];
-                state <= 33;
-            end else begin
-                send_byte <= 0;
-            end
-        end
-        // CRC: the most significant byte
-        33: begin
-            if (done == 1) begin
-                send_byte <= 1;
-                byte_to_send <= crc[15:8];
-                state <= 34;
-            end else begin
-                send_byte <= 0;
-            end
-        end
+        // CRC
+        32: `dynamixel_send_byte_no_crc(crc[ 7:0])  // The least significant byte
+        33: `dynamixel_send_byte_no_crc(crc[15:8])  // The most significant byte
         default: begin
             state <= 0;
             send_byte <= 0;
