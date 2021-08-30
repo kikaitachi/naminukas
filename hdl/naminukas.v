@@ -3,6 +3,7 @@
 
 module naminukas
 #(
+    parameter clock_frequency = 12000000,
     parameter dynamixel_baudrate = 4000000
 )
 (
@@ -41,7 +42,7 @@ reg dyn_send;
 
 dynamixel_sync_write_4bytes
 #(
-    .clocks_per_bit(3)
+    .clocks_per_bit(clock_frequency / dynamixel_baudrate)
 )
 dynamixel_4bytes_writer
 (
