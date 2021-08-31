@@ -1,4 +1,5 @@
 (sym_lib_table
   (lib (name BQ25792)(type Legacy)(uri ${KIPRJMOD}/../Libraries/BQ25792/BQ25792.lib)(options "")(descr ""))
   (lib (name USB4105-GF-A)(type Legacy)(uri ${KIPRJMOD}/../Libraries/USB4105-GF-A/USB4105-GF-A.lib)(options "")(descr ""))
+  (lib (name LFE5U-85F)(type Legacy)(uri ${KIPRJMOD}/../Libraries/LFE5U-85F/LFE5U-85F.lib)(options "")(descr ""))
 )
