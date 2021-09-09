@@ -72,7 +72,6 @@ const irResize = (container) => {
 	let lineImages = [];
 	let margins = [];
 	let lineLength = 0;
-	let totalLines = 0;
 	const lineHeight = 150;
 	const items = container.querySelectorAll('.item');
 	for (let i = 0; i < items.length; i++) {
@@ -109,7 +108,6 @@ const irResize = (container) => {
 			lineImages = [];
 			margins = [];
 			lineLength = 0;
-			totalLines++;
 		}
 		lineLength += width;
 		lineImages.push(img);
