@@ -16,4 +16,4 @@ jobs:
       - name: Lint Verilog code
         run: |
           cd hdl
-          verilator --lint-only uart.v
+          verilator --lint-only naminukas.v

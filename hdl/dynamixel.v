@@ -65,7 +65,7 @@ module dynamixel_sync_write
     input[31:0] value2,
     input[31:0] value3,
     input[31:0] value4,
-    output sending,
+    output reg sending,
     inout pin
 );
 
@@ -102,9 +102,6 @@ reg done;
 reg[7:0] state;
 reg[15:0] packet_len;
 reg[15:0] crc;
-
-assign fport = (fport_state == FPORT_RESPOND) ? fport_channels[fport_channel_bit_index] : 'bz;
-assign fport_in = fport;
 
 uart
 #(

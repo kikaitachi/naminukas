@@ -6,7 +6,7 @@ module uart
     input clock,
     input send,
     input[7:0] byte_to_send,
-    output done,
+    output reg done,
     output pin
 );
 
