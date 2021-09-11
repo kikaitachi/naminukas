@@ -11,7 +11,7 @@ module uart
 );
 
 reg sending;
-reg [4:0] bit_index;
+reg [3:0] bit_index;
 reg[$clog2(clocks_per_bit):0] clocks;
 
 initial begin
@@ -28,7 +28,7 @@ begin
             end else if (bit_index == 8) begin
                 pin <= 1;
             end else begin
-                pin <= byte_to_send[bit_index];
+                pin <= byte_to_send[bit_index[2:0]];
             end
             clocks <= 0;
             bit_index <= bit_index + 1;
