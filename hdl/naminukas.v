@@ -12,6 +12,13 @@ module naminukas
     inout dynamixel
 );
 
+reg fport_sending;
+wire fport_output;
+wire fport_input;
+
+assign fport = fport_sending ? fport_output : 1'bZ;
+assign fport_input = fport;
+
 /*reg channel_changed;
 reg[3:0] channel_index;
 reg[10:0] channel_value;
@@ -37,15 +44,13 @@ reg[31:0] value2;
 reg[31:0] value3;
 reg[31:0] value4;
 
-reg[7:0] dyn_test;
-reg dyn_send;
-reg dyn_sending;
+reg dynamixel_trigger_sending;
+reg dynamixel_sending;
+wire dynamixel_output;
+wire dynamixel_input;
 
-wire dynamixel_send;
-wire dynamixel_receive;
-
-assign dynamixel = dyn_sending ? dynamixel_send : 1'bZ;
-assign dynamixel_receive = dynamixel;
+assign dynamixel = dynamixel_sending ? dynamixel_output : 1'bZ;
+assign dynamixel_input = dynamixel;
 
 dynamixel_sync_write #(
     .clocks_per_bit(clock_frequency / dynamixel_baudrate)
@@ -53,15 +58,15 @@ dynamixel_sync_write #(
 dynamixel_sync_writer
 (
     .clock(clock),
-    .send(dyn_send),
+    .send(dynamixel_trigger_sending),
     .address(address),
     .data_len(data_len),
     .value1(value1),
     .value2(value2),
     .value3(value3),
     .value4(value4),
-    .sending(dyn_sending),
-    .pin(dynamixel_send)
+    .sending(dynamixel_sending),
+    .pin(dynamixel_output)
 );
 
 reg[31:0] counter;
@@ -86,18 +91,8 @@ end
 
 always @(posedge clock)
   begin
-      /*if (counter == 2000) begin
-          counter <= 0;
-          fport <= 1;
-          dyn_send <= 1;
-      end else begin
-          counter <= counter + 1;
-          fport <= 0;
-          dyn_send <= 0;
-      end*/
       if (counter == clock_frequency * 3) begin  // Every 3 seconds toggle Torque Enable flag
           counter <= 0;
-          fport <= 1;
           if (value1 == 0) begin
               value1 <= 1;
               value2 <= 1;
@@ -109,11 +104,10 @@ always @(posedge clock)
               value3 <= 0;
               value4 <= 0;
           end
-          dyn_send <= 1;
+          dynamixel_trigger_sending <= 1;
       end else begin
           counter <= counter + 1;
-          fport <= 0;
-          dyn_send <= 0;
+          dynamixel_trigger_sending <= 0;
       end
   end
 

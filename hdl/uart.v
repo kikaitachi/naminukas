@@ -18,10 +18,12 @@ initial begin
     sending = 0;
 end
 
+localparam last_clock = clocks_per_bit - 1;
+
 always @(posedge clock)
 begin
     if (sending) begin
-        if (clocks == clocks_per_bit - 1) begin
+        if (clocks == last_clock[$clog2(clocks_per_bit):0]) begin
             if (bit_index == 9) begin
                 done <= 1;
                 sending <= 0;
