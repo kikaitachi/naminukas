@@ -45,7 +45,7 @@ reg[31:0] value3;
 reg[31:0] value4;
 
 reg dynamixel_trigger_sending;
-reg dynamixel_sending;
+wire dynamixel_sending;
 wire dynamixel_output;
 wire dynamixel_input;
 

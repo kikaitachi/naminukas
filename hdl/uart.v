@@ -7,7 +7,7 @@ module uart
     input send,
     input[7:0] byte_to_send,
     output reg done,
-    output pin
+    output reg pin
 );
 
 reg sending;

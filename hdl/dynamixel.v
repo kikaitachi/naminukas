@@ -98,7 +98,7 @@ endfunction
 
 reg send_byte;
 reg[7:0] byte_to_send;
-reg done;
+wire done;
 reg[7:0] state;
 reg[15:0] packet_len;
 reg[15:0] crc;

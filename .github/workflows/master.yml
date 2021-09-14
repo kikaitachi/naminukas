@@ -12,8 +12,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: |
-          sudo apt install verilator
+          sudo apt install iverilog verilator
       - name: Lint Verilog code
         run: |
           cd hdl
           verilator --lint-only naminukas.v
+      - name: Verilog unit tests
+        run: |
+          iverilog -o uart_test hdl/uart.v test/tb_uart.v
+          vvp uart_test
