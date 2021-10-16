@@ -74,16 +74,116 @@
 	far to help someone on the same journey as I was.
 </p>
 <h2>Experimental setup</h2>
-<div style="float: right; text-align: center; margin: 1rem 0 1rem 1rem; font-size: 75%;">
+<p>
+	First I would like to say that having proper tools to analyse signals was
+	probably more useful than Google on this subject. Here is my setup to debug
+	F.Port signals:
+</p>
+<div style="margin: auto; text-align: center; font-size: 75%;">
 	<img class="image" src="../images/f.port-setup.jpg" style="width: 100%; max-width: 500px;" alt="F.Port debugging setup"/>
 	<br/>F.Port debugging setup
 </div>
 <p>
-	First I would like to say that having proper tools to analyse signals was
-	probably more useful than Google on this subject. I was lucky to have
+	I was lucky to have
 	access quite expensive but totally worth it piece of equipment called
-	<a href="https://www.saleae.com/">Salea Logic Analyser</a>.
+	<a href="https://www.saleae.com/">Salea Logic Analyser</a>. Salea Logic
+	Analyser allows to capture up to 8 input signals (more expensive 16 channel
+	version is available too) and display/analyse them on computer via USB
+	connection. It captures both analog and digital signals so it can replace
+	osciloscope in some cases. Computer side software is called <a href="https://www.saleae.com/downloads/">Logic</a>
+	and is available for Linux, Mac and Windows. It is very simple and intuitive
+	to use. There is not need to even install it. You just download a single file
+	and run it. What is the most useful in my opinion is the ability to annotate
+	captured signals. For example it can decode UART, SPI and I<sup>2</sup>C
+	signals and display which part the signal corresponds to which byte.
+	Here is an example of F.Port signal decoded as UART:
 </p>
+<h2>What is F.Port protocol?</h2>
+<p>
+	F.Port is a single wire bus which uses inverted UART with speed 115200 bits / second,
+	8 data bits, one start bit, one stop bit and no parity. These are required settings
+	to decode signal in Salea Logic software:
+</p>
+<p>
+	Protocol defines the following 3 frames:
+</p>
+<table>
+<caption>Control frame</caption>
+<thead>
+	<tr>
+		<th>Head</th>
+		<th>Len</th>
+		<th>Type</th>
+		<th>Channel frame</th>
+		<th>CRC</th>
+		<th>End</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>0x7E</td>
+		<td>0x19</td>
+		<td>0x00</td>
+		<td>[data1][data2] ... [data22][flags][RSSI]</td>
+		<td></td>
+		<td>0x7E</td>
+	</tr>
+</tbody>
+</table>
+<table>
+	<caption>Downlink data frame</caption>
+	<thead>
+		<tr>
+			<th>Head</th>
+			<th>Len</th>
+			<th>Type</th>
+			<th>Prime</th>
+			<th>AppId low</th>
+			<th>AppId high</th>
+			<th>Data</th>
+			<th>CRC</th>
+			<th>End</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>0x7E</td>
+			<td>0x08</td>
+			<td>0x01</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>0x7E</td>
+		</tr>
+	</tbody>
+</table>
+<table>
+	<caption>Uplink data frame</caption>
+	<thead>
+		<tr>
+			<th>Len</th>
+			<th>Type</th>
+			<th>Prime</th>
+			<th>AppId low</th>
+			<th>AppId high</th>
+			<th>Data</th>
+			<th>CRC</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>0x08</td>
+			<td>0x81</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
 <dl>
 	<dt>Previously:</dt>
 	<dd>
