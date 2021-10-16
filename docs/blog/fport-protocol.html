@@ -36,19 +36,19 @@
 	Source: <a href="https://en.wikipedia.org/wiki/Snow_goggles#/media/File:Inuit_snow_goggles.jpg">Wikipedia</a> <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
 </div>
 <p>
-	Until recently I have controlled naminukas robot either from a desktop
+	Until recently I have controlled Naminukas robot either from a desktop
 	computer during development or from a laptop during experiments. Since
 	<a href="https://beagleboard.org/blue">BeagleBone Blue</a> board can
 	act as WiFi access point it is easy to connect to the robot anywhere
 	even then no other networks are available. When I tried this solution
 	<a href="https://youtu.be/XXZjXcNF9N4">on the beach</a> during bright
-	sunny day I immediately understood drawback	of this remote control
-	solution. Screen readability is severely affected by the direct sunlight.
-	Extensive use of keyboard shortcuts in my web based control UI helped a lot
-	but even finding the right key was a challenge. After all
-	<a href="https://en.wikipedia.org/wiki/Snow_goggles">sunglasses</a> (see
-	image on the right) were invented because it is hard to look at anything on
-	the bright sunny day.
+	sunny day I immediately understood drawback: screen readability is
+	severely affected by the direct sunlight. Extensive use of keyboard
+	shortcuts in my web based control UI helped a lot but even finding the
+	right key on the keyboard was a challenge. After all
+	<a href="https://en.wikipedia.org/wiki/Sunglasses">sunglasses</a>
+	(see image on the right) were invented because it is hard to look at
+	anything on	the bright sunny day.
 </p>
 <div style="float: left; text-align: center; margin: 0 1rem 1rem 0; font-size: 75%;">
 	<img class="image" src="../images/radiomaster-r86c.jpg" style="width: 200px" alt="RadioMaster R86C-D8 6/8 Channel PWM/SBUS receiver"/>
@@ -57,46 +57,65 @@
 	<br/>PWM/SBUS receiver
 </div>
 <p>
-	This experience led me to buy my first hobby RC radio. Given variety of
-	radio brands, protocols, controllers and receivers it was a daunting task
-	to choose what to buy. I ended up with <a href="https://radiomasterrc.com/Radio-TX16S-MAX.html">RadioMaster TX16S MAX</a>. My goal was to have 2 way
-	communication between controller and robot. But even after hours of
-	research I ended up buying SBUS capable receiver (see image on the left) just to discover that
-	SBUS supports only controller to receiver communication. I had to bit-bang
-	SBUS protocol in BeagleBone Blue PRU unit. Documentation both about SBUS
-	and PRU is sparse and took countless days to get working. Here is proof of
-	concept implementation: <a href="https://github.com/kikaitachi/naminukas-brain/blob/main/pru_firmware/sbus.pru0.c">https://github.com/kikaitachi/naminukas-brain/blob/main/pru_firmware/sbus.pru0.c</a>. Eventually I figured out that F.Port capable
-	receiver is what would allow me to have bidirectional communication between
-	controller and the robot. So I bought <a href="https://www.jumper-rc.com/products/receivers/r1f/">Jumper R1F F.Port receiver</a>.
-	It was not so hard to get it working one way as in
-	a way F.Port is just "better" SBUS. I am still working on getting telemetry
-	from the robot to the controller but I though I should document process so
-	far to help someone on the same journey as I was.
+	This experience led me to buy not sunglasses but my first hobby RC radio.
+	Dedicated mechanical gimbals and switches makes it natural to move robot
+	without looking at the controls. Given variety of radio brands, protocols,
+	controllers and	receivers it was a daunting task to choose what to buy. I
+	ended up with <a href="https://radiomasterrc.com/Radio-TX16S-MAX.html">
+	RadioMaster TX16S MAX</a>. My goal was to have 2 way communication between
+	controller and robot. But even after hours of research I ended up buying
+	SBUS capable receiver (see image on the left) just to discover that SBUS
+	supports only controller to receiver communication. I had to bit-bang SBUS
+	protocol in	BeagleBone Blue PRU unit. Documentation both about SBUS	and
+	PRU is sparse and it took countless hours to get working
+	<a href="https://github.com/kikaitachi/naminukas-brain/blob/main/pru_firmware/sbus.pru0.c">
+	proof of concept implementation</a>. Eventually I figured out that F.Port
+	capable receiver is what would allow me to have bidirectional communication
+	between controller and the robot. So I bought
+	<a href="https://www.jumper-rc.com/products/receivers/r1f/">Jumper R1F
+	F.Port receiver</a> (see setup image bellow). It was not so hard to get
+	it working <a href="https://github.com/kikaitachi/naminukas-brain/blob/main/pru_firmware/fport.pru0.c">
+	one way</a> as in a way F.Port is just "better" SBUS. I am still working on
+	getting telemetry from the robot to the controller but I though	I should
+	document process so far to help someone on the same journey as I was.
 </p>
 <h2>Experimental setup</h2>
 <p>
-	First I would like to say that having proper tools to analyse signals was
+	First, I would like to say that having proper tools to analyse signals was
 	probably more useful than Google on this subject. Here is my setup to debug
 	F.Port signals:
 </p>
 <div style="margin: auto; text-align: center; font-size: 75%;">
-	<img class="image" src="../images/f.port-setup.jpg" style="width: 100%; max-width: 500px;" alt="F.Port debugging setup"/>
+	<img class="image" src="../images/f.port-setup.jpg" style="width: 100%; max-width: 600px;" alt="F.Port debugging setup"/>
 	<br/>F.Port debugging setup
 </div>
 <p>
 	I was lucky to have
 	access quite expensive but totally worth it piece of equipment called
 	<a href="https://www.saleae.com/">Salea Logic Analyser</a>. Salea Logic
-	Analyser allows to capture up to 8 input signals (more expensive 16 channel
+	Analyser allows to capture up to 8 input signals (even more expensive 16 channel
 	version is available too) and display/analyse them on computer via USB
 	connection. It captures both analog and digital signals so it can replace
 	osciloscope in some cases. Computer side software is called <a href="https://www.saleae.com/downloads/">Logic</a>
 	and is available for Linux, Mac and Windows. It is very simple and intuitive
-	to use. There is not need to even install it. You just download a single file
+	to use. There is no need to even install it. You just download a single file
 	and run it. What is the most useful in my opinion is the ability to annotate
-	captured signals. For example it can decode UART, SPI and I<sup>2</sup>C
-	signals and display which part the signal corresponds to which byte.
+	captured signals. For example, it can decode <a href="https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter">Universal Asynchronous Receiver-Transmitter</a>
+	(UART),	<a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">Serial Peripheral Interface</a>
+	(SPI) and <a href="https://en.wikipedia.org/wiki/I%C2%B2C">Inter-Integrated Circuit</a>
+	(I²C) signals and display which part the signal corresponds to which byte.
 	Here is an example of F.Port signal decoded as UART:
+</p>
+<div style="margin: auto; text-align: center; font-size: 75%;">
+	<img class="image" src="../images/f.port-uart.png" style="width: 100%; max-width: 700px;" alt="Decoded UART signal"/>
+	<br/>Decoded UART signal
+</div>
+<p>
+	At the bottom "A0" channel shows analog signal which is not interesting for
+	us in this case except to check if device operates at 3.3V or 5V. At the top
+	"D0" channel represents digital signal. At the very top pink boxes indicate
+	decoded UART bytes. White dots indicate where data bits are.
+
 </p>
 <h2>What is F.Port protocol?</h2>
 <p>
@@ -104,10 +123,14 @@
 	8 data bits, one start bit, one stop bit and no parity. These are required settings
 	to decode signal in Salea Logic software:
 </p>
+<div style="margin: auto; text-align: center; font-size: 75%;">
+	<img class="image" src="../images/f.port-settings.png" style="width: 100%; max-width: 500px;" alt="Salea Logic UART settings"/>
+	<br/>Salea Logic UART settings
+</div>
 <p>
 	Protocol defines the following 3 frames:
 </p>
-<table>
+<table class="table">
 <caption>Control frame</caption>
 <thead>
 	<tr>
@@ -130,7 +153,7 @@
 	</tr>
 </tbody>
 </table>
-<table>
+<table class="table">
 	<caption>Downlink data frame</caption>
 	<thead>
 		<tr>
@@ -159,7 +182,7 @@
 		</tr>
 	</tbody>
 </table>
-<table>
+<table class="table">
 	<caption>Uplink data frame</caption>
 	<thead>
 		<tr>
@@ -184,12 +207,66 @@
 		</tr>
 	</tbody>
 </table>
-<dl>
-	<dt>Previously:</dt>
-	<dd>
-		<a href="/blog/2021-08-07/wheels-to-tracks">Converting wheeled robot to tracked</a>
-	</dd>
-</dl>
+<p>
+	Control frame is used to send channel data from radio controller to the
+	receiver. 16 channels as send in 22 "data" bytes. Each channel uses 11 bits.
+	There are 2 additional "digital" only channels which are send as 2 least
+	significant bits of "flags" byte. Not all hardware supports them. "RSSI"
+	byte stands for Received Signal	Strength Indicator. "CRC" is summed from
+	"Len" field to the byte in front of "CRC".
+</p>
+<p>
+	Downlink/Uplink data frames is what allows bidirectional communication.
+	I am still working on implementing them in my robot and I will add more
+	information about them here or in the next blog entry in the future.
+</p>
+<h2>Salea Logic Extensions</h2>
+<p>
+	While UART annotations in Salea Logic are very useful, it would be even
+	more useful if it could understand not only generic UART but the underlying
+	F.Port protocol too. For that reason Salea Logic supports extensions. For
+	example, Dynamixel servo motors also use UART and there is and extension
+	which on top of UART decoding shows which byte means what in the underlying
+	protocol. For example:
+</p>
+<div style="margin: auto; text-align: center; font-size: 75%;">
+	<img class="image" src="../images/salea-dynamixel.png" style="width: 100%; max-width: 700px;" alt="Decoded Dynamixel protocol"/>
+	<br/>Decoded Dynamixel protocol
+</div>
+<p>
+	I found Dynamixel protocol extension very useful and given there was no
+	extension for F.Port yet, I decided to write <a href="https://github.com/kikaitachi/fport-decoder">my own</a>.
+	It was not hard to write. Salea has <a href="https://support.saleae.com/extensions">extensive documentation</a>
+	about extensions. Extensions are publicly hosted on GitHub so there are
+	plenty of examples to learn from. Extension code needs to be written in
+	<a href="https://www.python.org/">Python</a>. Here is an example of my
+	extension in action:
+</p>
+<div style="margin: auto; text-align: center; font-size: 75%;">
+	<img class="image" src="../images/f.port-decoded-channels.png" style="width: 100%; max-width: 700px;" alt="F.Port decoded channels"/>
+	<br/>F.Port decoded channels
+</div>
+<p>
+	As you can see extensions can operate not only on bytes. For example,
+	blue channel boxes ("ch1", "ch2", "ch3") span bits they represent.
+	This aids a lot for debugging and understanding data. Here is an example
+	of decoded "flags" bits:
+</p>
+<div style="margin: auto; text-align: center; font-size: 75%;">
+	<img class="image" src="../images/f.port-decoded-flags.png" style="width: 100%; max-width: 700px;" alt="F.Port decoded flags"/>
+	<br/>F.Port decoded flags
+</div>
+<p>
+	My "F.Port decoder" extension is already included in official extensions,
+	so you can install it as any other with a single click:
+</p>
+<div style="margin: auto; text-align: center; font-size: 75%;">
+	<img class="image" src="../images/f.port-decoder-extension.png" style="width: 100%; max-width: 900px;" alt="F.Port decoder extension"/>
+	<br/>F.Port decoder extension
+</div>
+<p>
+	I hope it will be useful for someone and I am looking forward to create more.
+</p>
 </div>
 </div>
 <script src="/naminukas.js"></script>

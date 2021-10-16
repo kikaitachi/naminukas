@@ -178,6 +178,24 @@ dd {
 	padding: 1em;
 }
 
+.table {
+	border-collapse: collapse;
+	border-style: hidden;
+	margin: auto;
+	font-size: 90%;
+}
+
+.table td, .table th {
+	border: 1px solid black;
+	padding: 5px;
+}
+
+.table caption {
+	margin: 1rem 0 0.5rem 0;
+	font-weight: bold;
+	font-size: 120%;
+}
+
 .contributors {
 	border-collapse: collapse;
 	border-style: hidden;
