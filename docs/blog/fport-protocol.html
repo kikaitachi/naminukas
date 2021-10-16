@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>F.Port protocol</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="FrSky F.Port protocol explained">
+<link rel="stylesheet" type="text/css" href="/naminukas.css">
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Blog",
+		"item": "https://naminukas.kikaitachi.com/blog"
+	}, {
+		"@type": "ListItem",
+		"position": 2,
+		"name": "F.Port protocol"
+	}]
+}
+</script>
+</head>
+<body>
+<div class="body">
+<div class="content">
+<h1>F.Port protocol</h1>
+<h2>Motivation</h2>
+<div style="float: right; text-align: center; margin: 1rem 0 1rem 1rem; font-size: 75%;">
+	<img class="image" src="../images/inuit-snow-goggles.jpg" style="width: 200px" alt="Inuit snow goggles made from caribou antler with caribou sinew for a strap"/>
+	<br/>
+	Inuit <a href="https://en.wikipedia.org/wiki/Snow_goggles">snow goggles</a>
+	<br/>
+	Source: <a href="https://en.wikipedia.org/wiki/Snow_goggles#/media/File:Inuit_snow_goggles.jpg">Wikipedia</a> <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+</div>
+<p>
+	Until recently I have controlled naminukas robot either from a desktop
+	computer during development or from a laptop during experiments. Since
+	<a href="https://beagleboard.org/blue">BeagleBone Blue</a> board can
+	act as WiFi access point it is easy to connect to the robot anywhere
+	even then no other networks are available. When I tried this solution
+	<a href="https://youtu.be/XXZjXcNF9N4">on the beach</a> during bright
+	sunny day I immediately understood drawback	of this remote control
+	solution. Screen readability is severely affected by the direct sunlight.
+	Extensive use of keyboard shortcuts in my web based control UI helped a lot
+	but even finding the right key was a challenge. After all
+	<a href="https://en.wikipedia.org/wiki/Snow_goggles">sunglasses</a> (see
+	image on the right) were invented because it is hard to look at anything on
+	the bright sunny day.
+</p>
+<div style="float: left; text-align: center; margin: 0 1rem 1rem 0; font-size: 75%;">
+	<img class="image" src="../images/radiomaster-r86c.jpg" style="width: 200px" alt="RadioMaster R86C-D8 6/8 Channel PWM/SBUS receiver"/>
+	<br/>RadioMaster R86C-D8
+	<br/>6/8 Channel
+	<br/>PWM/SBUS receiver
+</div>
+<p>
+	This experience led me to buy my first hobby RC radio. Given variety of
+	radio brands, protocols, controllers and receivers it was a daunting task
+	to choose what to buy. I ended up with <a href="https://radiomasterrc.com/Radio-TX16S-MAX.html">RadioMaster TX16S MAX</a>. My goal was to have 2 way
+	communication between controller and robot. But even after hours of
+	research I ended up buying SBUS capable receiver (see image on the left) just to discover that
+	SBUS supports only controller to receiver communication. I had to bit-bang
+	SBUS protocol in BeagleBone Blue PRU unit. Documentation both about SBUS
+	and PRU is sparse and took countless days to get working. Here is proof of
+	concept implementation: <a href="https://github.com/kikaitachi/naminukas-brain/blob/main/pru_firmware/sbus.pru0.c">https://github.com/kikaitachi/naminukas-brain/blob/main/pru_firmware/sbus.pru0.c</a>. Eventually I figured out that F.Port capable
+	receiver is what would allow me to have bidirectional communication between
+	controller and the robot. So I bought <a href="https://www.jumper-rc.com/products/receivers/r1f/">Jumper R1F F.Port receiver</a>.
+	It was not so hard to get it working one way as in
+	a way F.Port is just "better" SBUS. I am still working on getting telemetry
+	from the robot to the controller but I though I should document process so
+	far to help someone on the same journey as I was.
+</p>
+<h2>Experimental setup</h2>
+<div style="float: right; text-align: center; margin: 1rem 0 1rem 1rem; font-size: 75%;">
+	<img class="image" src="../images/f.port-setup.jpg" style="width: 100%; max-width: 500px;" alt="F.Port debugging setup"/>
+	<br/>F.Port debugging setup
+</div>
+<p>
+	First I would like to say that having proper tools to analyse signals was
+	probably more useful than Google on this subject. I was lucky to have
+	access quite expensive but totally worth it piece of equipment called
+	<a href="https://www.saleae.com/">Salea Logic Analyser</a>.
+</p>
+<dl>
+	<dt>Previously:</dt>
+	<dd>
+		<a href="/blog/2021-08-07/wheels-to-tracks">Converting wheeled robot to tracked</a>
+	</dd>
+</dl>
+</div>
+</div>
+<script src="/naminukas.js"></script>
+</html>
