@@ -92,7 +92,7 @@
 <p>
 	I was lucky to have
 	access quite expensive but totally worth it piece of equipment called
-	<a href="https://www.saleae.com/">Salea Logic Analyser</a>. Salea Logic
+	<a href="https://www.saleae.com/">Saleae Logic Analyser</a>. Saleae Logic
 	Analyser allows to capture up to 8 input signals (even more expensive 16 channel
 	version is available too) and display/analyse them on computer via USB
 	connection. It captures both analog and digital signals so it can replace
@@ -121,11 +121,11 @@
 <p>
 	F.Port is a single wire bus which uses inverted UART with speed 115200 bits / second,
 	8 data bits, one start bit, one stop bit and no parity. These are required settings
-	to decode signal in Salea Logic software:
+	to decode signal in Saleae Logic software:
 </p>
 <div style="margin: auto; text-align: center; font-size: 75%;">
-	<img class="image" src="../images/f.port-settings.png" style="width: 100%; max-width: 500px;" alt="Salea Logic UART settings"/>
-	<br/>Salea Logic UART settings
+	<img class="image" src="../images/f.port-settings.png" style="width: 100%; max-width: 500px;" alt="Saleae Logic UART settings"/>
+	<br/>Saleae Logic UART settings
 </div>
 <p>
 	Protocol defines the following 3 frames:
@@ -220,23 +220,23 @@
 	I am still working on implementing them in my robot and I will add more
 	information about them here or in the next blog entry in the future.
 </p>
-<h2>Salea Logic Extensions</h2>
+<h2>Saleae Logic Extensions</h2>
 <p>
-	While UART annotations in Salea Logic are very useful, it would be even
+	While UART annotations in Saleae Logic are very useful, it would be even
 	more useful if it could understand not only generic UART but the underlying
-	F.Port protocol too. For that reason Salea Logic supports extensions. For
+	F.Port protocol too. For that reason Saleae Logic supports extensions. For
 	example, Dynamixel servo motors also use UART and there is and extension
 	which on top of UART decoding shows which byte means what in the underlying
 	protocol. For example:
 </p>
 <div style="margin: auto; text-align: center; font-size: 75%;">
-	<img class="image" src="../images/salea-dynamixel.png" style="width: 100%; max-width: 700px;" alt="Decoded Dynamixel protocol"/>
+	<img class="image" src="../images/saleae-dynamixel.png" style="width: 100%; max-width: 700px;" alt="Decoded Dynamixel protocol"/>
 	<br/>Decoded Dynamixel protocol
 </div>
 <p>
 	I found Dynamixel protocol extension very useful and given there was no
 	extension for F.Port yet, I decided to write <a href="https://github.com/kikaitachi/fport-decoder">my own</a>.
-	It was not hard to write. Salea has <a href="https://support.saleae.com/extensions">extensive documentation</a>
+	It was not hard to write. Saleae has <a href="https://support.Saleaee.com/extensions">extensive documentation</a>
 	about extensions. Extensions are publicly hosted on GitHub so there are
 	plenty of examples to learn from. Extension code needs to be written in
 	<a href="https://www.python.org/">Python</a>. Here is an example of my
