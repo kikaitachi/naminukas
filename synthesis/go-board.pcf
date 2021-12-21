@@ -1,7 +1,0 @@
-set_io clock 15
-
-# PMOD1
-set_io fport 65
-
-# PMOD2
-set_io dynamixel 64
