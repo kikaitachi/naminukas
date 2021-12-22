@@ -1,3 +1,11 @@
+# naminukas
+
+Pneumatic walking, driving and wall climbing robot.
+
 ![Last build result](https://github.com/kikaitachi/naminukas-robot/workflows/CI/badge.svg)
 
-Go to [website](https://naminukas.kikaitachi.com/) for details.
+## Contributing
+
+### Commit Message Guidelines
+
+See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
