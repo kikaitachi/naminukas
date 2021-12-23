@@ -1,5 +1,5 @@
 `include "dynamixel.v"
-//`include "fport_radio.v"
+`include "fport_radio.v"
 
 module naminukas
 #(
@@ -12,20 +12,13 @@ module naminukas
     inout dynamixel
 );
 
-reg fport_sending;
-wire fport_output;
-wire fport_input;
-
-assign fport = fport_sending ? fport_output : 1'bZ;
-assign fport_input = fport;
-
-/*reg channel_changed;
+wire channel_changed;
 reg[3:0] channel_index;
 reg[10:0] channel_value;
 
 fport_radio
 #(
-    //
+    .clock_frequency(clock_frequency)
 )
 rc_radio
 (
@@ -35,7 +28,6 @@ rc_radio
     .channel_index(channel_index),
     .channel_value(channel_value)
 );
-*/
 
 reg[15:0] address;
 reg[15:0] data_len;
