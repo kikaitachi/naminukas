@@ -14,10 +14,6 @@ jobs:
         run: |
           sudo apt install iverilog verilator
       - name: Lint Verilog code
-        run: |
-          cd hdl
-          verilator --lint-only naminukas.v
+        run: make lint
       - name: Verilog unit tests
-        run: |
-          iverilog -o uart_test hdl/uart.v test/tb_uart.v
-          vvp uart_test
+        run: make test
