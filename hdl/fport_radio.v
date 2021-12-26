@@ -18,8 +18,8 @@ localparam FPORT_READ_BYTES                  = 2'b11;
 
 localparam half_clocks_per_bit = clocks_per_bit / 2;
 
-// If 1100 zero bits are detected assume transmission is over
-localparam clocks_to_dectect_transmission_end = clocks_per_bit * 1100;
+// If 20 zero bits are detected assume transmission is over
+localparam clocks_to_dectect_transmission_end = clocks_per_bit * 20;
 
 reg [1:0] state = FPORT_WAIT_FOR_TRANSMISSION_END;
 // TODO: figure how many bits are really needed based on clock_frequency
@@ -71,6 +71,11 @@ always @(posedge clock) begin
                 channel_changed <= 0;
             end else begin
                 if (byte_bit_index == 8) begin
+                  if (current_channel == 0 && received_byte != 'h7E) begin
+                    // Invalid header
+                    state <= FPORT_WAIT_FOR_TRANSMISSION_END;
+                    clocks_to_skip <= clocks_to_dectect_transmission_end;
+                  end else begin
                     channel_changed <= 1;
                     channel_index = current_channel;
                     channel_value[10:8] <= 3'b000;
@@ -84,8 +89,9 @@ always @(posedge clock) begin
                         current_channel <= current_channel + 1;
                         state <= FPORT_WAIT_FOR_TRANSMISSION_START;
                     end
+                  end
                 end else begin
-                    received_byte[byte_bit_index[2:0]] <= fport_input;
+                    received_byte[7 - byte_bit_index[2:0]] <= ~fport_input;
                     byte_bit_index <= byte_bit_index + 1;
                     clocks_to_skip <= clocks_per_bit;
                 end
