@@ -14,4 +14,5 @@ lint:
 .PHONY: test
 test:
 	iverilog -o uart_test hdl/uart.v test/tb_uart.v && \
-    vvp uart_test
+    vvp uart_test && \
+    rm uart_test
