@@ -21,11 +21,11 @@ localparam half_clocks_per_bit = clocks_per_bit / 2;
 // If 20 zero bits are detected assume transmission is over
 localparam clocks_to_dectect_transmission_end = clocks_per_bit * 20;
 
-reg [1:0] state = FPORT_WAIT_FOR_TRANSMISSION_END;
+reg [1:0] state = FPORT_WAIT_FOR_TRANSMISSION_START;
 // TODO: figure how many bits are really needed based on clock_frequency
 reg [32:0] clocks_to_skip = clocks_to_dectect_transmission_end;
 reg [3:0] byte_bit_index;
-reg [3:0] current_channel;
+reg [7:0] byte_index = 0;
 reg [7:0] received_byte;
 
 reg fport_sending = 0;
@@ -38,24 +38,17 @@ assign fport_input = fport;
 always @(posedge clock) begin
     case (state)
         FPORT_WAIT_FOR_TRANSMISSION_END: begin
-            channel_changed <= 0;
-            if (fport_input == 1)
-                // Non zero value, assume still transmitting
-                clocks_to_skip <= clocks_to_dectect_transmission_end;
-            else if (clocks_to_skip == 0) begin
-                // Transmission end detected
-                state <= FPORT_RESPOND;
-                fport_sending <= 1;
-            end else begin
-                // Wait
-                clocks_to_skip <= clocks_to_skip - 1;
-            end
+            // Not used in new imlementation
         end
         FPORT_RESPOND: begin
             // TODO: send telemetry
-            fport_sending <= 0;
-            state <= FPORT_WAIT_FOR_TRANSMISSION_START;
-            current_channel <= 0;
+            if (clocks_to_skip != 0) begin
+                clocks_to_skip <= clocks_to_skip - 1;
+            end else begin
+              fport_sending <= 0;
+              state <= FPORT_WAIT_FOR_TRANSMISSION_START;
+              byte_index <= 0;
+            end
         end
         FPORT_WAIT_FOR_TRANSMISSION_START: begin
             channel_changed <= 0;
@@ -71,27 +64,52 @@ always @(posedge clock) begin
                 channel_changed <= 0;
             end else begin
                 if (byte_bit_index == 8) begin
-                  if (current_channel == 0 && received_byte != 'h7E) begin
+                  if (byte_index == 0 && received_byte != 'h7E) begin
                     // Invalid header
-                    state <= FPORT_WAIT_FOR_TRANSMISSION_END;
-                    clocks_to_skip <= clocks_to_dectect_transmission_end;
+                    state <= FPORT_WAIT_FOR_TRANSMISSION_START;
+                  end else if (byte_index == 1 && received_byte != 'h19) begin
+                    // Invalid length
+                    state <= FPORT_WAIT_FOR_TRANSMISSION_START;
+                    byte_index <= 0;
+                  end else if (byte_index == 2 && received_byte != 'h00) begin
+                    // Invalid type
+                    state <= FPORT_WAIT_FOR_TRANSMISSION_START;
+                    byte_index <= 0;
                   end else begin
-                    channel_changed <= 1;
-                    channel_index = current_channel;
-                    channel_value[10:8] <= 3'b000;
-                    channel_value[7:0] <= received_byte;
+                    if (byte_index == 39) begin
+                      channel_changed <= 1;
+                      channel_index = 0;
+                      channel_value[10:8] <= 3'b000;
+                      channel_value[7:0] <= received_byte;
+                    end else if (byte_index == 40) begin
+                      channel_changed <= 1;
+                      channel_index = 1;
+                      channel_value[10:8] <= 3'b000;
+                      channel_value[7:0] <= received_byte;
+                    end else if (byte_index == 41) begin
+                      channel_changed <= 1;
+                      channel_index = 2;
+                      channel_value[10:8] <= 3'b000;
+                      channel_value[7:0] <= received_byte;
+                    end else if (byte_index == 42) begin
+                      channel_changed <= 1;
+                      channel_index = 3;
+                      channel_value[10:8] <= 3'b000;
+                      channel_value[7:0] <= received_byte;
+                    end
                     //channel_value[10:4] <= 7'b0000000;
                     //channel_value[3:0] <= channel_index;
-                    if (current_channel == 15) begin
-                        state <= FPORT_WAIT_FOR_TRANSMISSION_END;
-                        clocks_to_skip <= clocks_to_dectect_transmission_end;
+                    if (byte_index == 42) begin
+                        state <= FPORT_RESPOND;
+                        fport_sending <= 1;
+                        clocks_to_skip <= 36000;  // 3ms
                     end else begin
-                        current_channel <= current_channel + 1;
+                        byte_index <= byte_index + 1;
                         state <= FPORT_WAIT_FOR_TRANSMISSION_START;
                     end
                   end
                 end else begin
-                    received_byte[7 - byte_bit_index[2:0]] <= ~fport_input;
+                    received_byte[byte_bit_index[2:0]] <= ~fport_input;
                     byte_bit_index <= byte_bit_index + 1;
                     clocks_to_skip <= clocks_per_bit;
                 end
