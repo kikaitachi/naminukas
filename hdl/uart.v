@@ -1,6 +1,7 @@
 module uart
 #(
-    parameter clocks_per_bit = 1
+    parameter clocks_per_bit = 1,
+    parameter invert = 0
 )
 (
     input clock,
@@ -28,9 +29,9 @@ begin
                 done <= 1;
                 sending <= 0;
             end else if (bit_index == 8) begin
-                pin <= 1;
+                pin <= invert == 1 ? 0 : 1;
             end else begin
-                pin <= byte_to_send[bit_index[2:0]];
+                pin <= invert == 1 ? ~byte_to_send[bit_index[2:0]] : byte_to_send[bit_index[2:0]];
             end
             clocks <= 0;
             bit_index <= bit_index + 1;
@@ -41,7 +42,7 @@ begin
         sending <= 1;
         done <= 0;
         bit_index <= 0;
-        pin <= 0;
+        pin <= invert == 1 ? 1 : 0;
         clocks <= 0;
     end else begin
         done <= 0;
