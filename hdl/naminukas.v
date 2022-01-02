@@ -4,13 +4,13 @@
 
 module naminukas
 #(
-    parameter clock_frequency = 12000000,
-    parameter dynamixel_baudrate = 4000000
+  parameter clock_frequency = 12000000,
+  parameter dynamixel_baudrate = 4000000
 )
 (
-    input clock,
-    inout fport,
-    inout dynamixel,
+  input clock,
+  inout fport,
+  inout dynamixel,
 	output led1,
 	output led2,
 	output led3,
@@ -22,7 +22,8 @@ module naminukas
 	output lcol1,
 	output lcol2,
 	output lcol3,
-	output lcol4
+	output lcol4,
+  output debug_pin
 );
 
 // LED holding registers, what is writed to these appears on the led display
@@ -41,13 +42,13 @@ assign { lcol4, lcol3, lcol2, lcol1 } = lcol[3:0];
 
 // Instantiate the led scan module
 LedScan scan (
-    .clk12MHz(clock),
-    .leds1(leds1),
-    .leds2(leds2),
-    .leds3(leds3),
-    .leds4(leds4),
-    .leds(leds),
-    .lcol(lcol)
+  .clk12MHz(clock),
+  .leds1(leds1),
+  .leds2(leds2),
+  .leds3(leds3),
+  .leds4(leds4),
+  .leds(leds),
+  .lcol(lcol)
 );
 
 wire channel_changed;
@@ -56,15 +57,16 @@ wire[10:0] channel_value;
 
 fport_radio
 #(
-    .clock_frequency(clock_frequency)
+  .clock_frequency(clock_frequency)
 )
 rc_radio
 (
-    .clock(clock),
-    .fport(fport),
-    .channel_changed(channel_changed),
-    .channel_index(channel_index),
-    .channel_value(channel_value)
+  .clock(clock),
+  .fport(fport),
+  .channel_changed(channel_changed),
+  .channel_index(channel_index),
+  .channel_value(channel_value),
+  .debug_pin(debug_pin)
 );
 
 reg[15:0] address;
