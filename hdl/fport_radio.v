@@ -36,29 +36,92 @@ wire fport_input;
 assign fport = fport_sending ? fport_output : 1'bZ;
 assign fport_input = fport;
 
+reg send_byte = 0;
+reg[7:0] byte_to_send;
+wire done;
+
+uart
+#(
+    .clocks_per_bit(clocks_per_bit),
+    .invert(1)
+)
+uplink_uart
+(
+    .clock(clock),
+    .send(send_byte),
+    .byte_to_send(byte_to_send),
+    .done(done),
+    .pin(fport_output)
+);
+
 always @(posedge clock) begin
   if (clocks_to_skip != 0) begin
     clocks_to_skip <= clocks_to_skip - 1;
   end else begin
-    debug_pin <= 0;
+    //debug_pin <= 0;
     case (state)
       FPORT_WAIT_FOR_TRANSMISSION_END: begin
-        // TODO: repurpose
+        state <= FPORT_RESPOND;
+        fport_sending <= 1;
+        byte_index <= 0;
+        byte_to_send <= 'h08;
+        send_byte <= 1;
       end
       FPORT_RESPOND: begin
-        // TODO: implement sending telemetry
-        fport_sending <= 0;
-        state <= FPORT_WAIT_FOR_TRANSMISSION_START;
-        byte_index <= 0;
-        debug_pin <= 1;
-        clocks_to_skip <= 36000;  // 3ms
+        if (done == 1) begin
+          if (byte_index == 0) begin
+            byte_index <= 1;
+            byte_to_send <= 'h81;
+            send_byte <= 1;
+          end else if (byte_index == 1) begin
+            byte_index <= 2;
+            byte_to_send <= 'h10;
+            send_byte <= 1;
+          end else if (byte_index == 2) begin
+            byte_index <= 3;
+            byte_to_send <= 'h00;
+            send_byte <= 1;
+          end else if (byte_index == 3) begin
+            byte_index <= 4;
+            byte_to_send <= 'h51;
+            send_byte <= 1;
+          end else if (byte_index == 4) begin
+            byte_index <= 5;
+            byte_to_send <= 'h01;
+            send_byte <= 1;
+          end else if (byte_index == 5) begin
+            byte_index <= 6;
+            byte_to_send <= 'h00;
+            send_byte <= 1;
+          end else if (byte_index == 6) begin
+            byte_index <= 7;
+            byte_to_send <= 'h00;
+            send_byte <= 1;
+          end else if (byte_index == 7) begin
+            byte_index <= 8;
+            byte_to_send <= 'h00;
+            send_byte <= 1;
+          end else if (byte_index == 8) begin
+            byte_index <= 9;
+            byte_to_send <= 20;  // TODO: calculate CRC
+            send_byte <= 1;
+          end else begin
+            fport_sending <= 0;
+            state <= FPORT_WAIT_FOR_TRANSMISSION_START;
+            byte_index <= 0;
+            //debug_pin <= 1;
+            //clocks_to_skip <= 36000;  // 3ms
+          end
+        end else begin
+          send_byte <= 0;
+        end
       end
       FPORT_WAIT_FOR_TRANSMISSION_START: begin
         if (fport_input == 1) begin
           state <= FPORT_READ_BYTES;
           clocks_to_skip <= half_clocks_per_bit * 3;
           byte_bit_index <= 0;
-          debug_pin <= 1;
+          //debug_pin <= 1;
         end
       end
       FPORT_READ_BYTES: begin
@@ -79,9 +142,8 @@ always @(posedge clock) begin
             clocks_to_skip <= clocks_per_bit;
             byte_index <= 0;
           end else if (byte_index == 40) begin
-            state <= FPORT_RESPOND;
+            state <= FPORT_WAIT_FOR_TRANSMISSION_END;
             clocks_to_skip <= clocks_per_bit * 16;
-            fport_sending <= 1;
           end else begin
             state <= FPORT_WAIT_FOR_TRANSMISSION_START;
             byte_index <= byte_index + 1;
