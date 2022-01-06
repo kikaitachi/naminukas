@@ -26,7 +26,7 @@ reg [2:0] byte_bit_index;
 reg [7:0] byte_index = 0;
 reg [7:0] received_byte;
 
-reg [7:0] channel0;
+reg [10:0] channel0;
 
 reg fport_sending = 0;
 wire fport_output;
@@ -60,7 +60,7 @@ function automatic [7:0] crc8;
     reg [8:0] sum;
 begin
     sum = crcIn + data;
-    crc8 = sum[7:0] + {7'b0000000,sum[8]};
+    crc8 = sum[7:0] + {7'b0000000, sum[8]};
 end
 endfunction
 
@@ -102,14 +102,14 @@ always @(posedge clock) begin
             crc <= crc8(crc, 'h51);
           end else if (byte_index == 4) begin
             byte_index <= 5;
-            byte_to_send <= channel0;
+            byte_to_send <= channel0[7:0];
             send_byte <= 1;
-            crc <= crc8(crc, channel0);
+            crc <= crc8(crc, channel0[7:0]);
           end else if (byte_index == 5) begin
             byte_index <= 6;
-            byte_to_send <= 'h00;
+            byte_to_send <= {5'b00000, channel0[10:8]};
             send_byte <= 1;
-            crc <= crc8(crc, 'h00);
+            crc <= crc8(crc, {5'b00000, channel0[10:8]});
           end else if (byte_index == 6) begin
             byte_index <= 7;
             byte_to_send <= 'h00;
@@ -166,7 +166,9 @@ always @(posedge clock) begin
             byte_index <= byte_index + 1;
             clocks_to_skip <= clocks_per_bit;
             if (byte_index == 3) begin
-              channel0 <= received_byte;
+              channel0[7:0] <= received_byte;
+            end else if (byte_index == 4) begin
+              channel0[10:8] <= received_byte[2:0];
             end
           end
         end else begin
