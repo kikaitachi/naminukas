@@ -11,10 +11,12 @@
 <script src="three/STLLoader.js"></script>
 <script src="three/OrbitControls.js"></script>
 </head>
-<body onload="STLViewer('models/power_and_control_bracket.stl', 'model');">
+<body onload="showParts();">
 <div class="body">
 <div class="content">
 <h1>How to build</h1>
+<h2>Parts to buy</h2>
+<div id="itemsToBuy" class="itemContainer"></div>
 <h2 id="parts">List of parts</h2>
 <div id="partList" style="margin: -1rem -1rem 1rem -1rem"></div>
 <h2 id="print">Model files to 3D print</h2>
@@ -51,36 +53,6 @@
 const partList = document.getElementById('partList');
 window.addEventListener("resize", () => irResize(partList));
 irAdd(partList,
-	'Brushless -77kPa parallel micro vacuum pump HXB05KNDC 12V EPDM',
-	'/parts/vacuum-pump-HXB05KNDC-12V-EPDM.png',
-	'Vacuum pump HXB05KNDC 12V EPDM',
-	'https://www.aliexpress.com/item/32848128724.html')
-.then(() => irAdd(partList,
-	'2 inline vacuum filters ZFB200-06B',
-	'/parts/filter-ZFB200-06B.png',
-	'Inline vacuum filter',
-	'https://www.aliexpress.com/item/32960500812.html')
-.then(() => irAdd(partList,
-	'2 vacuum suction cups PUG-100',
-	'/parts/vacuum-suction-cup.png',
-	'Vacuum suction cup',
-	'https://www.aliexpress.com/item/4000102646507.html')
-.then(() => irAdd(partList,
-	'2 high speed rotary pneumatic joints KSL 06-01S',
-	'/parts/high-speed-rotary-pneumatic-joint-KSL06-01S.png',
-	'High speed rotary pneumatic joint',
-	'https://www.aliexpress.com/item/1000007639193.html')
-.then(() => irAdd(partList,
-	'Pneumatic air tubing: 6mm OD, 4mm ID',
-	'/parts/pneumatic-air-tubing.png',
-	'Pneumatic air tubing',
-	'https://amazon.co.uk/gp/product/B07T2477LS/?tag=wishinfinit09-21')
-.then(() => irAdd(partList,
-	'2 3-way pneumatic fittings SPE-6',
-	'/parts/3-way-pneumatic-fitting-SPE-6.png',
-	'3-way pneumatic fitting',
-	'https://www.aliexpress.com/item/32889453728.html')
-.then(() => irAdd(partList,
 	'2 KingMax high voltage servos CLS4406HHV',
 	'/parts/KingMax-CLS4406HHV-servo.png',
 	'KingMax CLS4406HHV servo',
@@ -150,6 +122,6 @@ irAdd(partList,
 	'/parts/magnets.jpg',
 	'Neodymium magnets',
 	'https://amazon.co.uk/gp/product/B00TACM59S/?tag=wishinfinit09-21')
-)))))))))))))))))));
+)))))))))))));
 </script>
 </html>

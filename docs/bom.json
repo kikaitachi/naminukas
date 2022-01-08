@@ -1,17 +1,61 @@
 [
   {
+    "category": "Pneumatics",
     "name": "Vacuum pump",
     "description": "HXB05KNDC 12V EPDM",
+    "imageUrl": "/parts/vacuum-pump-HXB05KNDC-12V-EPDM.png",
     "buyUrl": "https://www.aliexpress.com/item/32848128724.html",
     "price": 154.26,
     "currency": "GBP",
     "quantity": 1
   },
   {
+    "category": "Pneumatics",
     "name": "Inline vacuum filters",
     "description": "ZFB200-06B",
+    "imageUrl": "/parts/filter-ZFB200-06B.png",
     "buyUrl": "https://www.aliexpress.com/item/32960500812.html",
     "price": 4.41,
+    "currency": "GBP",
+    "quantity": 2
+  },
+  {
+    "category": "Pneumatics",
+    "name": "Vacuum suction cups",
+    "description": "PUG-100",
+    "imageUrl": "/parts/vacuum-suction-cup.png",
+    "buyUrl": "https://www.aliexpress.com/item/4000102646507.html",
+    "price": 13.02,
+    "currency": "GBP",
+    "quantity": 2
+  },
+  {
+    "category": "Pneumatics",
+    "name": "High speed rotary pneumatic joints",
+    "description": "KSL 06-01S",
+    "imageUrl": "/parts/high-speed-rotary-pneumatic-joint-KSL06-01S.png",
+    "buyUrl": "https://www.aliexpress.com/item/1000007639193.html",
+    "price": 7.30,
+    "currency": "GBP",
+    "quantity": 2
+  },
+  {
+    "category": "Pneumatics",
+    "name": "Pneumatic air tubing",
+    "description": "6mm OD, 4mm ID",
+    "imageUrl": "/parts/pneumatic-air-tubing.png",
+    "buyUrl": "https://amazon.co.uk/gp/product/B07T2477LS/?tag=wishinfinit09-21",
+    "price": 9.99,
+    "currency": "GBP",
+    "quantity": 1
+  },
+  {
+    "category": "Pneumatics",
+    "name": "3-way pneumatic fittings",
+    "description": "PE-6",
+    "imageUrl": "/parts/3-way-pneumatic-fitting-SPE-6.png",
+    "buyUrl": "https://www.aliexpress.com/item/32220200655.html",
+    "price": 3.04,
     "currency": "GBP",
     "quantity": 2
   }

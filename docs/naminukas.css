@@ -278,7 +278,11 @@ dd {
 }
 
 .itemContainer > a > span {
-	border-bottom: 1px solid silver;
+  margin: auto;
+  display: table;
+}
+
+.itemContainer > a > span:nth-of-type(1) {
   font-weight: bold;
 }
 

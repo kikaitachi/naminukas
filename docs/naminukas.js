@@ -182,7 +182,7 @@ const STLViewer = (model, elementID) => {
     const middle = new THREE.Vector3();
     geometry.computeBoundingBox();
     geometry.boundingBox.getCenter(middle);
-    mesh.geometry.applyMatrix(new THREE.Matrix4().makeTranslation(-middle.x, -middle.y, -middle.z ) );
+    mesh.geometry.applyMatrix4(new THREE.Matrix4().makeTranslation(-middle.x, -middle.y, -middle.z ) );
     const largestDimension = Math.max(geometry.boundingBox.max.x,
                                     geometry.boundingBox.max.y,
                                     geometry.boundingBox.max.z);
@@ -194,4 +194,26 @@ const STLViewer = (model, elementID) => {
     };
     animate();
   });
+}
+
+const renderBom = (bom) => {
+  const contentEl = document.getElementById('itemsToBuy');
+  var content = "";
+  for (const item of bom) {
+    if (item.buyUrl) {
+      content += `<a href="${item.buyUrl}" target="_blank">`;
+      content += `<img src="${item.imageUrl}" alt="${item.name + ' ' + item.description}">`;
+      content += `<span>${item.name}</span>`;
+      content += `<span>${item.description}</span>`;
+      content += `<span>${item.quantity} × ${item.price} ${item.currency}</span></a>`;
+    }
+  }
+  contentEl.innerHTML = content;
+}
+
+const showParts = () => {
+  fetch("/bom.json")
+    .then(response => response.json())
+    .then(bom => renderBom(bom));
+  STLViewer('models/power_and_control_bracket.stl', 'model');
 }
