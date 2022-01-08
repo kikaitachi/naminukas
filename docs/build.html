@@ -7,8 +7,11 @@
 <meta name="description" content="List of part and details how to build naminukas - pneumatic walking, driving and wall climbing robot.">
 <link rel="stylesheet" type="text/css" href="/naminukas.css">
 <link rel="canonical" href="https://naminukas.kikaitachi.com/"/>
+<script src="three/three.min.js"></script>
+<script src="three/STLLoader.js"></script>
+<script src="three/OrbitControls.js"></script>
 </head>
-<body>
+<body onload="STLViewer('models/power_and_control_bracket.stl', 'model');">
 <div class="body">
 <div class="content">
 <h1>How to build</h1>
@@ -24,6 +27,7 @@
 	<li><a href="https://github.com/dpellegr/PolyGear">PolyGear</a></li>
 	<li><a href="https://github.com/adrianschlatter/threadlib">threadlib</a></li>
 </ul>
+<div id="model" style="width: 200px; height: 200px"></div>
 <h2 id="software">Software</h2>
 <p>
 	Source code and instructions are available on GitHub:

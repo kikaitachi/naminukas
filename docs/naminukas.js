@@ -145,3 +145,53 @@ const irAdd = (container, name, imageUrl, alt, link) => {
 		image.alt = alt;
 	});
 };
+
+const STLViewer = (model, elementID) => {
+  const elem = document.getElementById(elementID);
+
+  const camera = new THREE.PerspectiveCamera(70, elem.clientWidth / elem.clientHeight, 1, 1000);
+
+  var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(elem.clientWidth, elem.clientHeight);
+  elem.appendChild(renderer.domElement);
+
+  window.addEventListener('resize', function () {
+    renderer.setSize(elem.clientWidth, elem.clientHeight);
+    camera.aspect = elem.clientWidth/elem.clientHeight;
+    camera.updateProjectionMatrix();
+  }, false);
+
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.rotateSpeed = 0.05;
+  controls.dampingFactor = 0.1;
+  controls.enableZoom = true;
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = .75;
+
+  const scene = new THREE.Scene();
+  scene.add(new THREE.HemisphereLight(0xffffff, 1.5));
+
+  (new THREE.STLLoader()).load(model, function (geometry) {
+    const material = new THREE.MeshPhongMaterial({
+        color: 0xff5533,
+        specular: 100,
+        shininess: 100 });
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+    const middle = new THREE.Vector3();
+    geometry.computeBoundingBox();
+    geometry.boundingBox.getCenter(middle);
+    mesh.geometry.applyMatrix(new THREE.Matrix4().makeTranslation(-middle.x, -middle.y, -middle.z ) );
+    const largestDimension = Math.max(geometry.boundingBox.max.x,
+                                    geometry.boundingBox.max.y,
+                                    geometry.boundingBox.max.z);
+    camera.position.z = largestDimension * 2.5;
+    const animate = () => {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    };
+    animate();
+  });
+}
