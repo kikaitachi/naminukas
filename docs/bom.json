@@ -58,5 +58,35 @@
     "price": 3.04,
     "currency": "GBP",
     "quantity": 2
+  },
+  {
+    "category": "Servo motors",
+    "name": "Hobby servo motors",
+    "description": "KingMax CLS4406HHV",
+    "imageUrl": "/parts/KingMax-CLS4406HHV-servo.png",
+    "buyUrl": "https://www.aliexpress.com/item/32950048583.html",
+    "price": 38.48,
+    "currency": "GBP",
+    "quantity": 2
+  },
+  {
+    "category": "Servo motors",
+    "name": "Dynamixel smart actuators",
+    "description": "XM430-W350-T",
+    "imageUrl": "/parts/dynamixel-XM430-W350-T.png",
+    "buyUrl": "https://www.mouser.co.uk/ProductDetail/ROBOTIS/902-0124-000?qs=sGAEpiMZZMv0NwlthflBiwBBqTIIuQJgxZjYljFPl4w%3D",
+    "price": 199.67,
+    "currency": "GBP",
+    "quantity": 4
+  },
+  {
+    "category": "Other",
+    "name": "Deep groove ball bearings",
+    "description": "6704ZZ 20x27x4mm",
+    "imageUrl": "/parts/deep-groove-ball-bearing.png",
+    "buyUrl": "https://amazon.co.uk/gp/product/B07M7NLRKT/?tag=wishinfinit09-21",
+    "price": 9.99,
+    "currency": "GBP",
+    "quantity": 2
   }
 ]

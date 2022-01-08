@@ -211,7 +211,7 @@ const renderBom = (bom) => {
     }
   }
   contentEl.innerHTML = content;
-  document.getElementById('partsToBuyTitle').innerHTML += ` (estimated cost: ${sum} GBP)`;
+  document.getElementById('partsToBuyTitle').innerHTML += ` (estimated cost: ${sum.toFixed(2)} GBP)`;
 }
 
 const showParts = () => {

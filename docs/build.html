@@ -17,7 +17,7 @@
 <h1>How to build</h1>
 <h2 id="partsToBuyTitle">Parts to buy</h2>
 <div id="itemsToBuy" class="itemContainer"></div>
-<h2 id="parts">List of parts</h2>
+<h2 id="parts">Parts no longer used in the latest version</h2>
 <div id="partList" style="margin: -1rem -1rem 1rem -1rem"></div>
 <h2 id="print">Model files to 3D print</h2>
 <p>
@@ -53,16 +53,6 @@
 const partList = document.getElementById('partList');
 window.addEventListener("resize", () => irResize(partList));
 irAdd(partList,
-	'2 KingMax high voltage servos CLS4406HHV',
-	'/parts/KingMax-CLS4406HHV-servo.png',
-	'KingMax CLS4406HHV servo',
-	'https://www.aliexpress.com/item/32950048583.html')
-.then(() => irAdd(partList,
-	'4 Dynamixel XM430-W350-T servos',
-	'/parts/dynamixel-XM430-W350-T.png',
-	'Dynamixel XM430-W350-T servo',
-	'http://emanual.robotis.com/docs/en/dxl/x/xm430-w350/')
-.then(() => irAdd(partList,
 	'U2D2 converter',
 	'/parts/u2d2.png',
 	'U2D2',
@@ -82,11 +72,6 @@ irAdd(partList,
 	'/parts/u3v50x-step-up-voltage-regulator.png',
 	'Pololu adjustable 9-30V step-up voltage regulator U3V50AHV',
 	'https://www.pololu.com/product/2571')
-.then(() => irAdd(partList,
-	'2 6704ZZ Deep groove ball bearings 20x27x4mm',
-	'/parts/deep-groove-ball-bearing.png',
-	'6704ZZ Deep groove ball bearing 20x27x4mm',
-	'https://amazon.co.uk/gp/product/B07M7NLRKT/?tag=wishinfinit09-21')
 .then(() => irAdd(partList,
 	'Nitrile rubber o-ring: 95mm ID, 105mm OD, 5mm width',
 	'/parts/o-ring.png',
@@ -122,6 +107,6 @@ irAdd(partList,
 	'/parts/magnets.jpg',
 	'Neodymium magnets',
 	'https://amazon.co.uk/gp/product/B00TACM59S/?tag=wishinfinit09-21')
-)))))))))))));
+))))))))));
 </script>
 </html>
