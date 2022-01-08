@@ -258,3 +258,33 @@ dd {
 	text-overflow: ellipsis;
 	font-size: 16px;
 }
+
+.itemContainer {
+  display: flex;
+  flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.itemContainer > a {
+	flex-grow: 1;
+  margin: 1rem;
+  text-align: center;
+	color: black;
+	text-decoration: none;
+}
+
+.itemContainer > a > img {
+	height: 150px;
+}
+
+.itemContainer > a > span {
+	border-bottom: 1px solid silver;
+  font-weight: bold;
+}
+
+.itemContainer > a > div {
+	position: absolute;
+	color: white;
+	border-radius: 2rem;
+	padding: 0 0.5rem;
+}
