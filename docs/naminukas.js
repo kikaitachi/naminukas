@@ -198,7 +198,8 @@ const STLViewer = (model, elementID) => {
 
 const renderBom = (bom) => {
   const contentEl = document.getElementById('itemsToBuy');
-  var content = "";
+  let content = "";
+  let sum = 0;
   for (const item of bom) {
     if (item.buyUrl) {
       content += `<a href="${item.buyUrl}" target="_blank">`;
@@ -206,9 +207,11 @@ const renderBom = (bom) => {
       content += `<span>${item.name}</span>`;
       content += `<span>${item.description}</span>`;
       content += `<span>${item.quantity} × ${item.price} ${item.currency}</span></a>`;
+      sum += item.quantity * item.price;
     }
   }
   contentEl.innerHTML = content;
+  document.getElementById('partsToBuyTitle').innerHTML += ` (estimated cost: ${sum} GBP)`;
 }
 
 const showParts = () => {
