@@ -21,15 +21,48 @@ module rounded_box(
 
 module power_and_control_bracket(
         tickness = 2,
-        corner_radius = 4,
+        corner_radius = 2,
         main_plate_width = 85,
         main_plate_height = 90,
         connect_plate_width = 30,
         connect_plate_height = 10,
-        connect_screw_diameter = 3.1) {
+        connect_screw_diameter = 3.1,
+        power_screw_length = 5,
+        power_screw_diameter = 2.1,
+        dist_between_power_screws_horizontal = 35.5,
+        dist_between_power_screws_vertical = 58) {
     union() {
         // Main plate
-        rounded_box(main_plate_width, main_plate_height, tickness, [corner_radius, corner_radius, corner_radius, corner_radius]);
+        difference() {
+            union() {
+                rounded_box(main_plate_width, main_plate_height, tickness, [corner_radius, corner_radius, corner_radius, corner_radius]);
+                translate([main_plate_width - corner_radius, main_plate_height - corner_radius, 0]) {
+                    cylinder(r = corner_radius, h = power_screw_length, $fn = 50);
+                }
+                translate([main_plate_width - corner_radius - dist_between_power_screws_horizontal, main_plate_height - corner_radius, 0]) {
+                    cylinder(r = corner_radius, h = power_screw_length, $fn = 50);
+                }
+                translate([main_plate_width - corner_radius, main_plate_height - corner_radius - dist_between_power_screws_vertical, 0]) {
+                    cylinder(r = corner_radius, h = power_screw_length, $fn = 50);
+                }
+                translate([main_plate_width - corner_radius - dist_between_power_screws_horizontal, main_plate_height - corner_radius - dist_between_power_screws_vertical, 0]) {
+                    cylinder(r = corner_radius, h = power_screw_length, $fn = 50);
+                }
+            }
+            // Power board screw holes
+            translate([main_plate_width - corner_radius, main_plate_height - corner_radius, -0.5]) {
+                cylinder(d = power_screw_diameter, h = power_screw_length + 1, $fn = 50);
+            }
+            translate([main_plate_width - corner_radius - dist_between_power_screws_horizontal, main_plate_height - corner_radius, -0.5]) {
+                cylinder(d = power_screw_diameter, h = power_screw_length + 1, $fn = 50);
+            }
+            translate([main_plate_width - corner_radius, main_plate_height - corner_radius - dist_between_power_screws_vertical, -0.5]) {
+                cylinder(d = power_screw_diameter, h = power_screw_length + 1, $fn = 50);
+            }
+            translate([main_plate_width - corner_radius - dist_between_power_screws_horizontal, main_plate_height - corner_radius - dist_between_power_screws_vertical, -0.5]) {
+                cylinder(d = power_screw_diameter, h = power_screw_length + 1, $fn = 50);
+            }
+        }
         // Connect plate
         translate([(main_plate_width - connect_plate_width) / 2, -connect_plate_height + 0.01, 0]) {
             difference() {
