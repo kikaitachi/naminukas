@@ -90,6 +90,16 @@
     "quantity": 1
   },
   {
+    "category": "Electronics",
+    "name": "Step-Down (to 5V) voltage regulator",
+    "description": "BTE13-001",
+    "imageUrl": "/parts/BTE13-001.webp",
+    "buyUrl": "https://www.aliexpress.com/item/32675260705.html",
+    "price": 3.65,
+    "currency": "GBP",
+    "quantity": 1
+  },
+  {
     "category": "Other",
     "name": "Deep groove ball bearings",
     "description": "6704ZZ 20x27x4mm",
