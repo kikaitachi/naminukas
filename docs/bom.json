@@ -80,6 +80,16 @@
     "quantity": 4
   },
   {
+    "category": "Electronics",
+    "name": "F.Port radio receiver",
+    "description": "Jumper R1F, D16 FrSky Compatible",
+    "imageUrl": "/parts/Jumper-R1F.jpg",
+    "buyUrl": "https://www.flyingtech.co.uk/electronics/jumper-r1f-micro-receiver-fport-d16-frsky-compatible",
+    "price": 14.50,
+    "currency": "GBP",
+    "quantity": 1
+  },
+  {
     "category": "Other",
     "name": "Deep groove ball bearings",
     "description": "6704ZZ 20x27x4mm",
