@@ -100,6 +100,16 @@
     "quantity": 1
   },
   {
+    "category": "Electronics",
+    "name": "FPGA breakout board",
+    "description": "iceFUN",
+    "imageUrl": "/parts/iceFUN.webp",
+    "buyUrl": "https://www.robot-electronics.co.uk/products/icefun.html",
+    "price": 32.30,
+    "currency": "GBP",
+    "quantity": 1
+  },
+  {
     "category": "Other",
     "name": "Deep groove ball bearings",
     "description": "6704ZZ 20x27x4mm",
