@@ -80,6 +80,16 @@
     "quantity": 4
   },
   {
+    "category": "Servo motors",
+    "name": "Dynamixel idler bearing set",
+    "description": "HN12-I101",
+    "imageUrl": "/parts/HN12-I101-set.png",
+    "buyUrl": "https://www.mouser.co.uk/ProductDetail/ROBOTIS/903-0240-000?qs=%2Fha2pyFaduhnvWJgw5EUcEuYPvuJQFoDC%252BSmq1REBzeVYRPo1MwmDg%3D%3D",
+    "price": 13.27,
+    "currency": "GBP",
+    "quantity": 2
+  },
+  {
     "category": "Electronics",
     "name": "F.Port radio receiver",
     "description": "Jumper R1F, D16 FrSky Compatible",
