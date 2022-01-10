@@ -23,14 +23,16 @@ module power_and_control_bracket(
         tickness = 2,
         corner_radius = 2,
         main_plate_width = 85,
-        main_plate_height = 90,
+        main_plate_height = 95,
         connect_plate_width = 30,
         connect_plate_height = 10,
         connect_screw_diameter = 3.1,
         power_screw_length = 5,
         power_screw_diameter = 2.1,
         dist_between_power_screws_horizontal = 35.5,
-        dist_between_power_screws_vertical = 58) {
+        dist_between_power_screws_vertical = 58,
+        fpga_height = 18,
+        rubber_hole_diameter = 5) {
     union() {
         // Main plate
         difference() {
@@ -61,6 +63,19 @@ module power_and_control_bracket(
             }
             translate([main_plate_width - corner_radius - dist_between_power_screws_horizontal, main_plate_height - corner_radius - dist_between_power_screws_vertical, -0.5]) {
                 cylinder(d = power_screw_diameter, h = power_screw_length + 1, $fn = 50);
+            }
+            // Cuts to hold FPGA board by rubber band
+            translate([0.25 * rubber_hole_diameter, corner_radius + rubber_hole_diameter / 2, -0.5]) {
+                cylinder(d = rubber_hole_diameter, h = tickness + 1, $fn = 50);
+            }
+            translate([0.25 * rubber_hole_diameter, corner_radius + rubber_hole_diameter / 2 + fpga_height, -0.5]) {
+                cylinder(d = rubber_hole_diameter, h = tickness + 1, $fn = 50);
+            }
+            translate([main_plate_width - 0.25 * rubber_hole_diameter, corner_radius + rubber_hole_diameter / 2, -0.5]) {
+                cylinder(d = rubber_hole_diameter, h = tickness + 1, $fn = 50);
+            }
+            translate([main_plate_width - 0.25 * rubber_hole_diameter, corner_radius + rubber_hole_diameter / 2 + fpga_height, -0.5]) {
+                cylinder(d = rubber_hole_diameter, h = tickness + 1, $fn = 50);
             }
         }
         // Connect plate
