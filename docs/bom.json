@@ -136,5 +136,13 @@
     "scadUrl": "/models/power_and_control_bracket.scad",
     "stlUrl": "/models/power_and_control_bracket.stl",
     "quantity": 1
+  },
+  {
+    "category": "3D print",
+    "name": "Valve to servo connector",
+    "description": "Connects servo horn to pneumatic valve",
+    "scadUrl": "/models/valve_to_servo_connector.scad",
+    "stlUrl": "/models/valve_to_servo_connector.stl",
+    "quantity": 2
   }
 ]

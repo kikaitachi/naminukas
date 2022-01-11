@@ -77,7 +77,7 @@ const STLViewer = (model, elementID) => {
 
   window.addEventListener('resize', function () {
     renderer.setSize(elem.clientWidth, elem.clientHeight);
-    camera.aspect = elem.clientWidth/elem.clientHeight;
+    camera.aspect = elem.clientWidth / elem.clientHeight;
     camera.updateProjectionMatrix();
   }, false);
 
@@ -92,21 +92,23 @@ const STLViewer = (model, elementID) => {
   const scene = new THREE.Scene();
   scene.add(new THREE.HemisphereLight(0xffffff, 1.5));
 
-  (new THREE.STLLoader()).load(model, function (geometry) {
+  new THREE.STLLoader().load(model, (geometry) => {
     const material = new THREE.MeshPhongMaterial({
-        color: 0xff5533,
-        specular: 100,
-        shininess: 100 });
+      color: 0xff5533,
+      specular: 100,
+      shininess: 100
+    });
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
     const middle = new THREE.Vector3();
     geometry.computeBoundingBox();
     geometry.boundingBox.getCenter(middle);
-    mesh.geometry.applyMatrix4(new THREE.Matrix4().makeTranslation(-middle.x, -middle.y, -middle.z ) );
-    const largestDimension = Math.max(geometry.boundingBox.max.x,
-                                    geometry.boundingBox.max.y,
-                                    geometry.boundingBox.max.z);
-    camera.position.z = largestDimension * 2.5;
+    mesh.geometry.applyMatrix4(new THREE.Matrix4().makeTranslation(-middle.x, -middle.y, -middle.z));
+    const largestDimension = Math.max(
+      geometry.boundingBox.max.x,
+      geometry.boundingBox.max.y,
+      geometry.boundingBox.max.z);
+    camera.position.z = largestDimension * 2.25;
     const animate = () => {
       requestAnimationFrame(animate);
       controls.update();
@@ -132,7 +134,7 @@ const renderBom = (bom) => {
     }
     if (item.scadUrl) {
       printContent += `<div>`;
-      printContent += `<div id="model${models.length}" style="width: 200px; height: 200px"></div>`;
+      printContent += `<div id="model${models.length}" style="width: 300px; height: 300px"></div>`;
       printContent += `<table><tr><td rowspan="2">${item.quantity} ×</td><td>${item.name}</td><tr><td>${item.description}</td></tr></table>`;
       printContent += `Download: <a href="${item.scadUrl}" target="_blank">scad</a> | <a href="${item.stlUrl}" target="_blank">stl</a>`;
       printContent += `</div>`;

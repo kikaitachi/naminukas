@@ -314,7 +314,15 @@ dd {
 	display: inline-block;
 }
 
-.modelContainer > div > table {
+.modelContainer table {
 	border-bottom: 1px solid gray;
   margin: auto;
+}
+
+.modelContainer td {
+	text-align: left;
+}
+
+.modelContainer td:nth-child(2) {
+	font-weight: bold;
 }
