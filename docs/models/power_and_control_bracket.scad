@@ -20,19 +20,21 @@ module rounded_box(
 }
 
 module power_and_control_bracket(
-        tickness = 2,
+        tickness = 3,
         corner_radius = 2,
         main_plate_width = 85,
         main_plate_height = 95,
         connect_plate_width = 30,
         connect_plate_height = 10,
         connect_screw_diameter = 3.1,
-        power_screw_length = 5,
+        power_screw_length = 6,
         power_screw_diameter = 2.1,
         dist_between_power_screws_horizontal = 35.5,
         dist_between_power_screws_vertical = 58,
         fpga_height = 18,
-        rubber_hole_diameter = 5) {
+        rubber_hole_diameter = 5,
+        radio_width = 20,
+        gap_width = 6) {
     union() {
         // Main plate
         difference() {
@@ -50,6 +52,10 @@ module power_and_control_bracket(
                 translate([main_plate_width - corner_radius - dist_between_power_screws_horizontal, main_plate_height - corner_radius - dist_between_power_screws_vertical, 0]) {
                     cylinder(r = corner_radius, h = power_screw_length, $fn = 50);
                 }
+            }
+            // Gap between radio and voltage regulator
+            translate([radio_width, fpga_height * 2, -0.5]) {
+                rounded_box(gap_width, main_plate_height, tickness + 1, [corner_radius, corner_radius, corner_radius, corner_radius]);
             }
             // Power board screw holes
             translate([main_plate_width - corner_radius, main_plate_height - corner_radius, -0.5]) {
