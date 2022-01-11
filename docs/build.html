@@ -17,8 +17,6 @@
 <h1>How to build</h1>
 <h2 id="partsToBuyTitle">Parts to buy</h2>
 <div id="itemsToBuy" class="itemContainer"></div>
-<h2 id="parts">Parts no longer used in the latest version</h2>
-<div id="partList" style="margin: -1rem -1rem 1rem -1rem"></div>
 <h2 id="print">Model files to 3D print</h2>
 <p>
 	All 3D printable parts were developed using <a href="https://www.openscad.org/">OpenSCAD</a>.
@@ -49,59 +47,4 @@
 </div>
 </div>
 <script src="/naminukas.js"></script>
-<script>
-const partList = document.getElementById('partList');
-window.addEventListener("resize", () => irResize(partList));
-irAdd(partList,
-	'U2D2 converter',
-	'/parts/u2d2.png',
-	'U2D2',
-	'http://emanual.robotis.com/docs/en/parts/interface/u2d2/')
-.then(() => irAdd(partList,
-	'BeagleBone Blue',
-	'/parts/beaglebone-blue.png',
-	'BeagleBone Blue',
-	'https://amazon.co.uk/gp/product/B07D14WHYW/?tag=wishinfinit09-21')
-.then(() => irAdd(partList,
-	'2 Pololu voltage regulators U3V50AHV',
-	'/parts/u3v50x-step-up-voltage-regulator.png',
-	'Pololu adjustable 9-30V step-up voltage regulator U3V50AHV',
-	'https://www.pololu.com/product/2571')
-.then(() => irAdd(partList,
-	'Nitrile rubber o-ring: 95mm ID, 105mm OD, 5mm width',
-	'/parts/o-ring.png',
-	'Nitrile rubber o-ring: 95mm ID, 105mm OD, 5mm width',
-	'https://amazon.co.uk/gp/product/B07GXMQC11/?tag=wishinfinit09-21')
-.then(() => irAdd(partList,
-	'3PDT mini toggle switch',
-	'/parts/3PDT-mini-toggle-switch.png',
-	'3PDT mini toggle switch',
-	'https://amazon.co.uk/gp/product/B087NP1NSY/?tag=wishinfinit09-21')
-.then(() => irAdd(partList,
-	'2PDT mini toggle switch',
-	'/parts/2PDT-mini-toggle-switch.png',
-	'2PDT mini toggle switch',
-	'https://amazon.co.uk/gp/product/B008DS0NNK/?tag=wishinfinit09-21')
-.then(() => irAdd(partList,
-	'UVA+UVC LED',
-	'/parts/UVA-UVC-LED.png',
-	'UVA+UVC LED',
-	'https://www.aliexpress.com/item/4000117025822.html')
-.then(() => irAdd(partList,
-	'2S LiPo battery 1500mAh',
-	'/parts/2s-lipo.jpg',
-	'2S LiPo battery',
-	'https://amazon.co.uk/gp/product/B07B94GW35/?tag=wishinfinit09-21')
-.then(() => irAdd(partList,
-	'Various screws',
-	'/parts/screws.jpg',
-	'Screws',
-	'https://amazon.co.uk/gp/product/B07JNDYL2B/?tag=wishinfinit09-21')
-.then(() => irAdd(partList,
-	'7 neodymium magnets 4x4x15mm',
-	'/parts/magnets.jpg',
-	'Neodymium magnets',
-	'https://amazon.co.uk/gp/product/B00TACM59S/?tag=wishinfinit09-21')
-)))))))));
-</script>
 </html>
