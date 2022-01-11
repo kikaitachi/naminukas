@@ -128,5 +128,13 @@
     "price": 9.99,
     "currency": "GBP",
     "quantity": 2
+  },
+  {
+    "category": "3D print",
+    "name": "Power & control plate",
+    "description": "Holds electronic components",
+    "scadUrl": "/models/power_and_control_bracket.scad",
+    "stlUrl": "/models/power_and_control_bracket.stl",
+    "quantity": 1
   }
 ]

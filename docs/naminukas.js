@@ -117,26 +117,38 @@ const STLViewer = (model, elementID) => {
 }
 
 const renderBom = (bom) => {
-  const contentEl = document.getElementById('itemsToBuy');
-  let content = "";
+  let buyContent = "";
   let sum = 0;
+  let printContent = "";
+  const models = [];
   for (const item of bom) {
     if (item.buyUrl) {
-      content += `<a href="${item.buyUrl}" target="_blank">`;
-      content += `<img src="${item.imageUrl}" alt="${item.name + ' ' + item.description}">`;
-      content += `<span>${item.name}</span>`;
-      content += `<span>${item.description}</span>`;
-      content += `<span>${item.quantity} × ${item.price} ${item.currency}</span></a>`;
+      buyContent += `<a href="${item.buyUrl}" target="_blank">`;
+      buyContent += `<img src="${item.imageUrl}" alt="${item.name + ' ' + item.description}">`;
+      buyContent += `<span>${item.name}</span>`;
+      buyContent += `<span>${item.description}</span>`;
+      buyContent += `<span>${item.quantity} × ${item.price} ${item.currency}</span></a>`;
       sum += item.quantity * item.price;
     }
+    if (item.scadUrl) {
+      printContent += `<div>`;
+      printContent += `<div id="model${models.length}" style="width: 200px; height: 200px"></div>`;
+      printContent += `<table><tr><td rowspan="2">${item.quantity} ×</td><td>${item.name}</td><tr><td>${item.description}</td></tr></table>`;
+      printContent += `Download: <a href="${item.scadUrl}" target="_blank">scad</a> | <a href="${item.stlUrl}" target="_blank">stl</a>`;
+      printContent += `</div>`;
+      models.push(item.stlUrl);
+    }
   }
-  contentEl.innerHTML = content;
+  document.getElementById('itemsToBuy').innerHTML = buyContent;
   document.getElementById('partsToBuyTitle').innerHTML += ` (estimated cost: ${sum.toFixed(2)} GBP)`;
+  document.getElementById('itemsToPrint').innerHTML = printContent;
+  for (let i = 0; i < models.length; i++) {
+    STLViewer(models[i], `model${i}`);
+  }
 }
 
 const showParts = () => {
   fetch("/bom.json")
     .then(response => response.json())
     .then(bom => renderBom(bom));
-  STLViewer('models/power_and_control_bracket.stl', 'model');
 }

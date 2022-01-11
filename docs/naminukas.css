@@ -295,3 +295,26 @@ dd {
 	border-radius: 2rem;
 	padding: 0 0.5rem;
 }
+
+.modelContainer {
+  display: flex;
+  flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.modelContainer > div {
+	flex-grow: 1;
+  margin: 1rem;
+  text-align: center;
+	color: black;
+	text-decoration: none;
+}
+
+.modelContainer > div > div {
+	display: inline-block;
+}
+
+.modelContainer > div > table {
+	border-bottom: 1px solid gray;
+  margin: auto;
+}
