@@ -152,5 +152,13 @@
     "scadUrl": "/models/valve_plate.scad",
     "stlUrl": "/models/valve_plate.stl",
     "quantity": 2
+  },
+  {
+    "category": "3D print",
+    "name": "Servo joining plate",
+    "description": "Connects 2 Dynamixel actuators",
+    "scadUrl": "/models/servo_joining_plate.scad",
+    "stlUrl": "/models/servo_joining_plate.stl",
+    "quantity": 2
   }
 ]

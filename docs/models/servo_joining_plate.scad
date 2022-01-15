@@ -1,5 +1,3 @@
-include <dimensions.scad>
-
 module servo_joining_plate(
         width = 24.5, //28.5,
         length = 45 + 2 * 34 - 7 * 2,
