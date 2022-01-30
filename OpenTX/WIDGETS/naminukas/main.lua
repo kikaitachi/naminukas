@@ -27,6 +27,10 @@ local function backgroundProcessWidget(widgetToProcessInBackground)
 end
 
 local function refreshWidget(widgetToRefresh)
+  lcd.setColor(CUSTOM_COLOR, 0x11E0)  -- Dark green
+  lcd.drawFilledRectangle(0, 0, LCD_W, LCD_H, CUSTOM_COLOR)
+  lcd.setColor(CUSTOM_COLOR, WHITE)
+
   local counterLength = 50
   local counterHeight = 30
 
@@ -59,6 +63,8 @@ local function refreshWidget(widgetToRefresh)
     , widgetToRefresh.anotherVariable.yWidget + widgetToRefresh.zone.y
     , value
     , LEFT + DBLSIZE + CUSTOM_COLOR);
+  lcd.drawText(0, 0, "Bot: " .. 11.23 .. "V Trans: " .. math.floor(getValue("tx-voltage") * 100) / 100 .. "V", LEFT + SMLSIZE)
+  lcd.drawText(LCD_W, 0, "Mode: tracks*", RIGHT + SMLSIZE + CUSTOM_COLOR)
 end
 
 return {
