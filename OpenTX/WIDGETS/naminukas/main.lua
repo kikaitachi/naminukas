@@ -47,9 +47,13 @@ local function refreshWidget(widgetToRefresh)
       ,(widgetToRefresh.options.ScrollZ==1) and widgetToRefresh.options.StepZ or 0
       ,widgetToRefresh.zone.h-counterHeight)
 
-  local id = getFieldInfo('5100').id
-  local value = getValue(id)
-  sportTelemetryPush(id, 0x10, 0x5100, 0x12345678)
+  local value = -1
+  local fieldInfo = getFieldInfo('5100')
+  if fieldInfo then
+    local id = fieldInfo.id
+    value = getValue(id)
+    sportTelemetryPush(id, 0x10, 0x5100, 0x12345678)
+  end
 
   lcd.drawNumber(widgetToRefresh.anotherVariable.xWidget + widgetToRefresh.zone.x
     , widgetToRefresh.anotherVariable.yWidget + widgetToRefresh.zone.y
