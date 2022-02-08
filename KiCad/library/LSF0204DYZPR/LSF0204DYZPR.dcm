@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LSF0204DYZPR
+D 4-Bit Bidirectional Multi-Voltage Level Translator for Open-Drain & Push-Pull
+K
+F http://www.ti.com/lit/gpn/lsf0204d
+$ENDCMP
+#
+#End Doc Library

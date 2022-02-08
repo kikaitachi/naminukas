@@ -1,5 +1,5 @@
 # Build directory
 build
 
-# KiCad schematic backup files
-*.sch-bak
+# KiCad backup files
+KiCad/naminukas-backups

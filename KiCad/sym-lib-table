@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "Voltage Level Translator")(type "Legacy")(uri "${KIPRJMOD}/library/LSF0204DYZPR/LSF0204DYZPR.lib")(options "")(descr ""))
+)
