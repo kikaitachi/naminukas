@@ -1,0 +1,546 @@
+
+(module IC_TPSM84A21MOJR (layer F.Cu) (tedit 6207AAB8)
+  (descr "")
+  (fp_text reference REF** (at -1.575 -8.635 0) (layer F.SilkS)
+    (effects (font (size 1.0 1.0) (thickness 0.15)))
+  )
+  (fp_text value IC_TPSM84A21MOJR (at 5.41 8.635 0) (layer F.Fab)
+    (effects (font (size 1.0 1.0) (thickness 0.15)))
+  )
+  (pad 8 smd rect (at -3.65 6.65) (size 1.64 1.64) (layers F.Cu))
+  (pad 9 smd rect (at 0.0 6.65) (size 1.64 1.64) (layers F.Cu))
+  (pad 10 smd rect (at 3.65 6.65) (size 1.64 1.64) (layers F.Cu))
+  (pad 1 smd rect (at -3.65 -6.65) (size 1.64 1.64) (layers F.Cu))
+  (pad 19 smd rect (at -1.3 -6.65) (size 1.64 1.64) (layers F.Cu))
+  (pad 18 smd rect (at 1.3 -6.65) (size 1.64 1.64) (layers F.Cu))
+  (pad 17 smd rect (at 3.65 -6.65) (size 1.64 1.64) (layers F.Cu))
+  (pad 2 smd rect (at -3.925 -5.0) (size 1.09 0.74) (layers F.Cu))
+  (pad 3 smd rect (at -3.925 -4.0) (size 1.09 0.74) (layers F.Cu))
+  (pad 4 smd rect (at -3.925 -3.0) (size 1.09 0.74) (layers F.Cu))
+  (pad 5 smd rect (at -3.925 -1.0) (size 1.09 0.74) (layers F.Cu))
+  (pad 6 smd rect (at -3.925 0.0) (size 1.09 0.74) (layers F.Cu))
+  (pad 7 smd rect (at -3.925 1.0) (size 1.09 0.74) (layers F.Cu))
+  (pad 11 smd rect (at 3.925 1.0) (size 1.09 0.74) (layers F.Cu))
+  (pad 12 smd rect (at 3.925 0.0) (size 1.09 0.74) (layers F.Cu))
+  (pad 13 smd rect (at 3.925 -1.0) (size 1.09 0.74) (layers F.Cu))
+  (pad 14 smd rect (at 3.925 -3.0) (size 1.09 0.74) (layers F.Cu))
+  (pad 15 smd rect (at 3.925 -4.0) (size 1.09 0.74) (layers F.Cu))
+  (pad 16 smd rect (at 3.925 -5.0) (size 1.09 0.74) (layers F.Cu))
+  (pad 20 smd rect (at 0.0 0.0) (size 4.94 6.54) (layers F.Cu))
+  (pad 30 thru_hole circle (at 2.15 -0.605) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 26 thru_hole circle (at 2.15 -1.815) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 34 thru_hole circle (at 2.15 0.605) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 38 thru_hole circle (at 2.15 1.815) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 27 thru_hole circle (at -2.15 -0.605) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 23 thru_hole circle (at -2.15 -1.815) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 31 thru_hole circle (at -2.15 0.605) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 35 thru_hole circle (at -2.15 1.815) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 40 thru_hole circle (at 0.765 2.95) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 39 thru_hole circle (at -0.765 2.95) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 32 thru_hole circle (at -0.765 0.605) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 33 thru_hole circle (at 0.765 0.605) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 36 thru_hole circle (at -0.765 1.815) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 37 thru_hole circle (at 0.765 1.815) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 28 thru_hole circle (at -0.765 -0.605) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 29 thru_hole circle (at 0.765 -0.605) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 24 thru_hole circle (at -0.765 -1.815) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 25 thru_hole circle (at 0.765 -1.815) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 22 thru_hole circle (at 0.765 -2.95) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (pad 21 thru_hole circle (at -0.765 -2.95) (size 0.3 0.3) (drill 0.2) (layers *.Cu))
+  (fp_poly
+    (pts
+      (xy -4.4 5.9)
+      (xy -2.9 5.9)
+      (xy -2.9 7.4)
+      (xy -4.4 7.4)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -0.75 5.9)
+      (xy 0.75 5.9)
+      (xy 0.75 7.4)
+      (xy -0.75 7.4)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 2.9 5.9)
+      (xy 4.4 5.9)
+      (xy 4.4 7.4)
+      (xy 2.9 7.4)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.4 -7.4)
+      (xy -2.9 -7.4)
+      (xy -2.9 -5.9)
+      (xy -4.4 -5.9)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 2.9 -7.4)
+      (xy 4.4 -7.4)
+      (xy 4.4 -5.9)
+      (xy 2.9 -5.9)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -2.05 -7.4)
+      (xy -0.55 -7.4)
+      (xy -0.55 -5.9)
+      (xy -2.05 -5.9)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 0.55 -7.4)
+      (xy 2.05 -7.4)
+      (xy 2.05 -5.9)
+      (xy 0.55 -5.9)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.4 -5.3)
+      (xy -3.45 -5.3)
+      (xy -3.45 -4.7)
+      (xy -4.4 -4.7)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 3.45 -5.3)
+      (xy 4.4 -5.3)
+      (xy 4.4 -4.7)
+      (xy 3.45 -4.7)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.4 -4.3)
+      (xy -3.45 -4.3)
+      (xy -3.45 -3.7)
+      (xy -4.4 -3.7)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.4 -3.3)
+      (xy -3.45 -3.3)
+      (xy -3.45 -2.7)
+      (xy -4.4 -2.7)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.4 -1.3)
+      (xy -3.45 -1.3)
+      (xy -3.45 -0.7)
+      (xy -4.4 -0.7)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.4 -0.3)
+      (xy -3.45 -0.3)
+      (xy -3.45 0.3)
+      (xy -4.4 0.3)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.4 0.7)
+      (xy -3.45 0.7)
+      (xy -3.45 1.3)
+      (xy -4.4 1.3)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 3.45 -4.3)
+      (xy 4.4 -4.3)
+      (xy 4.4 -3.7)
+      (xy 3.45 -3.7)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 3.45 -3.3)
+      (xy 4.4 -3.3)
+      (xy 4.4 -2.7)
+      (xy 3.45 -2.7)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 3.45 -1.3)
+      (xy 4.4 -1.3)
+      (xy 4.4 -0.7)
+      (xy 3.45 -0.7)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 3.45 -0.3)
+      (xy 4.4 -0.3)
+      (xy 4.4 0.3)
+      (xy 3.45 0.3)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 3.45 0.7)
+      (xy 4.4 0.7)
+      (xy 4.4 1.3)
+      (xy 3.45 1.3)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -2.4 -3.2)
+      (xy 2.4 -3.2)
+      (xy 2.4 3.2)
+      (xy -2.4 3.2)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.36 -7.36)
+      (xy -2.94 -7.36)
+      (xy -2.94 -5.94)
+      (xy -4.36 -5.94)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -2.01 -7.36)
+      (xy -0.59 -7.36)
+      (xy -0.59 -5.94)
+      (xy -2.01 -5.94)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 2.94 -7.36)
+      (xy 4.36 -7.36)
+      (xy 4.36 -5.94)
+      (xy 2.94 -5.94)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 0.59 -7.36)
+      (xy 2.01 -7.36)
+      (xy 2.01 -5.94)
+      (xy 0.59 -5.94)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.36 5.94)
+      (xy -2.94 5.94)
+      (xy -2.94 7.36)
+      (xy -4.36 7.36)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -0.71 5.94)
+      (xy 0.71 5.94)
+      (xy 0.71 7.36)
+      (xy -0.71 7.36)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 2.94 5.94)
+      (xy 4.36 5.94)
+      (xy 4.36 7.36)
+      (xy 2.94 7.36)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.4 -5.3)
+      (xy -3.45 -5.3)
+      (xy -3.45 -4.7)
+      (xy -4.4 -4.7)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.4 -4.3)
+      (xy -3.45 -4.3)
+      (xy -3.45 -3.7)
+      (xy -4.4 -3.7)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.4 -3.3)
+      (xy -3.45 -3.3)
+      (xy -3.45 -2.7)
+      (xy -4.4 -2.7)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.4 -1.3)
+      (xy -3.45 -1.3)
+      (xy -3.45 -0.7)
+      (xy -4.4 -0.7)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.4 -0.3)
+      (xy -3.45 -0.3)
+      (xy -3.45 0.3)
+      (xy -4.4 0.3)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -4.4 0.7)
+      (xy -3.45 0.7)
+      (xy -3.45 1.3)
+      (xy -4.4 1.3)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 3.45 -5.3)
+      (xy 4.4 -5.3)
+      (xy 4.4 -4.7)
+      (xy 3.45 -4.7)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 3.45 -4.3)
+      (xy 4.4 -4.3)
+      (xy 4.4 -3.7)
+      (xy 3.45 -3.7)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 3.45 -3.3)
+      (xy 4.4 -3.3)
+      (xy 4.4 -2.7)
+      (xy 3.45 -2.7)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 3.45 -1.3)
+      (xy 4.4 -1.3)
+      (xy 4.4 -0.7)
+      (xy 3.45 -0.7)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 3.45 -0.3)
+      (xy 4.4 -0.3)
+      (xy 4.4 0.3)
+      (xy 3.45 0.3)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 3.45 0.7)
+      (xy 4.4 0.7)
+      (xy 4.4 1.3)
+      (xy 3.45 1.3)
+    ) (layer F.Mask) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -0.665 -0.505)
+      (xy 0.665 -0.505)
+      (xy 0.665 0.505)
+      (xy -0.665 0.505)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -2.195 -0.505)
+      (xy -0.865 -0.505)
+      (xy -0.865 0.505)
+      (xy -2.195 0.505)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 0.865 -0.505)
+      (xy 2.195 -0.505)
+      (xy 2.195 0.505)
+      (xy 0.865 0.505)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -2.195 -1.715)
+      (xy -0.865 -1.715)
+      (xy -0.865 -0.705)
+      (xy -2.195 -0.705)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -0.665 -1.715)
+      (xy 0.665 -1.715)
+      (xy 0.665 -0.705)
+      (xy -0.665 -0.705)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -0.665 -2.925)
+      (xy 0.665 -2.925)
+      (xy 0.665 -1.915)
+      (xy -0.665 -1.915)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 0.865 -1.715)
+      (xy 2.195 -1.715)
+      (xy 2.195 -0.705)
+      (xy 0.865 -0.705)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 0.865 -2.925)
+      (xy 2.195 -2.925)
+      (xy 2.195 -1.915)
+      (xy 0.865 -1.915)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -2.195 -2.925)
+      (xy -0.865 -2.925)
+      (xy -0.865 -1.915)
+      (xy -2.195 -1.915)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 0.865 0.705)
+      (xy 2.195 0.705)
+      (xy 2.195 1.715)
+      (xy 0.865 1.715)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -0.665 0.705)
+      (xy 0.665 0.705)
+      (xy 0.665 1.715)
+      (xy -0.665 1.715)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -2.195 0.705)
+      (xy -0.865 0.705)
+      (xy -0.865 1.715)
+      (xy -2.195 1.715)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -2.195 1.915)
+      (xy -0.865 1.915)
+      (xy -0.865 2.925)
+      (xy -2.195 2.925)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -0.665 1.915)
+      (xy 0.665 1.915)
+      (xy 0.665 2.925)
+      (xy -0.665 2.925)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 0.865 1.915)
+      (xy 2.195 1.915)
+      (xy 2.195 2.925)
+      (xy 0.865 2.925)
+    ) (layer F.Paste) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -2.7 -7.5)
+      (xy -2.7 -3.5)
+      (xy 0.1 -3.5)
+      (xy 0.1 -7.5)
+      (xy -0.48 -7.5)
+      (xy -0.48 -5.83)
+      (xy -2.12 -5.83)
+      (xy -2.12 -7.5)
+    ) (layer Dwgs.User) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -1.45 7.5)
+      (xy -1.45 4.25)
+      (xy 1.45 4.25)
+      (xy 1.45 7.5)
+      (xy 0.82 7.5)
+      (xy 0.82 5.83)
+      (xy -0.82 5.83)
+      (xy -0.82 7.5)
+    ) (layer Dwgs.User) (width 0.01)
+  )
+  (fp_line (start -4.5 7.5) (end -4.5 -7.5) (layer F.Fab) (width 0.127))
+  (fp_line (start -4.5 -7.5) (end 4.5 -7.5) (layer F.Fab) (width 0.127))
+  (fp_line (start 4.5 -7.5) (end 4.5 7.5) (layer F.Fab) (width 0.127))
+  (fp_line (start 4.5 7.5) (end -4.5 7.5) (layer F.Fab) (width 0.127))
+  (fp_line (start -4.75 -7.75) (end -4.75 7.75) (layer F.CrtYd) (width 0.05))
+  (fp_line (start -4.75 7.75) (end 4.75 7.75) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 4.75 7.75) (end 4.75 -7.75) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 4.75 -7.75) (end -4.75 -7.75) (layer F.CrtYd) (width 0.05))
+  (fp_circle (center -5.25 -6.65) (end -5.15 -6.65) (layer F.SilkS) (width 0.2))
+  (fp_circle (center -5.25 -6.65) (end -5.15 -6.65) (layer F.Fab) (width 0.2))
+  (fp_line (start 4.5 5.51) (end 4.5 1.69) (layer F.SilkS) (width 0.127))
+  (fp_line (start -4.5 1.69) (end -4.5 5.51) (layer F.SilkS) (width 0.127))
+  (fp_line (start -2.51 7.5) (end -1.14 7.5) (layer F.SilkS) (width 0.127))
+  (fp_line (start 1.14 7.5) (end 2.51 7.5) (layer F.SilkS) (width 0.127))
+  (fp_line (start -4.5 -1.69) (end -4.5 -2.31) (layer F.SilkS) (width 0.127))
+  (fp_line (start 4.5 -2.31) (end 4.5 -1.69) (layer F.SilkS) (width 0.127))
+  (fp_poly
+    (pts
+      (xy -2.7 -7.5)
+      (xy -2.7 -3.5)
+      (xy 0.1 -3.5)
+      (xy 0.1 -7.5)
+      (xy -0.48 -7.5)
+      (xy -0.48 -5.83)
+      (xy -2.12 -5.83)
+      (xy -2.12 -7.5)
+    ) (layer Dwgs.User) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -1.45 7.5)
+      (xy -1.45 4.25)
+      (xy 1.45 4.25)
+      (xy 1.45 7.5)
+      (xy 0.82 7.5)
+      (xy 0.82 5.83)
+      (xy -0.82 5.83)
+      (xy -0.82 7.5)
+    ) (layer Dwgs.User) (width 0.01)
+  )
+)
