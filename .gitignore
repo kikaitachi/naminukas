@@ -3,3 +3,6 @@ build
 
 # KiCad backup files
 KiCad/naminukas-backups
+
+# KiCad footprint cache
+KiCad/fp-info-cache
