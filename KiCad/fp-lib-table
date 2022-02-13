@@ -2,4 +2,5 @@
   (lib (name "Logic level converter")(type "KiCad")(uri "${KIPRJMOD}/library/LSF0204DYZPR")(options "")(descr ""))
   (lib (name "Buck converter (build-in caps)")(type "KiCad")(uri "${KIPRJMOD}/library/TPSM84A21MOJR")(options "")(descr ""))
   (lib (name "Buck converter")(type "KiCad")(uri "${KIPRJMOD}/library/TPS84320RUQR")(options "")(descr ""))
+  (lib (name "ECP5")(type "KiCad")(uri "${KIPRJMOD}/library/LFE5U-85F-6MG285C")(options "")(descr ""))
 )

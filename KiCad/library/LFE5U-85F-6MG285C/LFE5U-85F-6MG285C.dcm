@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LFE5U-85F-6MG285C
+D ECP5 Field Programmable Gate Array (FPGA) IC
+K
+F https://www.latticesemi.com/Products/FPGAandCPLD/ECP35
+$ENDCMP
+#
+#End Doc Library
