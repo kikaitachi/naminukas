@@ -1,41 +1,65 @@
-EESchema-LIBRARY Version 2.3
+EESchema-LIBRARY Version 2.4
 #encoding utf-8
-#(c) SnapEDA 2016 (snapeda.com)
-#This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA) with Design Exception 1.0
 #
-# TPSM84A21MOJR
+# Texas Instruments TPSM84A21MOJR
 #
 DEF TPSM84A21MOJR U 0 40 Y Y 1 L N
-F0 "U" -500 535 50 H V L BNN
-F1 "TPSM84A21MOJR" -500 -600 50 H V L BNN
-F2 "IC_TPSM84A21MOJR" 0 0 50 H I L BNN
-F3 "" 0 0 50 H I L BNN
-F4 "Manufacturer Recommendations" 0 0 50 H I L BNN "STANDARD"
-F5 "2.3mm" 0 0 50 H I L BNN "MAXIMUM_PACKAGE_HEIGHT"
-F6 "Texas Instruments" 0 0 50 H I L BNN "MANUFACTURER"
-F7 "A" 0 0 50 H I L BNN "PARTREV"
+F0 "U" 0 200 50 H V L CNN 
+F1 "TPSM84A21MOJR" 0 300 50 H V L CNN 
+F2 "Texas_Instruments-MOJ0020A-0-0-*" 0 400 50 H I L CNN 
+F3 "https://www.ti.com/lit/ds/symlink/tpsm84a21.pdf?ts=1616475331887&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTPSM84A21%253FkeyMatch%253DTPSM84A21MOJR%2526tisearch%253Dsearch-everything%2526usecase%253DOPN" 0 500 50 H I L CNN 
+F4 "+85°C" 0 600 50 H I L CNN "ambient temperature range high"
+F5 "-40°C" 0 700 50 H I L CNN "ambient temperature range low"
+F6 "No" 0 800 50 H I L CNN "automotive"
+F7 "IC" 0 900 50 H I L CNN "category"
+F8 "Integrated Circuits (ICs)" 0 1000 50 H I L CNN "device class L1"
+F9 "Power Management ICs" 0 1100 50 H I L CNN "device class L2"
+F10 "Voltage Regulators - Switching" 0 1200 50 H I L CNN "device class L3"
+F11 "DC DC CONVERTER 0.55-1.35V" 0 1300 50 H I L CNN "digikey description"
+F12 "296-48785-1-ND" 0 1400 50 H I L CNN "digikey part number"
+F13 "2.3mm" 0 1500 50 H I L CNN "height"
+F14 "CAPAD1016W80L630D240" 0 1600 50 H I L CNN "ipc land pattern name"
+F15 "Yes" 0 1700 50 H I L CNN "lead free"
+F16 "cebd5fe4464742bf" 0 1800 50 H I L CNN "library id"
+F17 "Texas Instruments" 0 1900 50 H I L CNN "manufacturer"
+F18 "80%" 0 2000 50 H I L CNN "max duty cycle"
+F19 "+125°C" 0 2100 50 H I L CNN "max junction temp"
+F20 "14V" 0 2200 50 H I L CNN "max supply voltage"
+F21 "8V" 0 2300 50 H I L CNN "min supply voltage"
+F22 "8V to 14V, 0.508V to 1.35V Output, 10A Power Module with Integrated Input and Output Capacitors 20-QFM -40 to 85" 0 2400 50 H I L CNN "mouser description"
+F23 "595-TPSM84A21MOJR" 0 2500 50 H I L CNN "mouser part number"
+F24 "8mA" 0 2600 50 H I L CNN "nominal supply current"
+F25 "1" 0 2700 50 H I L CNN "number of outputs"
+F26 "10A" 0 2800 50 H I L CNN "output current"
+F27 "AdjustableProgrammable" 0 2900 50 H I L CNN "output type"
+F28 "0.55-1.35V" 0 3000 50 H I L CNN "output voltage"
+F29 "QFM20" 0 3100 50 H I L CNN "package"
+F30 "Yes" 0 3200 50 H I L CNN "rohs"
+F31 "4MHz" 0 3300 50 H I L CNN "switching frequency"
+F32 "+85°C" 0 3400 50 H I L CNN "temperature range high"
+F33 "-40°C" 0 3500 50 H I L CNN "temperature range low"
 DRAW
-S -500 -500 500 500 0 0 10 f
-X AGND 16 700 -300 200 L 40 40 0 0 W 
-X EN/UVLO 2 -700 300 200 R 40 40 0 0 I 
-X ILIM 3 -700 -100 200 R 40 40 0 0 I 
-X PGND 1 700 -400 200 L 40 40 0 0 W 
-X PGND 4 700 -400 200 L 40 40 0 0 W 
-X PGND 5 700 -400 200 L 40 40 0 0 W 
-X PGND 6 700 -400 200 L 40 40 0 0 W 
-X PGND 7 700 -400 200 L 40 40 0 0 W 
-X PGND 8 700 -400 200 L 40 40 0 0 W 
-X PGND 10 700 -400 200 L 40 40 0 0 W 
-X PGND 18 700 -400 200 L 40 40 0 0 W 
-X PGND 20 700 -400 200 L 40 40 0 0 W 
-X PGOOD 12 700 100 200 L 40 40 0 0 O 
-X VS+ 14 700 400 200 L 40 40 0 0 I 
-X SYNC 11 -700 0 200 R 40 40 0 0 I C
-X VADJ 15 700 -100 200 L 40 40 0 0 I 
-X VG 13 -700 100 200 R 40 40 0 0 I 
-X VIN 17 -700 400 200 R 40 40 0 0 I 
-X VIN 19 -700 400 200 R 40 40 0 0 I 
-X VOUT 9 700 300 200 L 40 40 0 0 O 
+X EN/UVLO 2 100 -700 100 R 40 40 1 1 I 
+X ILIM 3 100 -1100 100 R 40 40 1 1 I 
+X SYNC 11 100 -1300 100 R 40 40 1 1 I 
+X VADJ 15 100 -400 100 R 40 40 1 1 P 
+X VG 13 100 -200 100 R 40 40 1 1 W 
+X VIN 17 100 0 100 R 40 40 1 1 W 
+X VIN 19 100 -100 100 R 40 40 1 1 W 
+X VS+ 14 100 -300 100 R 40 40 1 1 W 
+X AGND 16 1500 -400 100 L 40 40 1 1 W 
+X PGND 5 1500 -500 100 L 40 40 1 1 W 
+X PGND 6 1500 -600 100 L 40 40 1 1 W 
+X PGND 1 1500 -700 100 L 40 40 1 1 W 
+X PGND 8 1500 -800 100 L 40 40 1 1 W 
+X PGND 18 1500 -900 100 L 40 40 1 1 W 
+X PGND 10 1500 -1000 100 L 40 40 1 1 W 
+X PGND 4 1500 -1100 100 L 40 40 1 1 W 
+X PGND 7 1500 -1200 100 L 40 40 1 1 W 
+X PGND_PAD 20 1500 -1300 100 L 40 40 1 1 P 
+X PGOOD 12 1500 -200 100 L 40 40 1 1 C 
+X VOUT 9 1500 0 100 L 40 40 1 1 P 
+S 200 100 1400 -1400 1 1 0 f
 ENDDRAW
 ENDDEF
 #

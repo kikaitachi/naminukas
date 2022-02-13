@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name "LSF0204DYZPR")(type "KiCad")(uri "${KIPRJMOD}/library/LSF0204DYZPR")(options "")(descr ""))
+  (lib (name "TPSM84A21MOJR")(type "KiCad")(uri "${KIPRJMOD}/library/TPSM84A21MOJR")(options "")(descr ""))
+)

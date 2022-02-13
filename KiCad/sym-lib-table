@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name "Voltage Level Translator")(type "Legacy")(uri "${KIPRJMOD}/library/LSF0204DYZPR/LSF0204DYZPR.lib")(options "")(descr ""))
+  (lib (name "Buck (build-in caps)")(type "Legacy")(uri "${KIPRJMOD}/library/TPSM84A21MOJR/TPSM84A21MOJR.lib")(options "")(descr ""))
 )
