@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP W25Q128JVPIQ
+D IC FLASH 128M SPI 133MHZ 8WSON
+K
+F https://www.arrow.com/en/products/w25q128jvpiq/winbond-electronics
+$ENDCMP
+#
+#End Doc Library
