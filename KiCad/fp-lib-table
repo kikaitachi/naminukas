@@ -1,4 +1,5 @@
 (fp_lib_table
-  (lib (name "LSF0204DYZPR")(type "KiCad")(uri "${KIPRJMOD}/library/LSF0204DYZPR")(options "")(descr ""))
-  (lib (name "TPSM84A21MOJR")(type "KiCad")(uri "${KIPRJMOD}/library/TPSM84A21MOJR")(options "")(descr ""))
+  (lib (name "Logic level converter")(type "KiCad")(uri "${KIPRJMOD}/library/LSF0204DYZPR")(options "")(descr ""))
+  (lib (name "Buck converter (build-in caps)")(type "KiCad")(uri "${KIPRJMOD}/library/TPSM84A21MOJR")(options "")(descr ""))
+  (lib (name "Buck converter")(type "KiCad")(uri "${KIPRJMOD}/library/TPS84320RUQR")(options "")(descr ""))
 )

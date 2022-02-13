@@ -1,4 +1,4 @@
-19812328377176104
+19813973153268499
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -314,6 +314,20 @@ battery CR-3032 coin cell vertical
 0
 2
 2
+Buck converter
+TPS84320RUQR
+
+
+0
+47
+47
+Buck converter (build-in caps)
+TPSM84A21MOJR
+
+
+0
+62
+21
 Button_Switch_Keyboard
 SW_Cherry_MX_1.00u_PCB
 Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf
@@ -56706,7 +56720,7 @@ Yellow 5381 Series LED
 0
 2
 2
-LSF0204DYZPR
+Logic level converter
 BGA12C50P3X4_144X194X50
 YZP0012-C01_1
 Integrated Circuit
@@ -79015,13 +79029,6 @@ Logo WEEE
 0
 0
 0
-TPSM84A21MOJR
-TPSM84A21MOJR
-
-
-0
-62
-21
 TerminalBlock
 TerminalBlock_Altech_AK300-2_P5.00mm
 Altech AK300 terminal block, pitch 5.0mm, 45 degree angled, see http://www.mouser.com/ds/2/16/PCBMETRC-24178.pdf
