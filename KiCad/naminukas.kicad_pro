@@ -320,6 +320,34 @@
     [
       "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55",
       ""
+    ],
+    [
+      "18115d53-49fa-4cd6-a5dd-4fb1723931c4",
+      " Power 1.1V"
+    ],
+    [
+      "d7dd7375-48ae-4864-8be6-1e29d0a25cfd",
+      "FPGA"
+    ],
+    [
+      "6534f609-fffc-4768-9880-87b7aebacb24",
+      "Flash"
+    ],
+    [
+      "66c71a98-fc14-48c5-b4de-3846882543d4",
+      "Logic level conversion"
+    ],
+    [
+      "f1bafda5-f692-4455-8034-de7a248462b7",
+      "Power 2.5V"
+    ],
+    [
+      "7089617d-8d3f-4f47-8b6f-cc7f9c0fdff0",
+      "Power 3.3V"
+    ],
+    [
+      "077fc97f-933b-4652-8be7-bc0954415a95",
+      "Power 5V"
     ]
   ],
   "text_variables": {}
