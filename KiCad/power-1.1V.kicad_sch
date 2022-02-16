@@ -674,7 +674,7 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 36.83 144.78 270)
+  (symbol (lib_id "power:GND") (at 36.83 144.78 270) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 1329598a-6e49-4d76-8428-ed0f07a63625)
     (property "Reference" "#PWR?" (id 0) (at 30.48 144.78 0)
@@ -692,7 +692,7 @@
     (pin "1" (uuid bf9510cb-c32f-4f2a-a03b-12a76f1315de))
   )
 
-  (symbol (lib_id "Buck (build-in caps):TPSM84A21MOJR") (at 46.99 134.62 0)
+  (symbol (lib_id "Buck (build-in caps):TPSM84A21MOJR") (at 46.99 134.62 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 30f072ea-8ece-4fb9-838f-4861b0fabab7)
     (property "Reference" "U?" (id 0) (at 67.31 127 0))
@@ -815,7 +815,7 @@
     (pin "9" (uuid 8395ba1d-7f02-49c8-b9bf-859e354088cf))
   )
 
-  (symbol (lib_id "Buck converter:TPS84320RUQR") (at 222.25 30.48 0)
+  (symbol (lib_id "Buck converter:TPS84320RUQR") (at 222.25 30.48 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 3875a512-5210-4e64-869a-ed443ad5705f)
     (property "Reference" "U?" (id 0) (at 247.65 19.05 0)
@@ -879,7 +879,7 @@
     (pin "9" (uuid 9fb5a41b-cc10-4576-9d95-9ea6d6dc0dc4))
   )
 
-  (symbol (lib_id "Buck converter:TPS84320RUQR") (at 43.18 30.48 0)
+  (symbol (lib_id "Buck converter:TPS84320RUQR") (at 43.18 30.48 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid be13843f-37d3-42a4-aab8-6dbd53b96724)
     (property "Reference" "U?" (id 0) (at 68.58 19.05 0)
@@ -943,7 +943,7 @@
     (pin "9" (uuid 141ccd8e-379d-4335-812d-ff1e8eb1a24e))
   )
 
-  (symbol (lib_id "Device:R") (at 43.18 144.78 90)
+  (symbol (lib_id "Device:R") (at 43.18 144.78 90) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid fd511415-c926-4827-b419-d9356c0b9017)
     (property "Reference" "R?" (id 0) (at 43.18 138.43 90))
