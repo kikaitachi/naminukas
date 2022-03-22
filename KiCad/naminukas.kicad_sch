@@ -122,6 +122,9 @@
     (path "/7089617d-8d3f-4f47-8b6f-cc7f9c0fdff0/7ac64509-b6ff-4720-867c-bc933c0bbca3"
       (reference "#PWR?") (unit 1) (value "GND") (footprint "")
     )
+    (path "/7089617d-8d3f-4f47-8b6f-cc7f9c0fdff0/979637dd-61bf-47b7-8600-587950272c2d"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+    )
     (path "/7089617d-8d3f-4f47-8b6f-cc7f9c0fdff0/c07d7af9-ad86-4eb0-b8f3-bdc581c9ed07"
       (reference "#PWR?") (unit 1) (value "GND") (footprint "")
     )
@@ -170,13 +173,13 @@
     (path "/18115d53-49fa-4cd6-a5dd-4fb1723931c4/30f072ea-8ece-4fb9-838f-4861b0fabab7"
       (reference "U?") (unit 1) (value "TPSM84A21MOJR") (footprint "Texas_Instruments-MOJ0020A-0-0-*")
     )
-    (path "/18115d53-49fa-4cd6-a5dd-4fb1723931c4/3875a512-5210-4e64-869a-ed443ad5705f"
-      (reference "U?") (unit 1) (value "TPS84320RUQR") (footprint "RUQ_47")
-    )
     (path "/d7dd7375-48ae-4864-8be6-1e29d0a25cfd/837e2dbd-dece-463b-9185-a821982dae64"
       (reference "U?") (unit 1) (value "ECP5U_85_CSFBGA285") (footprint "ECP5:BGA285C50P18X18_1000X1000X130")
     )
-    (path "/18115d53-49fa-4cd6-a5dd-4fb1723931c4/be13843f-37d3-42a4-aab8-6dbd53b96724"
+    (path "/f1bafda5-f692-4455-8034-de7a248462b7/a53a2161-b6ce-43d6-a885-629b2ca5c269"
+      (reference "U?") (unit 1) (value "TPS84320RUQR") (footprint "RUQ_47")
+    )
+    (path "/077fc97f-933b-4652-8be7-bc0954415a95/b128f467-64ab-44a2-a68a-245fad21f34c"
       (reference "U?") (unit 1) (value "TPS84320RUQR") (footprint "RUQ_47")
     )
     (path "/d7dd7375-48ae-4864-8be6-1e29d0a25cfd/62f648b1-097c-48c3-bf19-3e2625c86435"
