@@ -10,4 +10,5 @@
   (lib (name "CRCW040240K2FKED")(type "Legacy")(uri "${KIPRJMOD}/library/CRCW040240K2FKED/CRCW040240K2FKED.lib")(options "")(descr ""))
   (lib (name "CRCW040210K0FKED")(type "Legacy")(uri "${KIPRJMOD}/library/CRCW040210K0FKED/CRCW040210K0FKED.lib")(options "")(descr ""))
   (lib (name "GRM1555C1H8R2CA01D")(type "Legacy")(uri "${KIPRJMOD}/library/GRM1555C1H8R2CA01D/GRM1555C1H8R2CA01D.lib")(options "")(descr ""))
+  (lib (name "GCM32ER70J476KE19L")(type "Legacy")(uri "${KIPRJMOD}/library/GCM32ER70J476KE19L/GCM32ER70J476KE19L.lib")(options "")(descr ""))
 )

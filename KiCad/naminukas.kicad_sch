@@ -153,6 +153,12 @@
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/4f6bf5fa-5eb0-4087-b38a-74b79ab87713"
       (reference "C4") (unit 1) (value "8.2pF") (footprint "CAPC1005X55N")
     )
+    (path "/077fc97f-933b-4652-8be7-bc0954415a95/ff1e5001-2061-4110-8c06-6688c61ea04b"
+      (reference "C5") (unit 1) (value "47uF") (footprint "CAPC3225X270N")
+    )
+    (path "/077fc97f-933b-4652-8be7-bc0954415a95/26b0815b-3608-4772-8f0f-0a428361d4bc"
+      (reference "C6") (unit 1) (value "47uF") (footprint "CAPC3225X270N")
+    )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/10fa3b9c-fca8-41e6-8525-82bd1a1670b8"
       (reference "R1") (unit 1) (value "12.1k") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
