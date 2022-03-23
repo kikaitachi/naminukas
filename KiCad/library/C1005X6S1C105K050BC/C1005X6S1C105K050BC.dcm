@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP C1005X6S1C105K050BC
+D MULTILAYER CERAMIC CHIP CAPACITORS, 1005, Commercial grade, general (Up to 75V)
+K
+F https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf
+$ENDCMP
+#
+#End Doc Library
