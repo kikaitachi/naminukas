@@ -68,6 +68,18 @@
     )
   )
 
+  (sheet (at 177.8 50.8) (size 38.1 12.7) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid 7741455d-c4a2-42e1-804a-9627c39f590b)
+    (property "Sheet name" "Battery" (id 0) (at 177.8 50.0884 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "battery.kicad_sch" (id 1) (at 177.8 64.0846 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+  )
+
   (sheet (at 127 50.8) (size 38.1 12.7) (fields_autoplaced)
     (stroke (width 0.1524) (type solid) (color 0 0 0 0))
     (fill (color 0 0 0 0.0000))
@@ -101,11 +113,30 @@
     (path "/f1bafda5-f692-4455-8034-de7a248462b7" (page "6"))
     (path "/7089617d-8d3f-4f47-8b6f-cc7f9c0fdff0" (page "7"))
     (path "/077fc97f-933b-4652-8be7-bc0954415a95" (page "8"))
+    (path "/7741455d-c4a2-42e1-804a-9627c39f590b" (page "9"))
   )
 
   (symbol_instances
+    (path "/7741455d-c4a2-42e1-804a-9627c39f590b/3a218306-fc16-400b-9606-5b146a901f71"
+      (reference "#FLG0101") (unit 1) (value "PWR_FLAG") (footprint "")
+    )
+    (path "/7741455d-c4a2-42e1-804a-9627c39f590b/37bda2f7-a66a-43e0-9118-ba2e26f31f34"
+      (reference "#FLG0102") (unit 1) (value "PWR_FLAG") (footprint "")
+    )
+    (path "/7741455d-c4a2-42e1-804a-9627c39f590b/358deb86-c51d-42cc-8d8e-306683f5f020"
+      (reference "#PWR0101") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/7741455d-c4a2-42e1-804a-9627c39f590b/a52f25f4-d906-4e7a-984f-aff0550fa9fc"
+      (reference "#PWR0102") (unit 1) (value "+BATT") (footprint "")
+    )
+    (path "/077fc97f-933b-4652-8be7-bc0954415a95/13ae8a5c-8a12-40e1-9b5c-c52be1ded986"
+      (reference "#PWR0103") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/7741455d-c4a2-42e1-804a-9627c39f590b/f329dd40-ccdd-431c-8ac3-2f169afe676f"
+      (reference "BT1") (unit 1) (value "Battery") (footprint "")
+    )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/f2ed8b26-4361-4d72-ae94-4e46a6affc6f"
-      (reference "U?") (unit 1) (value "TPSM63606RDLR") (footprint "RDL0020A-MFG")
+      (reference "U1") (unit 1) (value "TPSM63606RDLR") (footprint "RDL0020A-MFG")
     )
   )
 )
