@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP C3225X7R1H106M250AC
+D TDK 1210 C 10uF Ceramic Multilayer Capacitor, 50 V dc, +125C, X7R Dielectric, +/-20%
+K
+F https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf
+$ENDCMP
+#
+#End Doc Library

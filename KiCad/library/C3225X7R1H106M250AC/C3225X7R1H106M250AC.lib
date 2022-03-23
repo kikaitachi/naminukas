@@ -1,0 +1,26 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model C3225X7R1H106M250AC
+#/523097/596751/2.49/2/2/Capacitor
+DEF C3225X7R1H106M250AC C 0 30 Y Y 1 F N
+F0 "C" 350 250 50 H V L CNN
+F1 "C3225X7R1H106M250AC" 350 150 50 H V L CNN
+F2 "C3225_Commercial" 350 50 50 H I L CNN
+F3 "https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_general_en.pdf" 350 -50 50 H I L CNN
+F4 "TDK 1210 C 10uF Ceramic Multilayer Capacitor, 50 V dc, +125C, X7R Dielectric, +/-20%" 350 -150 50 H I L CNN "Description"
+F5 "2.8" 350 -250 50 H I L CNN "Height"
+F6 "810-C3225X7R1H106MAC" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/TDK/C3225X7R1H106M250AC?qs=6JAMGB%252BEdkwY95l8JqNSnw%3D%3D" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "TDK" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "C3225X7R1H106M250AC" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 100 280 -100 N
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 280 0 300 0 N
+ENDDRAW
+ENDDEF
+#
+#End Library
