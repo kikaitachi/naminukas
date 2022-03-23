@@ -142,34 +142,34 @@
       (reference "BT1") (unit 1) (value "Battery") (footprint "")
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/f6eb9f9f-bef8-4542-be2f-24fa006eeaed"
-      (reference "C1") (unit 1) (value "10uF") (footprint "C3225_Commercial")
+      (reference "C1") (unit 1) (value "10uF") (footprint "C3225X7R1H106M250AC:C3225_Commercial")
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/22dca19d-5dc2-4dbb-ac4a-5e11e2a2b818"
-      (reference "C2") (unit 1) (value "10uF") (footprint "C3225_Commercial")
+      (reference "C2") (unit 1) (value "10uF") (footprint "C3225X7R1H106M250AC:C3225_Commercial")
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/25064e44-7636-4784-80c1-638a837254d1"
-      (reference "C3") (unit 1) (value "1uF") (footprint "C1005_Commercial")
+      (reference "C3") (unit 1) (value "1uF") (footprint "C1005X6S1C105K050BC:C1005_Commercial")
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/4f6bf5fa-5eb0-4087-b38a-74b79ab87713"
-      (reference "C4") (unit 1) (value "8.2pF") (footprint "CAPC1005X55N")
+      (reference "C4") (unit 1) (value "8.2pF") (footprint "GRM1555C1H8R2CA01D:CAPC1005X55N")
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/ff1e5001-2061-4110-8c06-6688c61ea04b"
-      (reference "C5") (unit 1) (value "47uF") (footprint "CAPC3225X270N")
+      (reference "C5") (unit 1) (value "47uF") (footprint "GCM32ER70J476KE19L:CAPC3225X270N")
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/26b0815b-3608-4772-8f0f-0a428361d4bc"
-      (reference "C6") (unit 1) (value "47uF") (footprint "CAPC3225X270N")
+      (reference "C6") (unit 1) (value "47uF") (footprint "GCM32ER70J476KE19L:CAPC3225X270N")
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/10fa3b9c-fca8-41e6-8525-82bd1a1670b8"
       (reference "R1") (unit 1) (value "12.1k") (footprint "Resistor_SMD:R_0402_1005Metric")
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/6b8a4a27-0ea2-4e0d-ac97-a19f2a75cc1c"
-      (reference "R2") (unit 1) (value "40.2k") (footprint "RESC1005X40N")
+      (reference "R2") (unit 1) (value "40.2k") (footprint "CRCW040210K0FKED:RESC1005X40N")
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/40b2af8d-1634-4cbb-aff7-4a534ffca0b1"
-      (reference "R3") (unit 1) (value "10k") (footprint "RESC1005X40N")
+      (reference "R3") (unit 1) (value "10k") (footprint "CRCW040210K0FKED:RESC1005X40N")
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/f2ed8b26-4361-4d72-ae94-4e46a6affc6f"
-      (reference "U1") (unit 1) (value "TPSM63606RDLR") (footprint "RDL0020A-MFG")
+      (reference "U1") (unit 1) (value "TPSM63606RDLR") (footprint "Power module:RDL0020A-MFG")
     )
   )
 )
