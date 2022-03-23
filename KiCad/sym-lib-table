@@ -7,4 +7,6 @@
   (lib (name "Power module")(type "Legacy")(uri "${KIPRJMOD}/library/TPSM63606RDLR/TPSM63606RDLR.lib")(options "")(descr ""))
   (lib (name "C3225X7R1H106M250AC")(type "Legacy")(uri "${KIPRJMOD}/library/C3225X7R1H106M250AC/C3225X7R1H106M250AC.lib")(options "")(descr ""))
   (lib (name "C1005X6S1C105K050BC")(type "Legacy")(uri "${KIPRJMOD}/library/C1005X6S1C105K050BC/C1005X6S1C105K050BC.lib")(options "")(descr ""))
+  (lib (name "CRCW040240K2FKED")(type "Legacy")(uri "${KIPRJMOD}/library/CRCW040240K2FKED/CRCW040240K2FKED.lib")(options "")(descr ""))
+  (lib (name "CRCW040210K0FKED")(type "Legacy")(uri "${KIPRJMOD}/library/CRCW040210K0FKED/CRCW040210K0FKED.lib")(options "")(descr ""))
 )
