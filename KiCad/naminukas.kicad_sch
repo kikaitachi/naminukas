@@ -32,6 +32,18 @@
     )
   )
 
+  (sheet (at 25.4 76.2) (size 38.1 12.7) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid 2121d74c-eecb-4f56-a673-ee42f2341025)
+    (property "Sheet name" "Mounting" (id 0) (at 25.4 75.4884 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "mounting.kicad_sch" (id 1) (at 25.4 89.4846 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+  )
+
   (sheet (at 76.2 50.8) (size 38.1 12.7) (fields_autoplaced)
     (stroke (width 0.1524) (type solid) (color 0 0 0 0))
     (fill (color 0 0 0 0.0000))
@@ -114,6 +126,7 @@
     (path "/7089617d-8d3f-4f47-8b6f-cc7f9c0fdff0" (page "7"))
     (path "/077fc97f-933b-4652-8be7-bc0954415a95" (page "8"))
     (path "/7741455d-c4a2-42e1-804a-9627c39f590b" (page "9"))
+    (path "/2121d74c-eecb-4f56-a673-ee42f2341025" (page "10"))
   )
 
   (symbol_instances
@@ -123,20 +136,17 @@
     (path "/7741455d-c4a2-42e1-804a-9627c39f590b/37bda2f7-a66a-43e0-9118-ba2e26f31f34"
       (reference "#FLG0102") (unit 1) (value "PWR_FLAG") (footprint "")
     )
+    (path "/077fc97f-933b-4652-8be7-bc0954415a95/62ca13ac-9249-49d8-88a7-edca7cb8d779"
+      (reference "#PWR0101") (unit 1) (value "GND") (footprint "")
+    )
     (path "/7741455d-c4a2-42e1-804a-9627c39f590b/a52f25f4-d906-4e7a-984f-aff0550fa9fc"
       (reference "#PWR0102") (unit 1) (value "+BATT") (footprint "")
     )
-    (path "/7741455d-c4a2-42e1-804a-9627c39f590b/d8df7a71-cc3a-4d91-aa00-ed662bfb34dd"
-      (reference "#PWR0103") (unit 1) (value "GNDREF") (footprint "")
-    )
-    (path "/077fc97f-933b-4652-8be7-bc0954415a95/82c760ec-480a-4dc9-ad26-e22b2b7909e6"
-      (reference "#PWR0104") (unit 1) (value "GND") (footprint "")
+    (path "/7741455d-c4a2-42e1-804a-9627c39f590b/ee66208e-cf07-4454-919d-04ac4d804849"
+      (reference "#PWR0103") (unit 1) (value "GND") (footprint "")
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/7783559f-21fd-48d7-ac3d-35e302d49e29"
       (reference "#PWR0105") (unit 1) (value "+BATT") (footprint "")
-    )
-    (path "/077fc97f-933b-4652-8be7-bc0954415a95/18d4f6ef-e54b-49cb-9b09-4b9821148044"
-      (reference "#PWR0106") (unit 1) (value "GNDREF") (footprint "")
     )
     (path "/7741455d-c4a2-42e1-804a-9627c39f590b/f329dd40-ccdd-431c-8ac3-2f169afe676f"
       (reference "BT1") (unit 1) (value "Battery") (footprint "")
@@ -158,6 +168,18 @@
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/26b0815b-3608-4772-8f0f-0a428361d4bc"
       (reference "C6") (unit 1) (value "47uF") (footprint "GCM32ER70J476KE19L:CAPC3225X270N")
+    )
+    (path "/2121d74c-eecb-4f56-a673-ee42f2341025/7b9dfe28-63b7-4968-ac7f-edb3cc98ed88"
+      (reference "H1") (unit 1) (value "Mounting hole") (footprint "MountingHole:MountingHole_2.2mm_M2_Pad")
+    )
+    (path "/2121d74c-eecb-4f56-a673-ee42f2341025/e63dcf8f-c8bd-435c-99ca-4780d8da2f3b"
+      (reference "H2") (unit 1) (value "Mounting hole") (footprint "MountingHole:MountingHole_2.2mm_M2_Pad")
+    )
+    (path "/2121d74c-eecb-4f56-a673-ee42f2341025/edf6d7df-303c-4e27-826e-3cb9c88bdb19"
+      (reference "H3") (unit 1) (value "Mounting hole") (footprint "MountingHole:MountingHole_2.2mm_M2_Pad")
+    )
+    (path "/2121d74c-eecb-4f56-a673-ee42f2341025/4dcf4b14-e89b-4149-a7c8-1be7f8b931c0"
+      (reference "H4") (unit 1) (value "Mounting hole") (footprint "MountingHole:MountingHole_2.2mm_M2_Pad")
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/10fa3b9c-fca8-41e6-8525-82bd1a1670b8"
       (reference "R1") (unit 1) (value "12.1k") (footprint "Resistor_SMD:R_0402_1005Metric")

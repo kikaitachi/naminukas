@@ -169,11 +169,11 @@
         )
       )
     )
-    (symbol "power:GNDREF" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+    (symbol "power:GND" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "#PWR" (id 0) (at 0 -6.35 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "Value" "GNDREF" (id 1) (at 0 -3.81 0)
+      (property "Value" "GND" (id 1) (at 0 -3.81 0)
         (effects (font (size 1.27 1.27)))
       )
       (property "Footprint" "" (id 2) (at 0 0 0)
@@ -185,46 +185,26 @@
       (property "ki_keywords" "power-flag" (id 4) (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "ki_description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground" (id 5) (at 0 0 0)
+      (property "ki_description" "Power symbol creates a global label with name \"GND\" , ground" (id 5) (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (symbol "GNDREF_0_1"
+      (symbol "GND_0_1"
         (polyline
           (pts
-            (xy -0.635 -1.905)
-            (xy 0.635 -1.905)
-          )
-          (stroke (width 0) (type default) (color 0 0 0 0))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy -0.127 -2.54)
-            (xy 0.127 -2.54)
-          )
-          (stroke (width 0) (type default) (color 0 0 0 0))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 -1.27)
             (xy 0 0)
-          )
-          (stroke (width 0) (type default) (color 0 0 0 0))
-          (fill (type none))
-        )
-        (polyline
-          (pts
+            (xy 0 -1.27)
             (xy 1.27 -1.27)
+            (xy 0 -2.54)
             (xy -1.27 -1.27)
+            (xy 0 -1.27)
           )
           (stroke (width 0) (type default) (color 0 0 0 0))
           (fill (type none))
         )
       )
-      (symbol "GNDREF_1_1"
+      (symbol "GND_1_1"
         (pin power_in line (at 0 0 270) (length 0) hide
-          (name "GNDREF" (effects (font (size 1.27 1.27))))
+          (name "GND" (effects (font (size 1.27 1.27))))
           (number "1" (effects (font (size 1.27 1.27))))
         )
       )
@@ -347,20 +327,20 @@
     (pin "1" (uuid 9c0cf69b-207e-42eb-b17f-3c52d1c98b4b))
   )
 
-  (symbol (lib_id "power:GNDREF") (at 139.7 101.6 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 139.7 101.6 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
-    (uuid d8df7a71-cc3a-4d91-aa00-ed662bfb34dd)
+    (uuid ee66208e-cf07-4454-919d-04ac4d804849)
     (property "Reference" "#PWR0103" (id 0) (at 139.7 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "GNDREF" (id 1) (at 139.7 106.68 0))
+    (property "Value" "" (id 1) (at 139.7 106.68 0))
     (property "Footprint" "" (id 2) (at 139.7 101.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (id 3) (at 139.7 101.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid fc6eb37c-6754-4b6f-bffd-24ad333ea49c))
+    (pin "1" (uuid db9f8450-3c6f-407c-97ed-c7200a0e472a))
   )
 
   (symbol (lib_id "Device:Battery") (at 139.7 93.98 0) (unit 1)
