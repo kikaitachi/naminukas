@@ -44,6 +44,18 @@
     )
   )
 
+  (sheet (at 76.2 76.2) (size 38.1 12.7) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid 21307c1d-5035-4fc7-9d82-a05605a2aea7)
+    (property "Sheet name" "Connectors" (id 0) (at 76.2 75.4884 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "connectors.kicad_sch" (id 1) (at 76.2 89.4846 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+  )
+
   (sheet (at 76.2 50.8) (size 38.1 12.7) (fields_autoplaced)
     (stroke (width 0.1524) (type solid) (color 0 0 0 0))
     (fill (color 0 0 0 0.0000))
@@ -127,6 +139,7 @@
     (path "/077fc97f-933b-4652-8be7-bc0954415a95" (page "8"))
     (path "/7741455d-c4a2-42e1-804a-9627c39f590b" (page "9"))
     (path "/2121d74c-eecb-4f56-a673-ee42f2341025" (page "10"))
+    (path "/21307c1d-5035-4fc7-9d82-a05605a2aea7" (page "11"))
   )
 
   (symbol_instances
@@ -147,6 +160,12 @@
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/7783559f-21fd-48d7-ac3d-35e302d49e29"
       (reference "#PWR0105") (unit 1) (value "+BATT") (footprint "")
+    )
+    (path "/21307c1d-5035-4fc7-9d82-a05605a2aea7/9b948a95-f332-4825-87ec-33d990f6f31c"
+      (reference "#PWR?") (unit 1) (value "+BATT") (footprint "")
+    )
+    (path "/21307c1d-5035-4fc7-9d82-a05605a2aea7/b597649b-f7fe-46a9-ba57-8ba04754140d"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
     )
     (path "/7741455d-c4a2-42e1-804a-9627c39f590b/f329dd40-ccdd-431c-8ac3-2f169afe676f"
       (reference "BT1") (unit 1) (value "Battery") (footprint "")
@@ -180,6 +199,9 @@
     )
     (path "/2121d74c-eecb-4f56-a673-ee42f2341025/4dcf4b14-e89b-4149-a7c8-1be7f8b931c0"
       (reference "H4") (unit 1) (value "Mounting hole") (footprint "MountingHole:MountingHole_2.2mm_M2_Pad")
+    )
+    (path "/21307c1d-5035-4fc7-9d82-a05605a2aea7/e276d3ed-b4bb-4fe6-b0a2-bf47eb50b819"
+      (reference "J1") (unit 1) (value "Conn_01x25") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x25_P2.54mm_Vertical")
     )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/10fa3b9c-fca8-41e6-8525-82bd1a1670b8"
       (reference "R1") (unit 1) (value "12.1k") (footprint "Resistor_SMD:R_0402_1005Metric")
