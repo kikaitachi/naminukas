@@ -150,6 +150,9 @@
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/25064e44-7636-4784-80c1-638a837254d1"
       (reference "C3") (unit 1) (value "1uF") (footprint "C1005_Commercial")
     )
+    (path "/077fc97f-933b-4652-8be7-bc0954415a95/10fa3b9c-fca8-41e6-8525-82bd1a1670b8"
+      (reference "R1") (unit 1) (value "12.1k") (footprint "Resistor_SMD:R_0402_1005Metric")
+    )
     (path "/077fc97f-933b-4652-8be7-bc0954415a95/f2ed8b26-4361-4d72-ae94-4e46a6affc6f"
       (reference "U1") (unit 1) (value "TPSM63606RDLR") (footprint "RDL0020A-MFG")
     )
