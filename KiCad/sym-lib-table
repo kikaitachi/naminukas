@@ -4,4 +4,5 @@
   (lib (name "Buck converter")(type "Legacy")(uri "${KIPRJMOD}/library/TPS84320RUQR/TPS84320RUQR.lib")(options "")(descr ""))
   (lib (name "ECP5")(type "Legacy")(uri "${KIPRJMOD}/library/LFE5U-85F-6MG285C/Lattice_ECP5_FPGA.lib")(options "")(descr ""))
   (lib (name "SPI Flash")(type "Legacy")(uri "${KIPRJMOD}/library/W25Q128JVPIQ/W25Q128JVPIQ.lib")(options "")(descr ""))
+  (lib (name "Power module")(type "Legacy")(uri "${KIPRJMOD}/library/TPSM63606RDLR/TPSM63606RDLR.lib")(options "")(descr ""))
 )
