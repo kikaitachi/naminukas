@@ -33,10 +33,10 @@ module teardrop(radius = 10, length = 20) {
 module power_socket_box(
         width = 87,
         length = 147,
-        height = 18 + 5 + 6,
-        thickness = 3,
+        height = 18 + 5 + 8,
+        thickness = 4,
         corner_radius = 6,
-        screw_diameter = 3.38 - 0.2,
+        screw_diameter = 3.38,
         dist_between_screws = 120,
         cable_diameter = 7) {
     difference() {
